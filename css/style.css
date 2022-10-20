@@ -107,6 +107,7 @@ ul
     color: var(--text-black-900);
     font-weight: 700;
     position: relative;
+    text-transform: uppercase;
 }
 .section-title h2::before
 {
@@ -298,7 +299,6 @@ ul
     font-size: 16px;
     font-weight: 600;
     display: block;
-    border-bottom: 1px solid var(--bg-black-50);
     color: var(--text-black-900);
     padding: 5px 15px;
 }
@@ -726,6 +726,7 @@ h3.my-profession
     max-width: 25%;
     text-align: center;
     margin-bottom: 60px;
+    margin-left: 6.33%;
 }
 .contact .contact-info-item .icon
 {
