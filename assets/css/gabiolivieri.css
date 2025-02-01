@@ -4676,6 +4676,31 @@ input[type="button"].btn-block {
   background-size: 100% 100%;
 }
 
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.main-project {
+  background: linear-gradient(
+          to right,
+          #7953cd 20%,
+          #00affa 30%,
+          #0190cd 70%,
+          #764ada 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+
 @media (max-width: 575.98px) {
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid {
@@ -10977,6 +11002,7 @@ p {
 
 .title {
   font-size: calc(15px + (20 - 15) * ((100vw - 300px) / (1300 - 300)));
+  color: #245cb9;
 }
 
 .icon-md {
@@ -11234,7 +11260,7 @@ p {
           transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  background: #245cb9;
+  background: #08162f;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11425,7 +11451,7 @@ pre .code {
 .navbar .brand .brand-img {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: -35%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -11436,7 +11462,7 @@ pre .code {
   z-index: 2;
   box-shadow: 0 5px 1px rgba(128, 128, 128, 0.13);
   width: 170px;
-  border-radius: 30%;
+  border-radius: 25%;
 }
 
 .navbar .brand .brand-txt {
