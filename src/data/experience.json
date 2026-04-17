@@ -1,24 +1,18 @@
 [
   {
-    "date": "2021 - Actualidad",
+    "date": "2025 - Actualidad",
+    "title": "Senior Full Stack Developer",
+    "company": "Visma LATAM",
+    "description": "Desarrollo de software para la gestión financiera de grandes empresas.",
+    "link": "https://latam.visma.com/",
+    "current": true
+  },
+  {
+    "date": "2021 - 2025",
     "title": "Team Leader / DevOps",
     "company": "UTN FRBA",
     "description": "Gestión de proyectos, estimaciones y equipos. Implementación de DevOps con infraestructura como código, virtualización, monitoreo y orquestación. Desarrollo de software con foco en escalabilidad, seguridad y rendimiento.",
     "link": "https://frba.utn.edu.ar",
-    "current": true
-  },
-  {
-    "date": "2019 - Presente",
-    "title": "Estudiante de Ingeniería",
-    "company": "UTN FRBA",
-    "description": "Carrera de Ingeniería en Sistemas de Información. Formación en análisis, diseño, desarrollo e implementación de sistemas de información.",
-    "link": "https://frba.utn.edu.ar"
-  },
-  {
-    "date": "2014 - 2018",
-    "title": "Secundario Técnico en Computación",
-    "company": "UTN FRBA",
-    "description": "Formación técnica en programación con Pascal, Visual Basic y C. Experiencia en HTML, ofimática y herramientas como Adobe Photoshop y Dreamweaver.",
-    "link": "https://frba.utn.edu.ar"
+    "current": false
   }
 ]

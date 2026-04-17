@@ -1,0 +1,38 @@
+---
+import ExternalLink from "./icons/ExternalLink.astro"
+
+const posts = [
+  {
+    title: "Automatizando despliegues con GitHub Actions",
+    summary: "Flujos de CI/CD para mantener entregas confiables y rápidas en proyectos críticos.",
+    link: "https://blog.example.com/ci-cd-github-actions"
+  },
+  {
+    title: "Infraestructura como código con Terraform",
+    summary: "Cómo diseñar y versionar infraestructura segura en AWS utilizando Terraform.",
+    link: "https://blog.example.com/terraform-aws"
+  },
+  {
+    title: "Desarrollo web escalable con Astro",
+    summary: "Estrategias para construir sitios rápidos y mantenibles con Astro y Tailwind CSS.",
+    link: "https://blog.example.com/astro-stack"
+  }
+]
+---
+
+<div class="grid gap-6 xl:grid-cols-3">
+  {posts.map((post) => (
+    <article class="rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-700/70 dark:bg-slate-950/80">
+      <div class="mb-4 flex items-center justify-between gap-3 text-slate-500 dark:text-slate-400">
+        <span class="text-xs uppercase tracking-[0.25em]">Artículo</span>
+        <ExternalLink class="size-5" />
+      </div>
+      <h3 class="text-xl font-semibold text-slate-900 dark:text-white">{post.title}</h3>
+      <p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{post.summary}</p>
+      <a href={post.link} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-600 hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300">
+        Leer más
+        <ExternalLink class="size-4" />
+      </a>
+    </article>
+  ))}
+</div>

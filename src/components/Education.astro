@@ -1,0 +1,14 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+import education from "@/data/education.json"
+---
+
+<ol class="relative mt-16" aria-label="Formación académica">
+  {
+    education.map((item, i) => (
+      <li class="anim-fade-in" style={`animation-delay: ${i * 150}ms`}>
+        <ExperienceItem {...item} />
+      </li>
+    ))
+  }
+</ol>

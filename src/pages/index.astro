@@ -4,8 +4,15 @@ import Layout from "@/layouts/Layout.astro"
 import AboutMe from "@/components/AboutMe.astro"
 import Briefcase from "@/components/icons/Briefcase.astro"
 import CodeDots from "@/components/icons/CodeDots.astro"
+import ExternalLink from "@/components/icons/ExternalLink.astro"
 import Experience from "@/components/Experience.astro"
+import ProfileCheck from "@/components/icons/ProfileCheck.astro"
+import Sparkles from "@/components/icons/Sparkles.astro"
 import UserHeart from "@/components/icons/UserHeart.astro"
+import Education from "@/components/Education.astro"
+import Certifications from "@/components/Certifications.astro"
+import Stack from "@/components/Stack.astro"
+import Blog from "@/components/Blog.astro"
 import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
@@ -30,12 +37,44 @@ import TitleSection from "@/components/TitleSection.astro"
       <Experience />
     </SectionContainer>
 
+    <SectionContainer id="formacion">
+      <TitleSection>
+        <ProfileCheck class="size-8" />
+        Formación académica
+      </TitleSection>
+      <Education />
+    </SectionContainer>
+
+    <SectionContainer id="stack">
+      <TitleSection>
+        <CodeDots class="size-7" />
+        Stack
+      </TitleSection>
+      <Stack />
+    </SectionContainer>
+
+    <SectionContainer id="certificaciones">
+      <TitleSection>
+        <Sparkles class="size-8" />
+        Certificaciones y badges
+      </TitleSection>
+      <Certifications />
+    </SectionContainer>
+
     <SectionContainer id="proyectos">
       <TitleSection>
         <CodeDots class="size-7" />
         Proyectos
       </TitleSection>
       <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="blog">
+      <TitleSection>
+        <ExternalLink class="size-8" />
+        Blog
+      </TitleSection>
+      <Blog />
     </SectionContainer>
 
     <SectionContainer id="sobre-mi">
@@ -46,15 +85,6 @@ import TitleSection from "@/components/TitleSection.astro"
       <AboutMe />
     </SectionContainer>
 
-    <SectionContainer id="contacto">
-      <TitleSection>
-        <UserHeart class="size-8" />
-        Contacto
-      </TitleSection>
-      <div class="rounded-3xl border border-gray-200 bg-white/80 p-8 dark:border-white/10 dark:bg-slate-950/80">
-        <p class="text-lg text-gray-600 dark:text-gray-300">Si querés trabajar conmigo o hablar sobre un proyecto, escribime a <a class="text-sky-500 underline" href="mailto:golivieri@adini.com.ar">golivieri@adini.com.ar</a>. También podés consultarme por mis proyectos institucionales y desarrollos multiplataforma.</p>
-      </div>
-    </SectionContainer>
   </div>
   </main>
 </Layout>

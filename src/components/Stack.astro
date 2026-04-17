@@ -1,0 +1,153 @@
+---
+import {
+  siDocker,
+  siGitlab,
+  siGnubash,
+  siJavascript,
+  siJenkins,
+  siKotlin,
+  siMariadb,
+  siMongodb,
+  siNodedotjs,
+  siPhp,
+  siPython,
+  siReact,
+  siTypescript,
+  siPostgresql,
+  siKubernetes,
+  siVuedotjs,
+} from "simple-icons"
+
+type StackIcon = {
+  path: string
+  hex: string
+}
+
+type StackItem = {
+  name: string
+  icon?: StackIcon
+  iconSvg?: string
+}
+
+type StackCategory = {
+  title: string
+  caption: string
+  items: StackItem[]
+}
+
+const javaIconSvg = `<svg width="64px" height="64px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.0497 8.44062C22.6378 3.32607 19.2566 0 19.2566 0C19.7598 5.28738 13.813 6.53583 12.2189 10.1692C11.1312 12.6485 12.9638 14.8193 16.0475 17.5554C15.7749 16.9494 15.3544 16.3606 14.9288 15.7645C13.4769 13.7313 11.9645 11.6132 16.0497 8.44062Z" fill="#E76F00"></path> <path d="M17.1015 18.677C17.1015 18.677 19.0835 17.0779 17.5139 15.3008C12.1931 9.27186 23.3333 6.53583 23.3333 6.53583C16.5317 9.8125 17.5471 11.7574 19.2567 14.1202C21.0871 16.6538 17.1015 18.677 17.1015 18.677Z" fill="#E76F00"></path> <path d="M22.937 23.4456C29.0423 20.3258 26.2195 17.3278 24.2492 17.7317C23.7662 17.8305 23.5509 17.9162 23.5509 17.9162C23.5509 17.9162 23.7302 17.64 24.0726 17.5204C27.9705 16.1729 30.9682 21.4949 22.8143 23.6028C22.8143 23.6029 22.9088 23.5198 22.937 23.4456Z" fill="#5382A1"></path> <path d="M10.233 19.4969C6.41312 18.9953 12.3275 17.6139 12.3275 17.6139C12.3275 17.6139 10.0307 17.4616 7.20592 18.8043C3.86577 20.3932 15.4681 21.1158 21.474 19.5625C22.0984 19.1432 22.9614 18.7798 22.9614 18.7798C22.9614 18.7798 20.5037 19.2114 18.0561 19.4145C15.0612 19.6612 11.8459 19.7093 10.233 19.4969Z" fill="#5382A1"></path> <path d="M11.6864 22.4758C9.55624 22.2592 10.951 21.2439 10.951 21.2439C5.43898 23.0429 14.0178 25.083 21.7199 22.8682C20.9012 22.5844 20.3806 22.0653 20.3806 22.0653C16.6163 22.7781 14.441 22.7553 11.6864 22.4758Z" fill="#5382A1"></path> <path d="M12.6145 25.6991C10.486 25.4585 11.7295 24.7474 11.7295 24.7474C6.72594 26.1222 14.7729 28.9625 21.1433 26.2777C20.0999 25.8787 19.3528 25.4181 19.3528 25.4181C16.5111 25.9469 15.1931 25.9884 12.6145 25.6991Z" fill="#5382A1"></path> <path d="M25.9387 27.3388C25.9387 27.3388 26.8589 28.0844 24.9252 28.6612C21.2481 29.7566 9.62093 30.0874 6.39094 28.7049C5.22984 28.2082 7.40723 27.5189 8.09215 27.3742C8.80646 27.2219 9.21466 27.2503 9.21466 27.2503C7.9234 26.3558 0.868489 29.0067 5.63111 29.7659C18.6195 31.8372 29.3077 28.8331 25.9387 27.3388Z" fill="#5382A1"></path> <path d="M28 28.9679C27.7869 31.6947 18.7877 32.2683 12.9274 31.8994C9.10432 31.6583 8.33812 31.0558 8.32691 31.047C11.9859 31.6402 18.1549 31.7482 23.1568 30.8225C27.5903 30.0016 28 28.9679 28 28.9679Z" fill="#5382A1"></path> </g></svg>`
+const activeDirectoryIconSvg = `<svg viewBox="-1.63 0 69.018 69.018" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="m 307.17101,380.86847 -33.37955,40.03036 33.37955,28.9875 32.37565,-29.11299 -32.37565,-39.90487 z m -0.62744,18.00739 c 2.73032,0 4.95674,2.22642 4.95674,4.95673 0,1.21954 -0.46013,2.33784 -1.19213,3.19992 l 7.34099,8.53312 c 0.82348,-0.61334 1.84323,-0.94115 2.94895,-0.94115 2.73031,0 4.95673,2.22642 4.95673,4.95673 0,2.73032 -2.22642,4.894 -4.95673,4.894 -1.60917,0 -2.98736,-0.75469 -3.8901,-1.94505 l -5.7724,5.08222 c 0.3421,0.67225 0.56469,1.39006 0.56469,2.19603 0,2.73031 -2.22642,4.95673 -4.95674,4.95673 -2.73032,0 -4.95674,-2.22642 -4.95674,-4.95673 0,-1.10578 0.3905,-2.12545 1.0039,-2.94895 l -4.3293,-3.95284 c -0.90291,0.97384 -2.20639,1.56859 -3.63913,1.56859 -2.73031,0 -4.95673,-2.16368 -4.95673,-4.894 0,-2.73031 2.22642,-4.95673 4.95673,-4.95673 0.61433,0 1.21416,0.10902 1.75682,0.31371 l 6.39984,-7.90568 c -0.732,-0.86208 -1.19213,-1.98038 -1.19213,-3.19992 0,-2.73031 2.22642,-4.95673 4.95674,-4.95673 z m -2.38425,9.28604 -6.21161,7.78019 c 0.98663,0.90381 1.63133,2.19564 1.63133,3.63912 0,0.68259 -0.12629,1.29085 -0.37646,1.88231 l 4.58028,4.26656 c 0.78902,-0.53305 1.73684,-0.87841 2.76071,-0.87841 1.39702,0 2.67729,0.57417 3.57638,1.50584 l 5.83515,-5.20771 c -0.17548,-0.50687 -0.25098,-1.00205 -0.25098,-1.56859 0,-0.9751 0.26557,-1.93201 0.75292,-2.69797 l -7.59196,-8.72134 c -0.69492,0.37264 -1.47782,0.62743 -2.32151,0.62743 -0.86275,0 -1.67827,-0.23897 -2.38425,-0.62743 z" fill="#00bcf2" transform="translate(-273.791 -380.868)"/></svg>`
+
+const stackCategories: StackCategory[] = [
+  {
+    title: "Front end",
+    caption: "UI moderna y accesible",
+    items: [
+      { name: "React", icon: siReact },
+      { name: "JavaScript", icon: siJavascript },
+      { name: "TypeScript", icon: siTypescript },
+      { name: "Vue.js", icon: siVuedotjs },
+    ],
+  },
+  {
+    title: "Back end",
+    caption: "APIs y servicios escalables",
+    items: [
+      { name: "Node.js", icon: siNodedotjs },
+      { name: "PHP", icon: siPhp },
+      { name: "Java", iconSvg: javaIconSvg },
+      { name: "Kotlin", icon: siKotlin },
+    ],
+  },
+  {
+    title: "Bases de datos",
+    caption: "Persistencia y directorios",
+    items: [
+      { name: "MongoDB", icon: siMongodb },
+      { name: "MariaDB", icon: siMariadb },
+      { name: "Active Directory", iconSvg: activeDirectoryIconSvg },
+      { name: "PostgreSQL", icon: siPostgresql },
+    ],
+  },
+  {
+    title: "CI/CD y automatización",
+    caption: "Pipelines y despliegue continuo",
+    items: [
+      { name: "GitLab CI/CD", icon: siGitlab },
+      { name: "Jenkins", icon: siJenkins },
+    ],
+  },
+  {
+    title: "Scripting",
+    caption: "Automatizaciones y tooling",
+    items: [
+      { name: "Python", icon: siPython },
+      { name: "Bash", icon: siGnubash },
+    ],
+  },
+  {
+    title: "Virtualización",
+    caption: "Contenedores y orquestación",
+    items: [
+      { name: "Docker", icon: siDocker },
+      { name: "Kubernetes", icon: siKubernetes },
+    ],
+  },
+]
+---
+
+<div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+  {stackCategories.map((category) => (
+    <article class="group rounded-[2rem] border border-slate-200/80 bg-gradient-to-b from-white/90 to-slate-50/70 p-6 shadow-sm transition duration-300 hover:border-violet-300/70 hover:shadow-lg dark:border-slate-700/70 dark:from-slate-950/90 dark:to-slate-900/80 dark:hover:border-violet-500/60">
+      <div class="mb-5 flex items-center justify-between">
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-300">
+            {category.title}
+          </h3>
+          <p class="mt-1 text-xs text-slate-500/90 dark:text-slate-400">{category.caption}</p>
+        </div>
+        <span class="rounded-full border border-slate-300/70 bg-white/80 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300">
+          {category.items.length}
+        </span>
+      </div>
+
+      <div class="grid gap-3">
+        {category.items.map((item) => (
+          <div class="flex items-center gap-4 rounded-3xl border border-slate-200/80 bg-white/70 px-4 py-3.5 backdrop-blur-sm transition hover:border-violet-300/80 hover:bg-violet-50/70 dark:border-slate-700/80 dark:bg-slate-900/60 dark:hover:border-violet-500/60 dark:hover:bg-slate-800/80">
+            <div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl border border-slate-200/70 bg-slate-950 shadow-sm dark:border-slate-700 dark:bg-black/70">
+              {item.icon ? (
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  style={`color:#${item.icon.hex}`}
+                >
+                  <path fill="currentColor" d={item.icon.path}></path>
+                </svg>
+              ) : (
+                <div class="stack-custom-icon h-6 w-6" set:html={item.iconSvg} />
+              )}
+            </div>
+            <div class="flex items-center justify-between gap-2 w-full">
+              <span class="text-sm font-medium text-slate-900 dark:text-slate-100">{item.name}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </article>
+  ))}
+</div>
+
+<style>
+  .stack-custom-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stack-custom-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>

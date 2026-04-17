@@ -8,8 +8,8 @@ import BriefcaseIcon from "@/components/icons/Briefcase.astro"
 import SocialPill from "@/components/SocialPill.astro"
 ---
 
-<div class="max-w-4xl">
-  <div class="anim-fade-in flex gap-4 mb-6 items-center">
+<div class="max-w-4xl mx-auto text-center">
+  <div class="anim-fade-in flex justify-center gap-4 mb-6 items-center">
     <!-- Avatar with ambient glow -->
     <div class="relative flex-shrink-0">
       <div
@@ -18,7 +18,7 @@ import SocialPill from "@/components/SocialPill.astro"
       >
       </div>
       <img
-        class="relative rounded-full shadow-2xl size-20 ring-2 ring-violet-400/60 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-950"
+        class="relative rounded-full shadow-2xl w-32 h-32 object-cover object-center ring-2 ring-violet-400/60 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-950"
         src="/me.png"
         alt={personalImageAlt}
       />
@@ -38,7 +38,7 @@ import SocialPill from "@/components/SocialPill.astro"
   </p>
 
   <nav
-    class="anim-fade-in anim-delay-4 flex flex-wrap gap-4 mt-8"
+    class="anim-fade-in anim-delay-4 flex flex-wrap justify-center gap-4 mt-8"
     aria-label="Redes sociales y contacto"
   >
     <SocialPill href="mailto:golivieri@adini.com.ar">

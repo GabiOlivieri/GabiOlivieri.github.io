@@ -16,6 +16,14 @@
     "tags": ["MOBILE", "HEALTH"]
   },
   {
+    "title": "Amigos del cole",
+    "description": "Aplicación mobile para gestión de gastos familiares",
+    "link": "",
+    "github": "",
+    "image": "/projects/Amigos Cole 3.png",
+    "tags": ["MOBILE"]
+  },
+  {
     "title": "Keycloak SSO",
     "description": "Autenticación y SSO para UTN FRBA usando Keycloak.",
     "link": "",

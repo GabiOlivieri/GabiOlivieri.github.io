@@ -1,0 +1,228 @@
+---
+import { siGoogle, siTerraform, siTensorflow } from "simple-icons"
+
+type Certification = {
+  title: string
+  issuer: string
+  issuedAt: string
+  expiresAt?: string
+  credentialId: string
+  credentialUrl?: string
+  certificateImage?: string
+  skills?: string[]
+  logoLabel: string
+  icon?: {
+    path: string
+    hex: string
+  }
+  iconText?: string
+  iconTextClass?: string
+  iconSvg?: string
+}
+
+const awsIconSvg = `<svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><text x="8" y="19" font-size="16" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#232F3E">aws</text><path d="M8 23c5 4 21 4 29-1" stroke="#FF9900" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M35 22l2 1.6-2.7.5" fill="#FF9900"/></svg>`
+const googleCloudIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true"><path fill="#1976d2" d="M38.193,18.359c-0.771-2.753-2.319-5.177-4.397-7.03l-4.598,4.598 c1.677,1.365,2.808,3.374,3.014,5.648v1.508c0.026,0,0.05-0.008,0.076-0.008c2.322,0,4.212,1.89,4.212,4.212S34.61,31.5,32.288,31.5 c-0.026,0-0.05-0.007-0.076-0.008V31.5h-6.666H24V38h8.212v-0.004c0.026,0,0.05,0.004,0.076,0.004C38.195,38,43,33.194,43,27.288 C43,23.563,41.086,20.279,38.193,18.359z"></path><path fill="#ffe082" d="M19.56,25.59l4.72-4.72c-0.004-0.005-0.008-0.009-0.011-0.013l-4.717,4.717 C19.554,25.579,19.557,25.584,19.56,25.59z" opacity=".5"></path><path fill="#90caf9" d="M19.56,25.59l4.72-4.72c-0.004-0.005-0.008-0.009-0.011-0.013l-4.717,4.717 C19.554,25.579,19.557,25.584,19.56,25.59z" opacity=".5"></path><path fill="#ff3d00" d="M24,7.576c-8.133,0-14.75,6.617-14.75,14.75c0,0.233,0.024,0.46,0.035,0.69h6.5 c-0.019-0.228-0.035-0.457-0.035-0.69c0-4.549,3.701-8.25,8.25-8.25c1.969,0,3.778,0.696,5.198,1.851l4.598-4.598 C31.188,9.003,27.761,7.576,24,7.576z"></path><path fill="#90caf9" d="M15.712,31.5L15.712,31.5c-0.001,0-0.001,0-0.002,0c-0.611,0-1.188-0.137-1.712-0.373 l-4.71,4.71C11.081,37.188,13.301,38,15.71,38c0.001,0,0.001,0,0.002,0v0H24v-6.5H15.712z" opacity=".5"></path><path fill="#4caf50" d="M15.712,31.5L15.712,31.5c-0.001,0-0.001,0-0.002,0c-0.611,0-1.188-0.137-1.712-0.373l-4.71,4.71 C11.081,37.188,13.301,38,15.71,38c0.001,0,0.001,0,0.002,0v0H24v-6.5H15.712z"></path><path fill="#ffc107" d="M11.5,27.29c0-2.32,1.89-4.21,4.21-4.21c1.703,0,3.178,1.023,3.841,2.494l4.717-4.717 c-1.961-2.602-5.065-4.277-8.559-4.277C9.81,16.58,5,21.38,5,27.29c0,3.491,1.691,6.59,4.288,8.547l4.71-4.71 C12.53,30.469,11.5,28.999,11.5,27.29z"></path></svg>`
+const utnIconSvg = `<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="0" y="0" width="500" height="500" rx="72"/><circle cx="250" cy="250" r="230" fill="none" stroke="#ffffff" stroke-width="12"/><circle cx="250" cy="250" r="200" fill="none" stroke="#ffffff" stroke-width="12"/><path d="M135 235h230v30H135zm30-85q0 85 65 85h40q65 0 65-85h-25q0 55-40 55v-55h-40v55q-40 0-40-55Zm0 200q0-85 65-85h40q65 0 65 85h-25q0-55-40-55v55h-40v-55q-40 0-40 55Z" fill="#ffffff"/></svg>`
+
+const certifications: Certification[] = [
+  {
+    title: "Developing Generative AI Applications on AWS",
+    issuer: "AWS Training and Certification",
+    issuedAt: "nov. 2025",
+    credentialId: "AWS-TC-2025-11-04",
+    credentialUrl: "/cert/aws-developing-generative-ai-applications.png",
+    certificateImage: "/cert/aws-developing-generative-ai-applications.png",
+    skills: ["AWS", "Generative AI"],
+    logoLabel: "AWS Training and Certification",
+    iconSvg: awsIconSvg,
+  },
+  {
+    title: "Architecting on AWS",
+    issuer: "AWS Training and Certification",
+    issuedAt: "oct. 2025",
+    credentialId: "AWS-TC-2025-10-08",
+    credentialUrl: "/cert/aws-architecting-on-aws.png",
+    certificateImage: "/cert/aws-architecting-on-aws.png",
+    skills: ["AWS", "Cloud Architecture"],
+    logoLabel: "AWS Training and Certification",
+    iconSvg: awsIconSvg,
+  },
+  {
+    title: "Developing on AWS",
+    issuer: "AWS Training and Certification",
+    issuedAt: "sep. 2025",
+    credentialId: "AWS-TC-2025-09-24",
+    credentialUrl: "/cert/aws-developing-on-aws.png",
+    certificateImage: "/cert/aws-developing-on-aws.png",
+    skills: ["AWS", "Application Development"],
+    logoLabel: "AWS Training and Certification",
+    iconSvg: awsIconSvg,
+  },
+  {
+    title: "Generative AI Essentials on AWS",
+    issuer: "AWS Training and Certification",
+    issuedAt: "sep. 2025",
+    credentialId: "AWS-TC-2025-09-15",
+    credentialUrl: "/cert/aws-generative-ai-essentials.png",
+    certificateImage: "/cert/aws-generative-ai-essentials.png",
+    skills: ["AWS", "Generative AI"],
+    logoLabel: "AWS Training and Certification",
+    iconSvg: awsIconSvg,
+  },
+  {
+    title: "Classify Images with TensorFlow on Google Cloud",
+    issuer: "Google Cloud Skills Boost",
+    issuedAt: "feb. 2025",
+    credentialId: "14149847",
+    credentialUrl: "https://www.skills.google/public_profiles/1f49a635-241c-4207-86a3-bcef994f5ef4/badges/14149847?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+    logoLabel: "Google",
+    icon: siTensorflow,
+  },
+  {
+    title: "Associate Cloud Engineer",
+    issuer: "Google",
+    issuedAt: "feb. 2025",
+    expiresAt: "feb. 2028",
+    credentialId: "f1ed5559-3482-449c-b3cf-20e3e9c5d13f",
+    credentialUrl: "https://www.credly.com/badges/f1ed5559-3482-449c-b3cf-20e3e9c5d13f/linked_in_profile",
+    logoLabel: "Google Cloud Skills Boost",
+    iconSvg: googleCloudIconSvg,
+  },
+  {
+    title: "Build Infrastructure with Terraform on Google Cloud",
+    issuer: "Google Cloud Skills Boost",
+    issuedAt: "ene. 2025",
+    credentialId: "13651449",
+    credentialUrl: "https://www.skills.google/public_profiles/1f49a635-241c-4207-86a3-bcef994f5ef4/badges/13651449?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+    skills: ["Google Cloud", "Docker"],
+    logoLabel: "Google Cloud Skills Boost",
+    icon: siTerraform,
+  },
+  {
+    title: "Develop your Google Cloud Network",
+    issuer: "Google Cloud Skills Boost",
+    issuedAt: "ene. 2025",
+    credentialId: "13603219",
+    credentialUrl: "https://www.skills.google/public_profiles/1f49a635-241c-4207-86a3-bcef994f5ef4/badges/13603219?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
+    skills: ["Google Cloud", "MySQL"],
+    logoLabel: "Google Cloud Skills Boost",
+    iconSvg: googleCloudIconSvg,
+  },
+  {
+    title: "Coordinador BOOTCAMP TIC 1º Edicion (2024)",
+    issuer: "UTN Buenos Aires",
+    issuedAt: "may. 2024",
+    credentialId: "b824e4232715fc24eac62c606bb3945da3e04ab8",
+    credentialUrl: "https://openbadgefactory.com/v1/assertion/b824e4232715fc24eac62c606bb3945da3e04ab8.html",
+    logoLabel: "UTN Buenos Aires",
+    iconSvg: utnIconSvg,
+  },
+  {
+    title: "Full Stack Web Developer React Js",
+    issuer: "Centro de e-Learning UTN FRBA",
+    issuedAt: "may. 2023",
+    credentialId: "CER-583V5WDD-830598",
+    credentialUrl: "https://sigead.online/alumnos/validar_certificado",
+    skills: ["MySQL", "Node.js", "React", "JavaScript"],
+    logoLabel: "Centro de e-Learning UTN FRBA",
+    iconSvg: utnIconSvg,
+  },
+  {
+    title: "DynEd International certificate Level A2+",
+    issuer: "DynEd International",
+    issuedAt: "jul. 2023",
+    credentialId: "n-bt-qkaf-ezgl-wh",
+    credentialUrl: "https://myneo.space/pdf/certificate-n-bt-qkaf-ezgl-wh.pdf",
+    skills: ["Ingles"],
+    logoLabel: "DynEd International",
+    icon: siGoogle,
+  },
+]
+---
+
+<div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+  {certifications.map((cert) => (
+    <article class="rounded-[2rem] border border-slate-200/80 bg-gradient-to-b from-white/90 to-slate-50/70 p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700/70 dark:from-slate-950/90 dark:to-slate-900/80">
+      <div class="flex items-start gap-4">
+        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-white dark:border-slate-700 dark:bg-slate-950">
+          {cert.icon ? (
+            <svg class="h-7 w-7" viewBox="0 0 24 24" aria-hidden="true" style={`color:#${cert.icon.hex}`}>
+              <path fill="currentColor" d={cert.icon.path}></path>
+            </svg>
+          ) : cert.iconSvg ? (
+            <div class="cert-inline-svg" set:html={cert.iconSvg} />
+          ) : (
+            <span class={`inline-flex items-center justify-center rounded-lg px-2 py-1 text-[11px] font-bold tracking-wide ${cert.iconTextClass ?? "bg-slate-900 text-white"}`}>
+              {cert.iconText ?? "CERT"}
+            </span>
+          )}
+        </div>
+        <div class="min-w-0">
+          <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100">{cert.title}</h3>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{cert.issuer}</p>
+          <p class="mt-2 text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500">{cert.logoLabel}</p>
+        </div>
+      </div>
+
+      {cert.certificateImage ? (
+        <a href={cert.certificateImage} target="_blank" rel="noreferrer noopener" class="mt-5 block overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-700">
+          <img
+            src={cert.certificateImage}
+            alt={`Certificado de ${cert.title}`}
+            loading="lazy"
+            class="h-40 w-full object-cover object-top transition duration-300 hover:scale-[1.01]"
+          />
+        </a>
+      ) : null}
+
+      <div class="mt-5 grid gap-2 text-sm text-slate-700 dark:text-slate-300">
+        <p><span class="font-medium">Expedicion:</span> {cert.issuedAt}</p>
+        {cert.expiresAt ? <p><span class="font-medium">Vencimiento:</span> {cert.expiresAt}</p> : null}
+        <p class="break-all"><span class="font-medium">ID de la credencial:</span> {cert.credentialId}</p>
+      </div>
+
+      {cert.skills?.length ? (
+        <div class="mt-4 flex flex-wrap gap-2">
+          {cert.skills.map((skill) => (
+            <span class="rounded-full border border-slate-200/80 bg-slate-100/80 px-2.5 py-1 text-xs font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+              {skill}
+            </span>
+          ))}
+        </div>
+      ) : null}
+
+      <div class="mt-5">
+        {cert.credentialUrl ? (
+          <a
+            href={cert.credentialUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            class="inline-flex items-center rounded-xl border border-violet-300/80 bg-violet-50 px-3 py-2 text-sm font-medium text-violet-700 transition hover:bg-violet-100 dark:border-violet-500/50 dark:bg-violet-500/10 dark:text-violet-300 dark:hover:bg-violet-500/20"
+          >
+            Mostrar credencial
+          </a>
+        ) : (
+          <span class="inline-flex items-center rounded-xl border border-slate-200/80 bg-slate-100/70 px-3 py-2 text-sm font-medium text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400">
+            Credencial sin enlace publico
+          </span>
+        )}
+      </div>
+    </article>
+  ))}
+</div>
+
+<style>
+  .cert-inline-svg {
+    width: 2.1rem;
+    height: 2.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cert-inline-svg :global(svg) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>

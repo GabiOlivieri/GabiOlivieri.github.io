@@ -1,0 +1,17 @@
+[
+  {
+    "date": "2019 - Presente",
+    "title": "Estudiante de Ingeniería",
+    "company": "UTN FRBA",
+    "description": "Carrera de Ingeniería en Sistemas de Información. Formación en análisis, diseño e implementación de soluciones multiplataforma orientadas a negocio.",
+    "link": "https://frba.utn.edu.ar",
+    "current": true
+  },
+  {
+    "date": "2014 - 2018",
+    "title": "Secundario Bachiller en Computación",
+    "company": "Instituto Monseñor Dillon",
+    "description": "Formación técnica en programación, redes y sistemas. Experiencia con herramientas de desarrollo, ofimática y gestión de proyectos escolares.",
+    "link": "https://www.monsdillon.esc.edu.ar/proyecto-educativo/nivel-medio/"
+  }
+]
