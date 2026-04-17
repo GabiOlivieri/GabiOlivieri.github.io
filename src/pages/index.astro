@@ -1,0 +1,60 @@
+---
+import Layout from "@/layouts/Layout.astro"
+
+import AboutMe from "@/components/AboutMe.astro"
+import Briefcase from "@/components/icons/Briefcase.astro"
+import CodeDots from "@/components/icons/CodeDots.astro"
+import Experience from "@/components/Experience.astro"
+import UserHeart from "@/components/icons/UserHeart.astro"
+import Projects from "@/components/Projects.astro"
+import SectionContainer from "@/components/SectionContainer.astro"
+import Hero from "@/components/Hero.astro"
+import TitleSection from "@/components/TitleSection.astro"
+---
+
+<Layout
+  title="Portfolio de Gabriel Olivieri - Software Engineer y DevOps"
+  description="Portfolio personal de Gabriel Olivieri. Software Engineer y DevOps en UTN FRBA con experiencia en desarrollo web, automatización, nube y proyectos multiplataforma."
+>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero>
+    </Hero>
+    </SectionContainer>
+    <div class="space-y-24">
+    <SectionContainer id="experiencia">
+      <TitleSection>
+        <Briefcase class="size-8" />
+        Experiencia laboral
+      </TitleSection>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos">
+      <TitleSection>
+        <CodeDots class="size-7" />
+        Proyectos
+      </TitleSection>
+      <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="sobre-mi">
+      <TitleSection>
+        <UserHeart class="size-8" />
+        Sobre mí
+      </TitleSection>
+      <AboutMe />
+    </SectionContainer>
+
+    <SectionContainer id="contacto">
+      <TitleSection>
+        <UserHeart class="size-8" />
+        Contacto
+      </TitleSection>
+      <div class="rounded-3xl border border-gray-200 bg-white/80 p-8 dark:border-white/10 dark:bg-slate-950/80">
+        <p class="text-lg text-gray-600 dark:text-gray-300">Si querés trabajar conmigo o hablar sobre un proyecto, escribime a <a class="text-sky-500 underline" href="mailto:golivieri@adini.com.ar">golivieri@adini.com.ar</a>. También podés consultarme por mis proyectos institucionales y desarrollos multiplataforma.</p>
+      </div>
+    </SectionContainer>
+  </div>
+  </main>
+</Layout>

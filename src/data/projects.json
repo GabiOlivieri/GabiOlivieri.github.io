@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Credencial Estudiantil",
+    "description": "Credencial multiplataforma para estudiantes de UTN FRBA.",
+    "link": "",
+    "github": "",
+    "image": "/projects/credencial-estudiantil.png",
+    "tags": ["MOBILE", "UTN"]
+  },
+  {
+    "title": "RIP ALIVE",
+    "description": "Proyecto multiplataforma para gestión de cobertura médica.",
+    "link": "",
+    "github": "",
+    "image": "/projects/rip-alive.png",
+    "tags": ["MOBILE", "HEALTH"]
+  },
+  {
+    "title": "Keycloak SSO",
+    "description": "Autenticación y SSO para UTN FRBA usando Keycloak.",
+    "link": "",
+    "github": "",
+    "image": "/projects/keycloak2.png",
+    "tags": ["SECURITY", "UTN"]
+  },
+  {
+    "title": "Aulas Moodle UTN FRBA",
+    "description": "Plataforma de cursos y gestión académica para UTN FRBA.",
+    "link": "https://aulasvirtuales.frba.utn.edu.ar",
+    "github": "",
+    "image": "/projects/moodle.png",
+    "tags": ["LMS", "WEB"]
+  },
+  {
+    "title": "WordPress FRBA",
+    "description": "Sitio informativo institucional para la Facultad Regional Buenos Aires.",
+    "link": "https://frba.utn.edu.ar",
+    "github": "",
+    "image": "/projects/wp-frba.png",
+    "tags": ["WORDPRESS", "WEB"]
+  },
+  {
+    "title": "Ruta 12",
+    "description": "Sitio web corporativo para comunicación y gestión de contenidos.",
+    "link": "https://ruta12.com",
+    "github": "",
+    "image": "/projects/ruta12.png",
+    "tags": ["WEB", "PROJECT"]
+  },
+  {
+    "title": "SIA - Sistema Académico",
+    "description": "Portal de gestión académica para estudiantes y servicios de UTN FRBA.",
+    "link": "https://sia.frba.utn.edu.ar",
+    "github": "",
+    "image": "/projects/sia.png",
+    "tags": ["WEB", "UTN"]
+  }
+]
