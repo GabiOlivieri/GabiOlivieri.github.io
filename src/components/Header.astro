@@ -18,6 +18,11 @@ const navItems = [
     url: "/#stack",
   },
   {
+    title: "Certificaciones",
+    label: "certificaciones",
+    url: "/#certificaciones",
+  },
+  {
     title: "Proyectos",
     label: "proyectos",
     url: "/#proyectos",
@@ -27,19 +32,12 @@ const navItems = [
     label: "blog",
     url: "/#blog",
   },
-  {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "/#sobre-mi",
-  },
 ]
 ---
 
-<header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-4"
->
+<header class="fixed top-0 z-20 w-full mt-4 px-4">
   <nav
-    class="header-nav flex gap-x-1 px-4 py-1.5 text-sm font-medium rounded-full text-gray-600 dark:text-gray-300 justify-center items-center border border-transparent"
+    class="header-nav hidden md:flex gap-x-1 px-4 py-1.5 text-sm font-medium rounded-full text-gray-600 dark:text-gray-300 justify-center items-center border border-transparent mx-auto w-max"
   >
     {
       navItems.map((link) => (
@@ -56,52 +54,141 @@ const navItems = [
       <ThemeToggle />
     </div>
   </nav>
+
+  <details class="mobile-nav ml-auto w-fit md:hidden">
+    <summary
+      class="mobile-toggle list-none grid place-items-center size-11 rounded-full border border-gray-200/70 bg-white/90 text-gray-700 shadow-lg ring-1 ring-white/20 backdrop-blur-md dark:bg-gray-900/90 dark:text-gray-200 dark:border-white/10 dark:ring-white/10"
+      aria-label="Abrir menú de navegación"
+    >
+      <span class="hamburger" aria-hidden="true">
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </span>
+    </summary>
+    <nav class="mobile-menu mt-2 w-[min(18rem,calc(100vw-2rem))] rounded-2xl border border-gray-200/70 bg-white/95 p-2 text-gray-700 shadow-xl ring-1 ring-white/20 backdrop-blur-md dark:bg-gray-900/95 dark:text-gray-200 dark:border-white/10 dark:ring-white/10">
+      {
+        navItems.map((link) => (
+          <a
+            class="nav-link block rounded-xl px-3 py-2.5 text-sm font-medium transition-colors duration-200 hover:text-violet-500 dark:hover:text-violet-400"
+            aria-label={link.label}
+            href={link.url}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+      <div class="mt-2 pt-2 border-t border-gray-200/70 dark:border-white/10 flex justify-end">
+        <ThemeToggle />
+      </div>
+    </nav>
+  </details>
 </header>
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
+    const sections = Array.from(document.querySelectorAll("section[id]")) as HTMLElement[]
     const navItems = document.querySelectorAll("header nav a")
+    const mobileNav = document.querySelector(".mobile-nav") as HTMLDetailsElement | null
 
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
-              item.classList.remove("text-gray-600", "dark:text-gray-300")
-            } else {
-              item.classList.remove("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
-              item.classList.add("text-gray-600", "dark:text-gray-300")
-            }
-          })
+    const setActiveNavItem = (sectionId: string) => {
+      navItems.forEach((item) => {
+        if (item.getAttribute("aria-label") == sectionId) {
+          item.classList.add("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
+          item.classList.remove("text-gray-600", "dark:text-gray-300")
+        } else {
+          item.classList.remove("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
+          item.classList.add("text-gray-600", "dark:text-gray-300")
         }
       })
     }
 
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    })
+    const header = document.querySelector("header")
 
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
+    const getActivationOffset = () => {
+      const headerHeight = header?.getBoundingClientRect().height ?? 0
+      return headerHeight + window.innerHeight * 0.2
+    }
 
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect()
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section)
+    const updateActiveSection = () => {
+      if (!sections.length) return
+
+      const scrollLine = window.scrollY + getActivationOffset()
+      let activeSectionId = sections[0].id
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= scrollLine) {
+          activeSectionId = section.id
+        }
+      })
+
+      setActiveNavItem(activeSectionId)
+    }
+
+    updateActiveSection()
+    window.addEventListener("scroll", updateActiveSection, { passive: true })
+    window.addEventListener("resize", updateActiveSection)
+
+    if (mobileNav) {
+      const mobileLinks = mobileNav.querySelectorAll("a")
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.removeAttribute("open")
         })
-      }
+      })
+
+      document.addEventListener("click", (event) => {
+        if (mobileNav.open && !mobileNav.contains(event.target as Node)) {
+          mobileNav.removeAttribute("open")
+        }
+      })
     }
   })
 </script>
 
 <style>
+  .mobile-nav > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav > summary {
+    cursor: pointer;
+  }
+
+  .hamburger {
+    width: 1.15rem;
+    height: 0.95rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger .line {
+    height: 2px;
+    width: 100%;
+    border-radius: 9999px;
+    background-color: currentColor;
+    transform-origin: center;
+    transition: transform 220ms ease, opacity 180ms ease;
+  }
+
+  .mobile-nav[open] .line-1 {
+    transform: translateY(0.41rem) rotate(45deg);
+  }
+
+  .mobile-nav[open] .line-2 {
+    opacity: 0;
+  }
+
+  .mobile-nav[open] .line-3 {
+    transform: translateY(-0.41rem) rotate(-45deg);
+  }
+
+  .mobile-nav[open] .mobile-toggle {
+    @apply text-violet-500 dark:text-violet-400;
+  }
+
   .header-nav {
     animation: nav-appear 1s linear both;
     animation-timeline: scroll();

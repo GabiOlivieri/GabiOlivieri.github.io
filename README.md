@@ -1,27 +1,40 @@
-# 👨🏻‍💻 Porfolio para programadores y desarrolladores
+# Portfolio de Gabriel Olivieri
 
-<div align="center">
-<a href="https://porfolio.dev/">
-<img src="./public/porfolio.webp">
-</a>
-<p></p>
-</div>
+Portfolio personal desarrollado con Astro y Tailwind.
 
-<div align="center">
+## Créditos
 
-![Astro Badge](https://img.shields.io/badge/Astro-FF3E00?logo=astro&logoColor=fff&style=flat)
-![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat)
-![GitHub stars](https://img.shields.io/github/stars/midudev/porfolio.dev)
-![GitHub PRs](https://img.shields.io/github/issues-pr/midudev/porfolio.dev)
-![GitHub forks](https://img.shields.io/github/forks/midudev/porfolio.dev)
-![GitHub issues](https://img.shields.io/github/issues/midudev/porfolio.dev)
+Este proyecto está basado en el template original de midudev:
 
-</div>
+- Repositorio original: https://github.com/midudev/porfolio.dev
+- Sitio original: https://porfolio.dev/
 
-## 🫂 Contribuidores
+Gracias a midudev y a las personas contribuidoras del proyecto original.
 
-<a href="https://github.com/midudev/porfolio.dev/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=midudev/porfolio.dev" />
-</a>
+## Stack
 
-<p></p>
+- Astro
+- Tailwind CSS
+- TypeScript
+
+## Desarrollo local
+
+```bash
+npm install
+npm run dev
+```
+
+## Deploy automático en GitHub Pages
+
+Este repositorio está preparado para desplegar automáticamente en GitHub Pages al hacer push a `main`, usando GitHub Actions.
+
+Checklist en GitHub:
+
+1. Ir a `Settings` -> `Pages`.
+2. En `Build and deployment`, seleccionar `Source: GitHub Actions`.
+3. Hacer push a `main`.
+4. Verificar el workflow `Deploy to GitHub Pages` en la pestaña `Actions`.
+
+Si el repositorio es `usuario.github.io`, el sitio se publica en:
+
+- `https://usuario.github.io`
