@@ -1,34 +1,44 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro"
+import es from "@/data/i18n/es.json"
+import en from "@/data/i18n/en.json"
+
+const translations = { es, en }
 
 const navItems = [
   {
-    title: "Experiencia",
+    title: es.nav.experiencia,
+    i18nKey: "nav.experiencia",
     label: "experiencia",
     url: "/#experiencia",
   },
   {
-    title: "Formación",
+    title: es.nav.formacion,
+    i18nKey: "nav.formacion",
     label: "formacion",
     url: "/#formacion",
   },
   {
-    title: "Stack",
+    title: es.nav.stack,
+    i18nKey: "nav.stack",
     label: "stack",
     url: "/#stack",
   },
   {
-    title: "Certificaciones",
+    title: es.nav.certificaciones,
+    i18nKey: "nav.certificaciones",
     label: "certificaciones",
     url: "/#certificaciones",
   },
   {
-    title: "Proyectos",
+    title: es.nav.proyectos,
+    i18nKey: "nav.proyectos",
     label: "proyectos",
     url: "/#proyectos",
   },
   {
-    title: "Blog",
+    title: es.nav.blog,
+    i18nKey: "nav.blog",
     label: "blog",
     url: "/#blog",
   },
@@ -46,10 +56,30 @@ const navItems = [
           aria-label={link.label}
           href={link.url}
         >
-          {link.title}
+          <span data-i18n={link.i18nKey}>{link.title}</span>
         </a>
       ))
     }
+    <div class="ml-2 pl-2 border-l border-gray-300/30 dark:border-white/10 inline-flex gap-1">
+      <button
+        type="button"
+        class="lang-btn rounded-full px-2 py-1 text-xs font-semibold transition-colors hover:text-violet-500 dark:hover:text-violet-400"
+        data-lang-switch="es"
+        data-i18n="lang.es"
+        aria-label="Cambiar a español"
+      >
+        ES
+      </button>
+      <button
+        type="button"
+        class="lang-btn rounded-full px-2 py-1 text-xs font-semibold transition-colors hover:text-violet-500 dark:hover:text-violet-400"
+        data-lang-switch="en"
+        data-i18n="lang.en"
+        aria-label="Switch to English"
+      >
+        EN
+      </button>
+    </div>
     <div class="ml-2 pl-2 border-l border-gray-300/30 dark:border-white/10">
       <ThemeToggle />
     </div>
@@ -58,7 +88,8 @@ const navItems = [
   <details class="mobile-nav ml-auto w-fit md:hidden">
     <summary
       class="mobile-toggle list-none grid place-items-center size-11 rounded-full border border-gray-200/70 bg-white/90 text-gray-700 shadow-lg ring-1 ring-white/20 backdrop-blur-md dark:bg-gray-900/90 dark:text-gray-200 dark:border-white/10 dark:ring-white/10"
-      aria-label="Abrir menú de navegación"
+      aria-label={es.nav.openMenu}
+      data-i18n-attr="aria-label:nav.openMenu"
     >
       <span class="hamburger" aria-hidden="true">
         <span class="line line-1"></span>
@@ -74,10 +105,35 @@ const navItems = [
             aria-label={link.label}
             href={link.url}
           >
-            {link.title}
+            <span data-i18n={link.i18nKey}>{link.title}</span>
           </a>
         ))
       }
+      <div class="mt-2 pt-2 border-t border-gray-200/70 dark:border-white/10 flex items-center justify-between">
+        <span class="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400" data-i18n="lang.selector"
+          >Idioma</span
+        >
+        <div class="inline-flex gap-1">
+          <button
+            type="button"
+            class="lang-btn rounded-full px-2 py-1 text-xs font-semibold transition-colors hover:text-violet-500 dark:hover:text-violet-400"
+            data-lang-switch="es"
+            data-i18n="lang.es"
+            aria-label="Cambiar a español"
+          >
+            ES
+          </button>
+          <button
+            type="button"
+            class="lang-btn rounded-full px-2 py-1 text-xs font-semibold transition-colors hover:text-violet-500 dark:hover:text-violet-400"
+            data-lang-switch="en"
+            data-i18n="lang.en"
+            aria-label="Switch to English"
+          >
+            EN
+          </button>
+        </div>
+      </div>
       <div class="mt-2 pt-2 border-t border-gray-200/70 dark:border-white/10 flex justify-end">
         <ThemeToggle />
       </div>
@@ -85,13 +141,83 @@ const navItems = [
   </details>
 </header>
 
-<script>
+<script is:inline define:vars={{ translations }}>
   document.addEventListener("astro:page-load", () => {
-    const sections = Array.from(document.querySelectorAll("section[id]")) as HTMLElement[]
+    const sections = Array.from(document.querySelectorAll("section[id]"))
     const navItems = document.querySelectorAll("header nav a")
-    const mobileNav = document.querySelector(".mobile-nav") as HTMLDetailsElement | null
+    const mobileNav = document.querySelector(".mobile-nav")
+    const langButtons = document.querySelectorAll("[data-lang-switch]")
 
-    const setActiveNavItem = (sectionId: string) => {
+    const getValueByPath = (obj, path) =>
+      path.split(".").reduce((acc, key) => acc?.[key], obj)
+
+    const setLanguageButtonState = (lang) => {
+      langButtons.forEach((button) => {
+        if (button.dataset.langSwitch === lang) {
+          button.classList.add("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
+        } else {
+          button.classList.remove("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
+        }
+      })
+    }
+
+    const applyTranslations = (lang) => {
+      const dict = translations[lang] ?? translations.es
+
+      document.documentElement.lang = lang
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n")
+        if (!key) return
+        const value = getValueByPath(dict, key)
+        if (typeof value === "string") {
+          element.textContent = value
+        }
+      })
+
+      document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+        const key = element.getAttribute("data-i18n-html")
+        if (!key) return
+        const value = getValueByPath(dict, key)
+        if (typeof value === "string") {
+          element.innerHTML = value
+        }
+      })
+
+      document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+        const descriptor = element.getAttribute("data-i18n-attr")
+        if (!descriptor) return
+        const [attrName, key] = descriptor.split(":")
+        const value = getValueByPath(dict, key)
+        if (attrName && typeof value === "string") {
+          element.setAttribute(attrName, value)
+        }
+      })
+
+      if (typeof dict.page?.title === "string") {
+        document.title = dict.page.title
+      }
+
+      const descriptionMeta = document.querySelector('meta[name="description"]')
+      if (descriptionMeta && typeof dict.page?.description === "string") {
+        descriptionMeta.setAttribute("content", dict.page.description)
+      }
+
+      setLanguageButtonState(lang)
+    }
+
+    const detectLanguage = () => {
+      const savedLanguage = localStorage.getItem("site-language")
+      if (savedLanguage === "es" || savedLanguage === "en") {
+        return savedLanguage
+      }
+
+      return navigator.language.toLowerCase().startsWith("en") ? "en" : "es"
+    }
+
+    const initialLanguage = detectLanguage()
+    applyTranslations(initialLanguage)
+
+    const setActiveNavItem = (sectionId) => {
       navItems.forEach((item) => {
         if (item.getAttribute("aria-label") == sectionId) {
           item.classList.add("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
@@ -139,11 +265,19 @@ const navItems = [
       })
 
       document.addEventListener("click", (event) => {
-        if (mobileNav.open && !mobileNav.contains(event.target as Node)) {
+        if (mobileNav.open && event.target instanceof Node && !mobileNav.contains(event.target)) {
           mobileNav.removeAttribute("open")
         }
       })
     }
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const lang = button.dataset.langSwitch === "en" ? "en" : "es"
+        localStorage.setItem("site-language", lang)
+        applyTranslations(lang)
+      })
+    })
   })
 </script>
 

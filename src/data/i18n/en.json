@@ -1,0 +1,169 @@
+{
+  "page": {
+    "title": "Gabriel Olivieri - Full Stack Developer",
+    "description": "Personal portfolio of Gabriel Olivieri. Full Stack Developer with 5+ years of experience building innovative digital solutions. Explore my work experience, education, tech stack, certifications, and featured projects."
+  },
+  "nav": {
+    "experiencia": "Experience",
+    "formacion": "Education",
+    "stack": "Stack",
+    "certificaciones": "Certifications",
+    "proyectos": "Projects",
+    "blog": "Blog",
+    "openMenu": "Open navigation menu"
+  },
+  "lang": {
+    "es": "ES",
+    "en": "EN",
+    "selector": "Language"
+  },
+  "sections": {
+    "experiencia": "Work experience",
+    "formacion": "Academic background",
+    "stack": "Stack",
+    "certificaciones": "Certifications and badges",
+    "proyectos": "Projects",
+    "blog": "Blog"
+  },
+  "stackCards": {
+    "frontend": {
+      "title": "Front end",
+      "caption": "Modern and accessible UI"
+    },
+    "backend": {
+      "title": "Back end",
+      "caption": "Scalable APIs and services"
+    },
+    "databases": {
+      "title": "Databases",
+      "caption": "Persistence and directory services"
+    },
+    "cicd": {
+      "title": "CI/CD and automation",
+      "caption": "Pipelines and continuous delivery"
+    },
+    "scripting": {
+      "title": "Scripting",
+      "caption": "Automation and tooling"
+    },
+    "virtualization": {
+      "title": "Virtualization",
+      "caption": "Containers and orchestration"
+    }
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "descriptionHtml": "I am a <strong>Full stack Developer</strong>, focused on building digital solutions that combine technical innovation, adaptability, and an obsessive commitment to user value.<br>I lead by example, enjoy empowering teams, and dive deep into complex challenges where the solution is not written yet.<br>If you have an ambitious project, <strong>let's talk.</strong>",
+    "socialAria": "Social links and contact",
+    "contact": "Contact",
+    "years": "Years in the industry",
+    "projects": "Completed projects"
+  },
+  "footer": {
+    "experiencia": "Experience",
+    "formacion": "Education",
+    "stack": "Stack",
+    "certificaciones": "Certifications",
+    "proyectos": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "experience": {
+    "moreAbout": "Learn more about ",
+    "items": [
+      {
+        "date": "2025 - Present",
+        "title": "Senior Full Stack Developer",
+        "company": "Visma LATAM",
+        "description": "Software development for large-scale financial management solutions."
+      },
+      {
+        "date": "2021 - 2025",
+        "title": "Team Leader / DevOps",
+        "company": "UTN FRBA",
+        "description": "Project and team leadership, estimations, and delivery planning. DevOps implementation with infrastructure as code, virtualization, monitoring, and orchestration. Software development focused on scalability, security, and performance."
+      }
+    ]
+  },
+  "education": {
+    "items": [
+      {
+        "date": "2019 - Present",
+        "title": "Engineering Student",
+        "company": "UTN FRBA",
+        "description": "Information Systems Engineering degree focused on analysis, design, and implementation of business-oriented multi-platform solutions."
+      },
+      {
+        "date": "2014 - 2018",
+        "title": "Computer Science High School Diploma",
+        "company": "Instituto Monseñor Dillon",
+        "description": "Technical education in programming, networking, and systems, with hands-on experience in development tools, office software, and school project management."
+      }
+    ]
+  },
+  "projects": {
+    "filterAria": "Filter projects by category",
+    "filter": {
+      "all": "All",
+      "ia": "AI",
+      "web": "Web",
+      "mobile": "Mobile"
+    },
+    "emptyState": "There are no projects in this category yet.",
+    "code": "Code",
+    "preview": "Preview",
+    "tags": {
+      "NEXT": "Next.js",
+      "TAILWIND": "Tailwind CSS",
+      "WEB": "Web",
+      "MOBILE": "Cross-platform",
+      "UTN": "UTN FRBA",
+      "SECURITY": "Security",
+      "LMS": "LMS",
+      "WORDPRESS": "WordPress",
+      "PROJECT": "Project",
+      "HEALTH": "Healthcare"
+    },
+    "items": [
+      {
+        "title": "Student ID",
+        "description": "Cross-platform student ID app for UTN FRBA students."
+      },
+      {
+        "title": "RIP ALIVE",
+        "description": "Cross-platform project for healthcare coverage management."
+      },
+      {
+        "title": "School Friends",
+        "description": "Mobile app for family expense management"
+      },
+      {
+        "title": "Keycloak SSO",
+        "description": "Authentication and SSO for UTN FRBA using Keycloak."
+      },
+      {
+        "title": "UTN FRBA Moodle Classrooms",
+        "description": "Course platform and academic management for UTN FRBA."
+      },
+      {
+        "title": "WordPress FRBA",
+        "description": "Institutional information website for Facultad Regional Buenos Aires."
+      },
+      {
+        "title": "Ruta 12",
+        "description": "Corporate website for communication and content management."
+      },
+      {
+        "title": "SIA - Academic System",
+        "description": "Academic management portal for students and services at UTN FRBA."
+      }
+    ]
+  },
+  "certifications": {
+    "issued": "Issued:",
+    "expires": "Expires:",
+    "credentialId": "Credential ID:",
+    "showCredential": "Show credential",
+    "noPublicLink": "Credential without public link"
+  }
+}

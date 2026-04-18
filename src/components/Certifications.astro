@@ -176,9 +176,9 @@ const certifications: Certification[] = [
       ) : null}
 
       <div class="mt-5 grid gap-2 text-sm text-slate-700 dark:text-slate-300">
-        <p><span class="font-medium">Expedicion:</span> {cert.issuedAt}</p>
-        {cert.expiresAt ? <p><span class="font-medium">Vencimiento:</span> {cert.expiresAt}</p> : null}
-        <p class="break-all"><span class="font-medium">ID de la credencial:</span> {cert.credentialId}</p>
+        <p><span class="font-medium" data-i18n="certifications.issued">Expedicion:</span> {cert.issuedAt}</p>
+        {cert.expiresAt ? <p><span class="font-medium" data-i18n="certifications.expires">Vencimiento:</span> {cert.expiresAt}</p> : null}
+        <p class="break-all"><span class="font-medium" data-i18n="certifications.credentialId">ID de la credencial:</span> {cert.credentialId}</p>
       </div>
 
       {cert.skills?.length ? (
@@ -199,11 +199,11 @@ const certifications: Certification[] = [
             rel="noreferrer noopener"
             class="inline-flex items-center rounded-xl border border-violet-300/80 bg-violet-50 px-3 py-2 text-sm font-medium text-violet-700 transition hover:bg-violet-100 dark:border-violet-500/50 dark:bg-violet-500/10 dark:text-violet-300 dark:hover:bg-violet-500/20"
           >
-            Mostrar credencial
+            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
           </a>
         ) : (
           <span class="inline-flex items-center rounded-xl border border-slate-200/80 bg-slate-100/70 px-3 py-2 text-sm font-medium text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400">
-            Credencial sin enlace publico
+            <span data-i18n="certifications.noPublicLink">Credencial sin enlace publico</span>
           </span>
         )}
       </div>

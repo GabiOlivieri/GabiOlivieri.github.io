@@ -1,12 +1,12 @@
 ---
 const currentYear = new Date().getFullYear()
 const footerLinks = [
-  { title: "Experiencia", href: "/#experiencia" },
-  { title: "Formación", href: "/#formacion" },
-  { title: "Stack", href: "/#stack" },
-  { title: "Certificaciones", href: "/#certificaciones" },
-  { title: "Proyectos", href: "/#proyectos" },
-  { title: "Blog", href: "/#blog" },
+  { title: "Experiencia", href: "/#experiencia", i18nKey: "footer.experiencia" },
+  { title: "Formación", href: "/#formacion", i18nKey: "footer.formacion" },
+  { title: "Stack", href: "/#stack", i18nKey: "footer.stack" },
+  { title: "Certificaciones", href: "/#certificaciones", i18nKey: "footer.certificaciones" },
+  { title: "Proyectos", href: "/#proyectos", i18nKey: "footer.proyectos" },
+  { title: "Blog", href: "/#blog", i18nKey: "footer.blog" },
 ]
 ---
 
@@ -26,13 +26,15 @@ const footerLinks = [
       {
         footerLinks.map((link) => (
           <li>
-            <a href={link.href} class="hover:underline me-4 md:me-6">{link.title}</a>
+            <a href={link.href} class="hover:underline me-4 md:me-6">
+              <span data-i18n={link.i18nKey}>{link.title}</span>
+            </a>
           </li>
         ))
       }
       <li>
         <a id="contacto" href="mailto:gabriel.olivieri@adini.com.ar" class="hover:underline"
-          >Contacto</a
+          ><span data-i18n="footer.contact">Contacto</span></a
         >
       </li>
     </ul>

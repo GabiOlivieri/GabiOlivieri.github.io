@@ -28,10 +28,11 @@ import SocialPill from "@/components/SocialPill.astro"
   <h1
     class="anim-fade-in anim-delay-1 text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
   >
-    Hola, soy <span class="gradient-name">Gabriel Olivieri</span>
+    <span data-i18n="hero.greeting">Hola, soy</span> <span class="gradient-name">Gabriel Olivieri</span>
   </h1>
 
   <p
+    data-i18n-html="hero.descriptionHtml"
     class="anim-fade-in anim-delay-2 mt-6 text-xl text-gray-800 dark:[&>strong]:text-violet-200 [&>strong]:text-violet-500 [&>strong]:font-semibold dark:text-gray-300 max-w-4xl"
   >
   Soy <strong>Full stack Developer </strong>, especializado en crear soluciones digitales que combinan innovación técnica, adaptabilidad y un compromiso obsesivo con el valor para el usuario.<br>
@@ -42,10 +43,11 @@ import SocialPill from "@/components/SocialPill.astro"
   <nav
     class="anim-fade-in anim-delay-4 flex flex-wrap justify-center gap-4 mt-8"
     aria-label="Redes sociales y contacto"
+    data-i18n-attr="aria-label:hero.socialAria"
   >
     <SocialPill href="mailto:gabriel.olivieri@adini.com.ar">
       <MailIcon class="size-4" />
-      Contacto
+      <span data-i18n="hero.contact">Contacto</span>
     </SocialPill>
     <SocialPill href="https://www.linkedin.com/in/gabriel-olivieri-38437b1bb/">
       <LinkedInIcon class="size-4" />
@@ -60,11 +62,11 @@ import SocialPill from "@/components/SocialPill.astro"
 
   <div class="anim-fade-in anim-delay-5 mt-10 grid gap-4 sm:grid-cols-2">
     <div class="rounded-3xl border border-slate-200/80 bg-slate-50/80 p-6 text-center shadow-sm backdrop-blur-sm dark:border-slate-700/70 dark:bg-slate-900/80">
-      <span class="block text-sm uppercase tracking-[0.3em] text-slate-500">Años en la industria</span>
+      <span class="block text-sm uppercase tracking-[0.3em] text-slate-500" data-i18n="hero.years">Años en la industria</span>
       <p class="mt-3 text-4xl font-semibold text-violet-600 dark:text-violet-400">+5</p>
     </div>
     <div class="rounded-3xl border border-slate-200/80 bg-slate-50/80 p-6 text-center shadow-sm backdrop-blur-sm dark:border-slate-700/70 dark:bg-slate-900/80">
-      <span class="block text-sm uppercase tracking-[0.3em] text-slate-500">Proyectos realizados</span>
+      <span class="block text-sm uppercase tracking-[0.3em] text-slate-500" data-i18n="hero.projects">Proyectos realizados</span>
       <p class="mt-3 text-4xl font-semibold text-sky-600 dark:text-sky-400">+8</p>
     </div>
   </div>
