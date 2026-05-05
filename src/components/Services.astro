@@ -1,0 +1,121 @@
+---
+import Sparkles from "./icons/Sparkles.astro"
+import Briefcase from "./icons/Briefcase.astro"
+import ProfileCheck from "./icons/ProfileCheck.astro"
+import Code from "./icons/Code.astro"
+import UserHeart from "./icons/UserHeart.astro"
+
+const services = [
+  {
+    id: "ai",
+    icon: Sparkles,
+    accent: {
+      icon: "text-sky-600 dark:text-sky-300",
+      iconBg: "bg-sky-100/80 dark:bg-sky-500/10",
+      border: "hover:border-sky-400 dark:hover:border-sky-500",
+      dot: "bg-sky-500/90 dark:bg-sky-400",
+    },
+    title: "Inteligencia Artificial Generativa y Agéntica",
+    points: [
+      "IA Agéntica: Sistemas que actúan de forma autónoma para resolver flujos de trabajo complejos.",
+      "Personalización a Escala: Software que usa modelos de lenguaje para adaptar experiencia de usuario y marketing en tiempo real.",
+    ],
+  },
+  {
+    id: "saas",
+    icon: Briefcase,
+    accent: {
+      icon: "text-cyan-600 dark:text-cyan-300",
+      iconBg: "bg-cyan-100/80 dark:bg-cyan-500/10",
+      border: "hover:border-cyan-400 dark:hover:border-cyan-500",
+      dot: "bg-cyan-500/90 dark:bg-cyan-400",
+    },
+    title: "Gestión Empresarial y Productividad (SaaS)",
+    points: [
+      "ERP: Soluciones como SAP, Oracle y Sage para gestionar finanzas, logística y recursos humanos.",
+      "CRM: Plataformas como Salesforce y HubSpot para gestión comercial y relacionamiento con clientes.",
+      "Gestión de Proyectos: Herramientas como Jira, monday.com y ClickUp con automatizaciones para optimizar tiempos.",
+    ],
+  },
+  {
+    id: "security",
+    icon: ProfileCheck,
+    accent: {
+      icon: "text-emerald-600 dark:text-emerald-300",
+      iconBg: "bg-emerald-100/80 dark:bg-emerald-500/10",
+      border: "hover:border-emerald-400 dark:hover:border-emerald-500",
+      dot: "bg-emerald-500/90 dark:bg-emerald-400",
+    },
+    title: "Ciberseguridad y Cumplimiento",
+    points: [
+      "DevSecOps: Seguridad integrada desde el inicio del ciclo de desarrollo.",
+      "Gestion de identidad y protocolos de autenticación: Soluciones como Keycloak o proveedores de identidad con protocolos OpenID Connect o SAML2.",
+    ],
+  },
+  {
+    id: "cloud",
+    icon: Code,
+    accent: {
+      icon: "text-indigo-600 dark:text-indigo-300",
+      iconBg: "bg-indigo-100/80 dark:bg-indigo-500/10",
+      border: "hover:border-indigo-400 dark:hover:border-indigo-500",
+      dot: "bg-indigo-500/90 dark:bg-indigo-400",
+    },
+    title: "Infraestructura y Desarrollo (Cloud Native)",
+    points: [
+      "Nube Híbrida y Distribuida: Arquitecturas sobre AWS, Azure y Google Cloud para escalar con gobernanza centralizada.",
+      "Contenerización: Uso de Docker y Kubernetes para ejecutar aplicaciones de forma consistente en cualquier entorno.",
+    ],
+  },
+  {
+    id: "vertical",
+    icon: UserHeart,
+    accent: {
+      icon: "text-rose-600 dark:text-rose-300",
+      iconBg: "bg-rose-100/80 dark:bg-rose-500/10",
+      border: "hover:border-rose-400 dark:hover:border-rose-500",
+      dot: "bg-rose-500/90 dark:bg-rose-400",
+    },
+    title: "Soluciones Sectoriales Específicas (Vertical SaaS)",
+    points: [
+      "Fintech: Software para pagos internacionales, nóminas globales y tokenización de activos mediante blockchain.",
+      "HealthTech y EdTech: Plataformas de telemedicina y LMS con IA para generar experiencias y contenidos personalizados.",
+    ],
+  },
+]
+---
+
+<section aria-label="Servicios" class="space-y-6">
+  <p class="max-w-3xl text-sm leading-7 text-slate-600 dark:text-slate-300" data-i18n="services.intro">
+    Diseño y ejecuto soluciones digitales centradas en negocio, experiencia de usuario y escalabilidad tecnológica.
+  </p>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {
+      services.map((service) => (
+        <article class={`group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white via-white to-slate-50/80 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700/70 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900/80 ${service.accent.border}`}>
+          <div class="mb-5 flex flex-col items-center gap-3 text-center">
+            <div class={`grid size-12 place-items-center rounded-2xl border border-white/60 dark:border-white/10 ${service.accent.iconBg}`}>
+              <service.icon class={`size-6 ${service.accent.icon}`} />
+            </div>
+
+            <h3 class="text-xl font-semibold leading-tight text-slate-900 dark:text-white" data-i18n={`services.${service.id}.title`}>
+              {service.title}
+            </h3>
+          </div>
+
+          <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            {
+              service.points.map((point, pointIndex) => (
+                <li class="flex gap-2.5" data-i18n={`services.${service.id}.points.${pointIndex}`}>
+                  <span class={`mt-1.5 size-1.5 shrink-0 rounded-full ${service.accent.dot}`}></span>
+                  <span>{point}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -9,7 +9,7 @@
     "stack": "Stack",
     "certificaciones": "Certificaciones",
     "proyectos": "Proyectos",
-    "blog": "Blog",
+    "servicios": "Servicios",
     "openMenu": "Abrir menú de navegación"
   },
   "lang": {
@@ -23,7 +23,7 @@
     "stack": "Stack",
     "certificaciones": "Certificaciones y badges",
     "proyectos": "Proyectos",
-    "blog": "Blog"
+    "servicios": "Servicios"
   },
   "stackCards": {
     "frontend": {
@@ -65,8 +65,52 @@
     "stack": "Stack",
     "certificaciones": "Certificaciones",
     "proyectos": "Proyectos",
-    "blog": "Blog",
+    "servicios": "Servicios",
     "contact": "Contacto"
+  },
+  "services": {
+    "intro": "Diseño y ejecuto soluciones digitales centradas en negocio, experiencia de usuario y escalabilidad tecnológica.",
+    "ai": {
+      "tag": "Servicio estratégico",
+      "title": "Inteligencia Artificial Generativa y Agéntica",
+      "points": [
+        "IA Agéntica: Sistemas que actúan de forma autónoma para resolver flujos de trabajo complejos.",
+        "Personalización a Escala: Software que usa modelos de lenguaje para adaptar experiencia de usuario y marketing en tiempo real."
+      ]
+    },
+    "saas": {
+      "tag": "Servicio estratégico",
+      "title": "Gestión Empresarial y Productividad (SaaS)",
+      "points": [
+        "ERP: Soluciones como SAP, Oracle y Sage para gestionar finanzas, logística y recursos humanos.",
+        "CRM: Plataformas como Salesforce y HubSpot para gestión comercial y relacionamiento con clientes.",
+        "Gestión de Proyectos: Herramientas como Jira, monday.com y ClickUp con automatizaciones para optimizar tiempos."
+      ]
+    },
+    "security": {
+      "tag": "Servicio estratégico",
+      "title": "Ciberseguridad y Cumplimiento",
+      "points": [
+        "DevSecOps: Seguridad integrada desde el inicio del ciclo de desarrollo.",
+        "Gestion de identidad y protocolos de autenticación: Soluciones como Keycloak o proveedores de identidad con protocolos OpenID Connect o SAML2."
+      ]
+    },
+    "cloud": {
+      "tag": "Servicio estratégico",
+      "title": "Infraestructura y Desarrollo (Cloud Native)",
+      "points": [
+        "Nube Híbrida y Distribuida: Arquitecturas sobre AWS, Azure y Google Cloud para escalar con gobernanza centralizada.",
+        "Contenerización: Uso de Docker y Kubernetes para ejecutar aplicaciones de forma consistente en cualquier entorno."
+      ]
+    },
+    "vertical": {
+      "tag": "Servicio estratégico",
+      "title": "Soluciones Sectoriales Específicas (Vertical SaaS)",
+      "points": [
+        "Fintech: Software para pagos internacionales, nóminas globales y tokenización de activos mediante blockchain.",
+        "HealthTech y EdTech: Plataformas de telemedicina y LMS con IA para generar experiencias y contenidos personalizados."
+      ]
+    }
   },
   "experience": {
     "moreAbout": "Saber más sobre ",

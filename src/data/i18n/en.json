@@ -9,7 +9,7 @@
     "stack": "Stack",
     "certificaciones": "Certifications",
     "proyectos": "Projects",
-    "blog": "Blog",
+    "servicios": "Services",
     "openMenu": "Open navigation menu"
   },
   "lang": {
@@ -23,7 +23,7 @@
     "stack": "Stack",
     "certificaciones": "Certifications and badges",
     "proyectos": "Projects",
-    "blog": "Blog"
+    "servicios": "Services"
   },
   "stackCards": {
     "frontend": {
@@ -65,8 +65,52 @@
     "stack": "Stack",
     "certificaciones": "Certifications",
     "proyectos": "Projects",
-    "blog": "Blog",
+    "servicios": "Services",
     "contact": "Contact"
+  },
+  "services": {
+    "intro": "I design and deliver digital solutions focused on business impact, user experience, and scalable technology.",
+    "ai": {
+      "tag": "Strategic service",
+      "title": "Generative and Agentic Artificial Intelligence",
+      "points": [
+        "Agentic AI: Systems that operate autonomously to solve complex workflow operations.",
+        "Personalization at Scale: Software that uses language models to adapt user experience and marketing in real time."
+      ]
+    },
+    "saas": {
+      "tag": "Strategic service",
+      "title": "Business Management and Productivity (SaaS)",
+      "points": [
+        "ERP: Solutions like SAP, Oracle, and Sage to manage finance, logistics, and human resources.",
+        "CRM: Platforms like Salesforce and HubSpot for sales operations and customer relationship management.",
+        "Project Management: Tools like Jira, monday.com, and ClickUp with automation to optimize delivery times."
+      ]
+    },
+    "security": {
+      "tag": "Strategic service",
+      "title": "Cybersecurity and Compliance",
+      "points": [
+        "DevSecOps: Security integrated from the beginning of the development lifecycle.",
+        "Identity management and authentication protocols: Solutions such as Keycloak or identity providers using OpenID Connect or SAML2 protocols."
+      ]
+    },
+    "cloud": {
+      "tag": "Strategic service",
+      "title": "Infrastructure and Development (Cloud Native)",
+      "points": [
+        "Hybrid and Distributed Cloud: Architectures on AWS, Azure, and Google Cloud to scale with centralized governance.",
+        "Containerization: Docker and Kubernetes-based delivery so applications run consistently in any environment."
+      ]
+    },
+    "vertical": {
+      "tag": "Strategic service",
+      "title": "Industry-Specific Solutions (Vertical SaaS)",
+      "points": [
+        "Fintech: Software for international payments, global payroll, and blockchain-based asset tokenization.",
+        "HealthTech and EdTech: Telemedicine platforms and LMS ecosystems powered by AI for personalized experiences and content."
+      ]
+    }
   },
   "experience": {
     "moreAbout": "Learn more about ",

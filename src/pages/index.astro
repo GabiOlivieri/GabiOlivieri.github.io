@@ -3,14 +3,13 @@ import Layout from "@/layouts/Layout.astro"
 
 import Briefcase from "@/components/icons/Briefcase.astro"
 import CodeDots from "@/components/icons/CodeDots.astro"
-import ExternalLink from "@/components/icons/ExternalLink.astro"
 import Experience from "@/components/Experience.astro"
 import ProfileCheck from "@/components/icons/ProfileCheck.astro"
 import Sparkles from "@/components/icons/Sparkles.astro"
 import Education from "@/components/Education.astro"
 import Certifications from "@/components/Certifications.astro"
 import Stack from "@/components/Stack.astro"
-import Blog from "@/components/Blog.astro"
+import Services from "@/components/Services.astro"
 import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import Hero from "@/components/Hero.astro"
@@ -43,6 +42,14 @@ import TitleSection from "@/components/TitleSection.astro"
       <Education />
     </SectionContainer>
 
+    <SectionContainer id="servicios">
+      <TitleSection>
+        <Sparkles class="size-8" />
+        <span data-i18n="sections.servicios">Servicios</span>
+      </TitleSection>
+      <Services />
+    </SectionContainer>
+
     <SectionContainer id="stack">
       <TitleSection>
         <CodeDots class="size-7" />
@@ -65,14 +72,6 @@ import TitleSection from "@/components/TitleSection.astro"
         <span data-i18n="sections.proyectos">Proyectos</span>
       </TitleSection>
       <Projects />
-    </SectionContainer>
-
-    <SectionContainer id="blog">
-      <TitleSection>
-        <ExternalLink class="size-8" />
-        <span data-i18n="sections.blog">Blog</span>
-      </TitleSection>
-      <Blog />
     </SectionContainer>
 
   </div>
