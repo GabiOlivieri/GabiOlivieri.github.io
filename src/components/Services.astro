@@ -4,6 +4,7 @@ import Briefcase from "./icons/Briefcase.astro"
 import ProfileCheck from "./icons/ProfileCheck.astro"
 import Code from "./icons/Code.astro"
 import UserHeart from "./icons/UserHeart.astro"
+import Dolar from "./icons/Dolar.astro"
 
 const services = [
   {
@@ -80,6 +81,21 @@ const services = [
     points: [
       "Fintech: Software para pagos internacionales, nóminas globales y tokenización de activos mediante blockchain.",
       "HealthTech y EdTech: Plataformas de telemedicina y LMS con IA para generar experiencias y contenidos personalizados.",
+    ],
+  },
+  {
+    id: "payment",
+    icon: Dolar,
+    accent: {
+      icon: "text-yellow-600 dark:text-yellow-300",
+      iconBg: "bg-yellow-100/80 dark:bg-yellow-500/10",
+      border: "hover:border-yellow-400 dark:hover:border-yellow-500",
+      dot: "bg-yellow-500/90 dark:bg-yellow-400",
+    },
+    title: "Sistemas de Pago y Comercio Electrónico",
+    points: [
+      "Pasarelas de Pago: Integración con Stripe, PayPal y Adyen para procesar pagos globales de forma segura.",
+      "E-commerce Personalizado: Soluciones a medida para tiendas online con experiencias de compra optimizadas."
     ],
   },
 ]

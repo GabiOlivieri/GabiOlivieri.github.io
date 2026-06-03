@@ -110,6 +110,14 @@
         "Fintech: Software for international payments, global payroll, and blockchain-based asset tokenization.",
         "HealthTech and EdTech: Telemedicine platforms and LMS ecosystems powered by AI for personalized experiences and content."
       ]
+    },
+    "payment": {
+      "tag": "Strategic service",
+      "title": "Payment Systems and E-commerce",
+      "points": [
+        "Payment Gateways: Integration with Stripe, PayPal, and Adyen to process global payments securely.",
+        "Custom E-commerce: Tailored solutions for online stores with optimized shopping experiences."
+      ]
     }
   },
   "experience": {

@@ -110,6 +110,14 @@
         "Fintech: Software para pagos internacionales, nóminas globales y tokenización de activos mediante blockchain.",
         "HealthTech y EdTech: Plataformas de telemedicina y LMS con IA para generar experiencias y contenidos personalizados."
       ]
+    },
+    "payment": {
+      "tag": "Servicio estratégico",
+      "title": "Sistemas de Pago y Comercio Electrónico",
+      "points": [
+        "Pasarelas de Pago: Integración con Stripe, PayPal y Adyen para procesar pagos globales de forma segura.",
+        "E-commerce Personalizado: Soluciones a medida para tiendas online con experiencias de compra optimizadas."
+      ]
     }
   },
   "experience": {
