@@ -56,26 +56,6 @@ const certifications: Certification[] = [
     iconSvg: awsIconSvg,
   },
   {
-    title: "Developing on AWS",
-    issuer: "AWS Training and Certification",
-    issuedAt: "sep. 2025",
-    credentialId: "AWS-TC-2025-09-24",
-    credentialUrl: "/cert/aws-developing-on-aws.png",
-    skills: ["AWS", "Application Development"],
-    logoLabel: "AWS Training and Certification",
-    iconSvg: awsIconSvg,
-  },
-  {
-    title: "Generative AI Essentials on AWS",
-    issuer: "AWS Training and Certification",
-    issuedAt: "sep. 2025",
-    credentialId: "AWS-TC-2025-09-15",
-    credentialUrl: "/cert/aws-generative-ai-essentials.png",
-    skills: ["AWS", "Generative AI"],
-    logoLabel: "AWS Training and Certification",
-    iconSvg: awsIconSvg,
-  },
-  {
     title: "Classify Images with TensorFlow on Google Cloud",
     issuer: "Google Cloud Skills Boost",
     issuedAt: "feb. 2025",
@@ -93,16 +73,6 @@ const certifications: Certification[] = [
     skills: ["Google Cloud", "Docker"],
     logoLabel: "Google Cloud Skills Boost",
     icon: siTerraform,
-  },
-  {
-    title: "Develop your Google Cloud Network",
-    issuer: "Google Cloud Skills Boost",
-    issuedAt: "ene. 2025",
-    credentialId: "13603219",
-    credentialUrl: "https://www.skills.google/public_profiles/1f49a635-241c-4207-86a3-bcef994f5ef4/badges/13603219?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share",
-    skills: ["Google Cloud", "MySQL"],
-    logoLabel: "Google Cloud Skills Boost",
-    iconSvg: googleCloudIconSvg,
   },
   {
     title: "Coordinador BOOTCAMP TIC 1º Edicion (2024)",
@@ -138,11 +108,6 @@ const certifications: Certification[] = [
 
 
 <div class="space-y-8">
-  <p class="max-w-2xl text-pretty leading-relaxed text-muted" data-i18n="certifications.intro" data-reveal>
-    Todas las credenciales de abajo son verificables: cada una enlaza a su emisor o al certificado
-    original. Es la parte del perfil que no depende de que me creas.
-  </p>
-
   <div class="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 xl:grid-cols-3" data-reveal-group>
     {certifications.map((cert) => (
       <article class="flex flex-col bg-paper p-6 transition-colors duration-300 hover:bg-surface" data-reveal>
