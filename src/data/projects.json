@@ -52,26 +52,6 @@
     ]
   },
   {
-    "id": "keycloak-sso",
-    "title": "Keycloak SSO",
-    "description": "Autenticación centralizada y Single Sign-On para las plataformas de UTN FRBA, federando los sistemas académicos existentes bajo un único proveedor de identidad.",
-    "role": "",
-    "year": "",
-    "org": "UTN FRBA",
-    "stack": [
-      "Keycloak",
-      "OpenID Connect",
-      "SAML 2.0"
-    ],
-    "link": "",
-    "github": "",
-    "image": "/projects/keycloak2.png",
-    "tags": [
-      "SECURITY",
-      "UTN"
-    ]
-  },
-  {
     "id": "aulas-moodle-utn-frba",
     "title": "Aulas Moodle UTN FRBA",
     "description": "Plataforma de cursos y gestión académica para toda la facultad, con integración al ecosistema institucional.",
@@ -108,25 +88,6 @@
     ]
   },
   {
-    "id": "wordpress-frba",
-    "title": "WordPress FRBA",
-    "description": "Sitio informativo institucional de la Facultad Regional Buenos Aires.",
-    "role": "",
-    "year": "",
-    "org": "UTN FRBA",
-    "stack": [
-      "WordPress",
-      "PHP"
-    ],
-    "link": "https://frba.utn.edu.ar",
-    "github": "",
-    "image": "/projects/wp-frba.png",
-    "tags": [
-      "WORDPRESS",
-      "WEB"
-    ]
-  },
-  {
     "id": "credencial-estudiantil",
     "title": "Credencial Estudiantil",
     "description": "Credencial digital multiplataforma para estudiantes de UTN FRBA.",
@@ -156,21 +117,6 @@
     "tags": [
       "MOBILE",
       "HEALTH"
-    ]
-  },
-  {
-    "id": "amigos-del-cole",
-    "title": "Amigos del cole",
-    "description": "Aplicación mobile para gestión de gastos compartidos entre familias.",
-    "role": "",
-    "year": "",
-    "org": "",
-    "stack": [],
-    "link": "",
-    "github": "",
-    "image": "/projects/Amigos Cole 3.png",
-    "tags": [
-      "MOBILE"
     ]
   }
 ]

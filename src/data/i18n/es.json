@@ -205,7 +205,6 @@
     }
   },
   "certifications": {
-    "intro": "Todas las credenciales de abajo son verificables: cada una enlaza a su emisor o al certificado original. Es la parte del perfil que no depende de que me creas.",
     "issued": "Emitida",
     "expires": "Vence",
     "credentialId": "ID",

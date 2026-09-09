@@ -205,7 +205,6 @@
     }
   },
   "certifications": {
-    "intro": "Every credential below is verifiable: each one links to its issuer or to the original certificate. It's the part of the profile that doesn't depend on taking my word for it.",
     "issued": "Issued",
     "expires": "Expires",
     "credentialId": "ID",
