@@ -10,21 +10,77 @@ import { ViewTransitions } from "astro:transitions"
 interface Props {
   title: string
   description: string
+  image?: string
+  noindex?: boolean
 }
 
-const { description, title } = Astro.props
+const { description, title, image = "/og-image.jpg", noindex = false } = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const socialImageURL = new URL(image, Astro.site)
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Gabriel Olivieri",
+  url: Astro.site?.toString(),
+  image: socialImageURL.toString(),
+  jobTitle: "Full Stack Developer",
+  description,
+  sameAs: ["https://www.linkedin.com/in/gabriel-olivieri-38437b1bb/", "https://github.com/GabiOlivieri"],
+  knowsAbout: [
+    "Full Stack Development",
+    "Identity and Access Management",
+    "Cloud Computing",
+    "DevOps",
+    "DevSecOps",
+  ],
+}
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Gabriel Olivieri" />
+    <link rel="canonical" href={canonicalURL} />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <meta name="theme-color" content="#0a0a0a" />
     <meta name="darkreader-lock" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Gabriel Olivieri" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Gabriel Olivieri — Full Stack Developer, Cloud & DevOps" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+
+    <!-- Datos estructurados para buscadores y asistentes de IA -->
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} is:inline />
+
     <script is:inline>
       document.documentElement.classList.add("js-reveal")
     </script>
