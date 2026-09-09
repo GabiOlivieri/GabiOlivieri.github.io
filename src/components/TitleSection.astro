@@ -1,17 +1,31 @@
 ---
-const { className } = Astro.props
+interface Props {
+  /** Índice mostrado en mono a la izquierda del título ("01", "02", ...). */
+  index?: string
+  /** Slug corto en mono, a la derecha del índice. */
+  slug?: string
+  /** Clave de traducción para el slug. */
+  slugKey?: string
+  class?: string
+}
+
+const { index, slug, slugKey, class: className } = Astro.props
 ---
 
-<div class="mb-8">
+<div class="mb-10 border-b border-line pb-5" data-reveal>
+  {
+    (index || slug) && (
+      <p class="label-code mb-3 flex items-center gap-2">
+        {index && <span class="text-ink">{index}</span>}
+        {index && slug && <span aria-hidden="true">/</span>}
+        {slug && <span data-i18n={slugKey}>{slug}</span>}
+      </p>
+    )
+  }
   <h2
-    class={`flex items-center text-3xl font-bold tracking-tight gap-x-3 text-black/80 dark:text-white ${className ?? ""}`}
+    class={`flex items-center gap-x-3 text-2xl font-bold tracking-tight text-ink sm:text-3xl ${className ?? ""}`}
   >
     <slot />
   </h2>
-  <!-- Gradient accent underline -->
-  <div
-    class="mt-3 h-px w-20 bg-gradient-to-r from-violet-400/70 to-transparent"
-    aria-hidden="true"
-  >
-  </div>
+  <slot name="description" />
 </div>

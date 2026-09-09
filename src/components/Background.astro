@@ -1,0 +1,212 @@
+---
+/**
+ * Fondo interactivo monocromo: grilla de puntos + círculos concéntricos perfectos.
+ * Los puntos cercanos al cursor crecen, se aclaran y se apartan levemente.
+ * Se dibuja en un único <canvas> fijo detrás de todo el contenido.
+ */
+---
+
+<canvas id="bg-canvas" class="fixed inset-0 -z-20 h-full w-full" aria-hidden="true"></canvas>
+<div
+  class="pointer-events-none fixed inset-0 -z-10 opacity-[0.035] dark:opacity-[0.06]"
+  style="background-image: url('/noise.svg'); background-size: 200px 200px;"
+  aria-hidden="true"
+>
+</div>
+
+<script>
+  type Dot = { x: number; y: number }
+
+  const setup = () => {
+    const canvas = document.getElementById("bg-canvas") as HTMLCanvasElement | null
+    if (!canvas) return
+
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
+
+    const GAP = 30 // separación de la grilla en px
+    const INFLUENCE = 160 // radio de influencia del cursor
+    const BASE_R = 1.1 // radio base del punto
+    const MAX_R = 2.9 // radio del punto justo bajo el cursor
+    const PUSH = 8 // desplazamiento máximo del punto
+
+    let dots: Dot[] = []
+    let width = 0
+    let height = 0
+    let dpr = 1
+
+    // Posición objetivo del puntero y posición interpolada (suaviza el movimiento).
+    let targetX = -9999
+    let targetY = -9999
+    let pointerX = -9999
+    let pointerY = -9999
+    let rafId = 0
+    let idleFrames = 0
+
+    const palette = () => {
+      const dark = document.documentElement.classList.contains("dark")
+      return dark
+        ? { dot: "255,255,255", ring: "255,255,255", dotBase: 0.14, dotPeak: 0.75, ringAlpha: 0.05 }
+        : { dot: "0,0,0", ring: "0,0,0", dotBase: 0.12, dotPeak: 0.6, ringAlpha: 0.045 }
+    }
+
+    const buildGrid = () => {
+      dots = []
+      const cols = Math.ceil(width / GAP) + 1
+      const rows = Math.ceil(height / GAP) + 1
+      const offsetX = (width - (cols - 1) * GAP) / 2
+      const offsetY = (height - (rows - 1) * GAP) / 2
+
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          dots.push({ x: offsetX + col * GAP, y: offsetY + row * GAP })
+        }
+      }
+    }
+
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2)
+      width = window.innerWidth
+      height = window.innerHeight
+      canvas.width = Math.floor(width * dpr)
+      canvas.height = Math.floor(height * dpr)
+      canvas.style.width = `${width}px`
+      canvas.style.height = `${height}px`
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      buildGrid()
+      draw()
+    }
+
+    const drawRings = (colors: ReturnType<typeof palette>) => {
+      // Círculos perfectos concéntricos, anclados arriba al centro.
+      const cx = width / 2
+      const cy = height * -0.12
+      const step = Math.max(width, height) * 0.16
+
+      ctx.save()
+      ctx.lineWidth = 1
+      for (let i = 1; i <= 6; i++) {
+        const radius = step * i
+        // El anillo más cercano al cursor se resalta apenas.
+        const distToPointer = Math.abs(Math.hypot(pointerX - cx, pointerY - cy) - radius)
+        const boost = distToPointer < 40 ? (1 - distToPointer / 40) * 0.16 : 0
+        ctx.strokeStyle = `rgba(${colors.ring},${colors.ringAlpha + boost})`
+        ctx.beginPath()
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2)
+        ctx.stroke()
+      }
+      ctx.restore()
+    }
+
+    const draw = () => {
+      const colors = palette()
+      ctx.clearRect(0, 0, width, height)
+      drawRings(colors)
+
+      const influenceSq = INFLUENCE * INFLUENCE
+
+      for (const dot of dots) {
+        const dx = dot.x - pointerX
+        const dy = dot.y - pointerY
+        const distSq = dx * dx + dy * dy
+
+        let radius = BASE_R
+        let alpha = colors.dotBase
+        let px = dot.x
+        let py = dot.y
+
+        if (distSq < influenceSq) {
+          const dist = Math.sqrt(distSq) || 0.0001
+          // Caída suave (ease-out cuadrática) desde el centro del cursor.
+          const t = 1 - dist / INFLUENCE
+          const ease = t * t
+          radius = BASE_R + (MAX_R - BASE_R) * ease
+          alpha = colors.dotBase + (colors.dotPeak - colors.dotBase) * ease
+          px = dot.x + (dx / dist) * PUSH * ease
+          py = dot.y + (dy / dist) * PUSH * ease
+        }
+
+        ctx.beginPath()
+        ctx.fillStyle = `rgba(${colors.dot},${alpha})`
+        ctx.arc(px, py, radius, 0, Math.PI * 2)
+        ctx.fill()
+      }
+    }
+
+    const tick = () => {
+      // Interpola hacia el puntero: da una estela suave en vez de un salto.
+      const dx = targetX - pointerX
+      const dy = targetY - pointerY
+      pointerX += dx * 0.14
+      pointerY += dy * 0.14
+
+      draw()
+
+      // Cuando el puntero ya alcanzó su objetivo, cortamos el bucle.
+      idleFrames = Math.abs(dx) < 0.4 && Math.abs(dy) < 0.4 ? idleFrames + 1 : 0
+      if (idleFrames > 6) {
+        rafId = 0
+        return
+      }
+      rafId = requestAnimationFrame(tick)
+    }
+
+    const wake = () => {
+      idleFrames = 0
+      if (!rafId) rafId = requestAnimationFrame(tick)
+    }
+
+    const onPointerMove = (event: PointerEvent) => {
+      targetX = event.clientX
+      targetY = event.clientY
+      if (reduceMotion.matches) {
+        pointerX = targetX
+        pointerY = targetY
+        draw()
+        return
+      }
+      wake()
+    }
+
+    const onPointerLeave = () => {
+      targetX = -9999
+      targetY = -9999
+      if (reduceMotion.matches) {
+        pointerX = targetX
+        pointerY = targetY
+        draw()
+        return
+      }
+      wake()
+    }
+
+    resize()
+
+    const controller = new AbortController()
+    const { signal } = controller
+
+    window.addEventListener("resize", resize, { signal, passive: true })
+    window.addEventListener("pointermove", onPointerMove, { signal, passive: true })
+    document.addEventListener("pointerleave", onPointerLeave, { signal })
+    window.addEventListener("blur", onPointerLeave, { signal })
+
+    // Redibuja al cambiar de tema (la clase .dark vive en <html>).
+    const themeObserver = new MutationObserver(() => draw())
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
+
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        controller.abort()
+        themeObserver.disconnect()
+        if (rafId) cancelAnimationFrame(rafId)
+      },
+      { once: true }
+    )
+  }
+
+  setup()
+  document.addEventListener("astro:after-swap", setup)
+</script>

@@ -1,15 +1,15 @@
 {
   "page": {
     "title": "Gabriel Olivieri - Full Stack Developer",
-    "description": "Personal portfolio of Gabriel Olivieri. Full Stack Developer with 5+ years of experience building innovative digital solutions. Explore my work experience, education, tech stack, certifications, and featured projects."
+    "description": "Portfolio of Gabriel Olivieri, Full Stack Developer with 5+ years of experience in web platforms, identity and access, cloud and DevOps. Experience, verifiable certifications and delivered projects."
   },
   "nav": {
+    "servicios": "Focus",
     "experiencia": "Experience",
-    "formacion": "Education",
-    "stack": "Stack",
-    "certificaciones": "Certifications",
     "proyectos": "Projects",
-    "servicios": "Services",
+    "certificaciones": "Certifications",
+    "stack": "Stack",
+    "formacion": "Education",
     "openMenu": "Open navigation menu"
   },
   "lang": {
@@ -18,122 +18,95 @@
     "selector": "Language"
   },
   "sections": {
+    "servicios": "Focus areas",
     "experiencia": "Work experience",
-    "formacion": "Academic background",
-    "stack": "Stack",
-    "certificaciones": "Certifications and badges",
     "proyectos": "Projects",
-    "servicios": "Services"
-  },
-  "stackCards": {
-    "frontend": {
-      "title": "Front end",
-      "caption": "Modern and accessible UI"
-    },
-    "backend": {
-      "title": "Back end",
-      "caption": "Scalable APIs and services"
-    },
-    "databases": {
-      "title": "Databases",
-      "caption": "Persistence and directory services"
-    },
-    "cicd": {
-      "title": "CI/CD and automation",
-      "caption": "Pipelines and continuous delivery"
-    },
-    "scripting": {
-      "title": "Scripting",
-      "caption": "Automation and tooling"
-    },
-    "virtualization": {
-      "title": "Virtualization",
-      "caption": "Containers and orchestration"
-    }
+    "certificaciones": "Certifications",
+    "stack": "Stack",
+    "formacion": "Education"
   },
   "hero": {
-    "greeting": "Hi, I'm",
-    "descriptionHtml": "I am a <strong>Full stack Developer</strong>, focused on building digital solutions that combine technical innovation, adaptability, and an obsessive commitment to user value.<br>I lead by example, enjoy empowering teams, and dive deep into complex challenges where the solution is not written yet.<br>If you have an ambitious project, <strong>let's talk.</strong>",
-    "socialAria": "Social links and contact",
-    "contact": "Contact",
-    "years": "Years in the industry",
-    "projects": "Completed projects"
-  },
-  "footer": {
-    "experiencia": "Experience",
-    "formacion": "Education",
-    "stack": "Stack",
-    "certificaciones": "Certifications",
-    "proyectos": "Projects",
-    "servicios": "Services",
-    "contact": "Contact"
+    "availability": "Available for new projects",
+    "role": "Cloud & DevOps",
+    "summary": "I build and maintain business platforms: identity and access, integrations and reliable cloud deployments. My focus is on what already runs in production, with real users on the other side.",
+    "ctaPrimary": "Let's talk",
+    "ctaSecondary": "See projects",
+    "stats": {
+      "years": "Years in the industry",
+      "projects": "Delivered projects",
+      "certs": "Active certifications"
+    },
+    "statsShort": {
+      "years": "Years",
+      "projects": "Projects",
+      "certs": "Certifications"
+    }
   },
   "services": {
-    "intro": "I design and deliver digital solutions focused on business impact, user experience, and scalable technology.",
-    "ai": {
-      "tag": "Strategic service",
-      "title": "Generative and Agentic Artificial Intelligence",
+    "intro": "I don't do everything. These are the four areas where I have delivered work, certifications that back it up, and my own judgement to make decisions.",
+    "product": {
+      "title": "Web platforms and products",
       "points": [
-        "Agentic AI: Systems that operate autonomously to solve complex workflow operations.",
-        "Personalization at Scale: Software that uses language models to adapt user experience and marketing in real time."
+        "End-to-end full stack applications: data model, API, interface and production rollout.",
+        "Refactoring and maintenance of systems already in use, without interrupting service."
       ]
     },
-    "saas": {
-      "tag": "Strategic service",
-      "title": "Business Management and Productivity (SaaS)",
+    "identity": {
+      "title": "Identity, access and security",
       "points": [
-        "ERP: Solutions like SAP, Oracle, and Sage to manage finance, logistics, and human resources.",
-        "CRM: Platforms like Salesforce and HubSpot for sales operations and customer relationship management.",
-        "Project Management: Tools like Jira, monday.com, and ClickUp with automation to optimize delivery times."
-      ]
-    },
-    "security": {
-      "tag": "Strategic service",
-      "title": "Cybersecurity and Compliance",
-      "points": [
-        "DevSecOps: Security integrated from the beginning of the development lifecycle.",
-        "Identity management and authentication protocols: Solutions such as Keycloak or identity providers using OpenID Connect or SAML2 protocols."
+        "Single Sign-On and federation with Keycloak, OpenID Connect and SAML 2.0.",
+        "DevSecOps practices built into the development cycle, not bolted on at the end."
       ]
     },
     "cloud": {
-      "tag": "Strategic service",
-      "title": "Infrastructure and Development (Cloud Native)",
+      "title": "Cloud and DevOps",
       "points": [
-        "Hybrid and Distributed Cloud: Architectures on AWS, Azure, and Google Cloud to scale with centralized governance.",
-        "Containerization: Docker and Kubernetes-based delivery so applications run consistently in any environment."
+        "Architectures on AWS and Google Cloud, with infrastructure as code.",
+        "Containers, orchestration and continuous delivery pipelines with GitLab CI and Jenkins."
       ]
     },
-    "vertical": {
-      "tag": "Strategic service",
-      "title": "Industry-Specific Solutions (Vertical SaaS)",
+    "ai": {
+      "title": "Applied generative AI",
       "points": [
-        "Fintech: Software for international payments, global payroll, and blockchain-based asset tokenization.",
-        "HealthTech and EdTech: Telemedicine platforms and LMS ecosystems powered by AI for personalized experiences and content."
-      ]
-    },
-    "payment": {
-      "tag": "Strategic service",
-      "title": "Payment Systems and E-commerce",
-      "points": [
-        "Payment Gateways: Integration with Stripe, PayPal, and Adyen to process global payments securely.",
-        "Custom E-commerce: Tailored solutions for online stores with optimized shopping experiences."
+        "Integrating language models into existing products, with cost and latency in mind.",
+        "Automating internal workflows where the model adds measurable value."
       ]
     }
   },
+  "stackCards": {
+    "daily": {
+      "title": "Daily use",
+      "caption": "What I write and operate every week"
+    },
+    "solid": {
+      "title": "Solid",
+      "caption": "Delivered projects, running in production"
+    },
+    "support": {
+      "title": "Supporting",
+      "caption": "I reach for it when the problem calls for it"
+    }
+  },
   "experience": {
-    "moreAbout": "Learn more about ",
+    "moreAbout": "More about",
     "items": [
       {
         "date": "2025 - Present",
         "title": "Senior Full Stack Developer",
         "company": "Visma LATAM",
-        "description": "Software development for large-scale financial management solutions."
+        "description": "Software development for financial management at large companies."
+      },
+      {
+        "date": "2023 - Present",
+        "title": "Founder",
+        "company": "ADINI",
+        "description": "Custom software development consultancy focused on AI and Cloud."
       },
       {
         "date": "2021 - 2025",
         "title": "Team Leader / DevOps",
         "company": "UTN FRBA",
-        "description": "Project and team leadership, estimations, and delivery planning. DevOps implementation with infrastructure as code, virtualization, monitoring, and orchestration. Software development focused on scalability, security, and performance."
+        "description": "Project management, estimation and team leadership. DevOps implementation with infrastructure as code, virtualization, monitoring and orchestration. Software development focused on scalability, security and performance."
       }
     ]
   },
@@ -141,15 +114,15 @@
     "items": [
       {
         "date": "2019 - Present",
-        "title": "Engineering Student",
+        "title": "Engineering student",
         "company": "UTN FRBA",
-        "description": "Information Systems Engineering degree focused on analysis, design, and implementation of business-oriented multi-platform solutions."
+        "description": "Information Systems Engineering. Training in analysis, design and implementation of business-oriented multiplatform solutions."
       },
       {
         "date": "2014 - 2018",
-        "title": "Computer Science High School Diploma",
+        "title": "Technical high school in Computing",
         "company": "Instituto Monseñor Dillon",
-        "description": "Technical education in programming, networking, and systems, with hands-on experience in development tools, office software, and school project management."
+        "description": "Technical training in programming, networks and systems. Experience with development tools, office software and school project management."
       }
     ]
   },
@@ -157,13 +130,14 @@
     "filterAria": "Filter projects by category",
     "filter": {
       "all": "All",
-      "ia": "AI",
       "web": "Web",
-      "mobile": "Mobile"
+      "mobile": "Mobile",
+      "cloud": "Cloud / Security",
+      "ia": "AI"
     },
-    "emptyState": "There are no projects in this category yet.",
+    "emptyState": "No projects in this category yet.",
     "code": "Code",
-    "preview": "Preview",
+    "preview": "Live site",
     "tags": {
       "NEXT": "Next.js",
       "TAILWIND": "Tailwind CSS",
@@ -174,48 +148,90 @@
       "LMS": "LMS",
       "WORDPRESS": "WordPress",
       "PROJECT": "Project",
-      "HEALTH": "Healthcare"
+      "HEALTH": "Health",
+      "AI": "AI"
     },
-    "items": [
-      {
-        "title": "Student ID",
-        "description": "Cross-platform student ID app for UTN FRBA students."
+    "items": {
+      "cognitia": {
+        "title": "Cognitia",
+        "description": "Platform that analyses messages from digital communities and returns a behavioural profile of the author.",
+        "role": ""
       },
-      {
-        "title": "RIP ALIVE",
-        "description": "Cross-platform project for healthcare coverage management."
+      "aura": {
+        "title": "AURA",
+        "description": "Web platform that analyses medical documents to support information retrieval for hospital billing recovery.",
+        "role": ""
       },
-      {
-        "title": "School Friends",
-        "description": "Mobile app for family expense management"
+      "hip": {
+        "title": "HIP",
+        "description": "Web booking system for a gaming venue, with a payment gateway and a full OAuth flow against Discord.",
+        "role": ""
       },
-      {
+      "keycloak-sso": {
         "title": "Keycloak SSO",
-        "description": "Authentication and SSO for UTN FRBA using Keycloak."
+        "description": "Centralized authentication and Single Sign-On for UTN FRBA platforms, federating the existing academic systems under one identity provider.",
+        "role": ""
       },
-      {
-        "title": "UTN FRBA Moodle Classrooms",
-        "description": "Course platform and academic management for UTN FRBA."
+      "aulas-moodle-utn-frba": {
+        "title": "Moodle classrooms, UTN FRBA",
+        "description": "Course and academic management platform for the whole faculty, integrated with the institutional ecosystem.",
+        "role": ""
       },
-      {
+      "sia-sistema-academico": {
+        "title": "SIA - Academic system",
+        "description": "Academic management portal for UTN FRBA students and services.",
+        "role": ""
+      },
+      "wordpress-frba": {
         "title": "WordPress FRBA",
-        "description": "Institutional information website for Facultad Regional Buenos Aires."
+        "description": "Institutional website for the Buenos Aires Regional Faculty.",
+        "role": ""
       },
-      {
-        "title": "Ruta 12",
-        "description": "Corporate website for communication and content management."
+      "credencial-estudiantil": {
+        "title": "Student ID card",
+        "description": "Cross-platform digital student ID for UTN FRBA.",
+        "role": ""
       },
-      {
-        "title": "SIA - Academic System",
-        "description": "Academic management portal for students and services at UTN FRBA."
+      "rip-alive": {
+        "title": "RIP ALIVE",
+        "description": "Cross-platform project for medical coverage management.",
+        "role": ""
+      },
+      "amigos-del-cole": {
+        "title": "Amigos del cole",
+        "description": "Mobile app for shared expense management between families.",
+        "role": ""
       }
-    ]
+    }
   },
   "certifications": {
-    "issued": "Issued:",
-    "expires": "Expires:",
-    "credentialId": "Credential ID:",
-    "showCredential": "Show credential",
-    "noPublicLink": "Credential without public link"
+    "intro": "Every credential below is verifiable: each one links to its issuer or to the original certificate. It's the part of the profile that doesn't depend on taking my word for it.",
+    "issued": "Issued",
+    "expires": "Expires",
+    "credentialId": "ID",
+    "showCredential": "Verify credential",
+    "noPublicLink": "No public link"
+  },
+  "contact": {
+    "headline": "Have a role or a project in mind?",
+    "body": "I answer every message. If it's a job opening, tell me about the team, the product and the stack; if it's a project, tell me the problem you want solved.",
+    "cta": "Send me an email"
+  },
+  "footer": {
+    "servicios": "Focus",
+    "experiencia": "Experience",
+    "proyectos": "Projects",
+    "certificaciones": "Certifications",
+    "stack": "Stack",
+    "formacion": "Education",
+    "contact": "Contact"
+  },
+  "sectionSlugs": {
+    "servicios": "focus",
+    "experiencia": "track record",
+    "proyectos": "shipped work",
+    "certificaciones": "verifiable",
+    "stack": "tooling",
+    "formacion": "education"
   }
 }

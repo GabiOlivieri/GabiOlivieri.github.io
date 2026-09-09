@@ -1,79 +1,73 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 
-import Briefcase from "@/components/icons/Briefcase.astro"
-import CodeDots from "@/components/icons/CodeDots.astro"
+import Hero from "@/components/Hero.astro"
+import Services from "@/components/Services.astro"
 import Experience from "@/components/Experience.astro"
-import ProfileCheck from "@/components/icons/ProfileCheck.astro"
-import Sparkles from "@/components/icons/Sparkles.astro"
-import Education from "@/components/Education.astro"
+import Projects from "@/components/Projects.astro"
 import Certifications from "@/components/Certifications.astro"
 import Stack from "@/components/Stack.astro"
-import Services from "@/components/Services.astro"
-import Projects from "@/components/Projects.astro"
+import Education from "@/components/Education.astro"
+import Contact from "@/components/Contact.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
-import Hero from "@/components/Hero.astro"
 import TitleSection from "@/components/TitleSection.astro"
 ---
 
 <Layout
   title="Gabriel Olivieri - Full Stack Developer"
-  description="Portfolio personal de Gabriel Olivieri. Full Stack Developer con +5 años de experiencia creando soluciones digitales innovadoras. Explora mi experiencia laboral, formación académica, stack tecnológico, certificaciones y proyectos destacados."
+  description="Portfolio de Gabriel Olivieri, Full Stack Developer con +5 años de experiencia en plataformas web, identidad y accesos, cloud y DevOps. Experiencia, certificaciones verificables y proyectos entregados."
 >
   <main class="px-4">
-    <SectionContainer class="py-16 md:py-36">
-      <Hero>
-    </Hero>
-    </SectionContainer>
-    <div class="space-y-24">
-    <SectionContainer id="experiencia">
-      <TitleSection>
-        <Briefcase class="size-8" />
-        <span data-i18n="sections.experiencia">Experiencia laboral</span>
-      </TitleSection>
-      <Experience />
+    <SectionContainer class="pb-20 pt-28 md:pb-28 md:pt-36">
+      <Hero />
     </SectionContainer>
 
-    <SectionContainer id="formacion">
-      <TitleSection>
-        <ProfileCheck class="size-8" />
-        <span data-i18n="sections.formacion">Formación académica</span>
-      </TitleSection>
-      <Education />
-    </SectionContainer>
+    <div class="space-y-28 md:space-y-36">
+      <SectionContainer id="servicios">
+        <TitleSection index="01" slug="foco" slugKey="sectionSlugs.servicios">
+          <span data-i18n="sections.servicios">Áreas de foco</span>
+        </TitleSection>
+        <Services />
+      </SectionContainer>
 
-    <SectionContainer id="servicios">
-      <TitleSection>
-        <Sparkles class="size-8" />
-        <span data-i18n="sections.servicios">Servicios</span>
-      </TitleSection>
-      <Services />
-    </SectionContainer>
+      <SectionContainer id="experiencia">
+        <TitleSection index="02" slug="trayectoria" slugKey="sectionSlugs.experiencia">
+          <span data-i18n="sections.experiencia">Experiencia laboral</span>
+        </TitleSection>
+        <Experience />
+      </SectionContainer>
 
-    <SectionContainer id="stack">
-      <TitleSection>
-        <CodeDots class="size-7" />
-        <span data-i18n="sections.stack">Stack</span>
-      </TitleSection>
-      <Stack />
-    </SectionContainer>
+      <SectionContainer id="proyectos">
+        <TitleSection index="03" slug="trabajo entregado" slugKey="sectionSlugs.proyectos">
+          <span data-i18n="sections.proyectos">Proyectos</span>
+        </TitleSection>
+        <Projects />
+      </SectionContainer>
 
-    <SectionContainer id="certificaciones">
-      <TitleSection>
-        <Sparkles class="size-8" />
-        <span data-i18n="sections.certificaciones">Certificaciones y badges</span>
-      </TitleSection>
-      <Certifications />
-    </SectionContainer>
+      <SectionContainer id="certificaciones">
+        <TitleSection index="04" slug="verificable" slugKey="sectionSlugs.certificaciones">
+          <span data-i18n="sections.certificaciones">Certificaciones</span>
+        </TitleSection>
+        <Certifications />
+      </SectionContainer>
 
-    <SectionContainer id="proyectos">
-      <TitleSection>
-        <CodeDots class="size-7" />
-        <span data-i18n="sections.proyectos">Proyectos</span>
-      </TitleSection>
-      <Projects />
-    </SectionContainer>
+      <SectionContainer id="stack">
+        <TitleSection index="05" slug="herramientas" slugKey="sectionSlugs.stack">
+          <span data-i18n="sections.stack">Stack</span>
+        </TitleSection>
+        <Stack />
+      </SectionContainer>
 
-  </div>
+      <SectionContainer id="formacion">
+        <TitleSection index="06" slug="formacion" slugKey="sectionSlugs.formacion">
+          <span data-i18n="sections.formacion">Formación académica</span>
+        </TitleSection>
+        <Education />
+      </SectionContainer>
+
+      <SectionContainer id="contacto">
+        <Contact />
+      </SectionContainer>
+    </div>
   </main>
 </Layout>
