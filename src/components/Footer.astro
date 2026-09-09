@@ -1,5 +1,6 @@
 ---
 const currentYear = new Date().getFullYear()
+
 const footerLinks = [
   { title: "Experiencia", href: "/#experiencia", i18nKey: "footer.experiencia" },
   { title: "Formación", href: "/#formacion", i18nKey: "footer.formacion" },
@@ -10,33 +11,27 @@ const footerLinks = [
 ]
 ---
 
-<footer
-  class="opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
->
+<footer class="mt-24 w-full border-t border-line px-4">
   <div
-    class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
+    class="mx-auto flex w-full max-w-6xl flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between"
   >
-    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90 inline-flex items-center gap-1"
-      >&copy; {currentYear}
-      <a href="https://midu.dev/" class="hover:underline">Gabriel Olivieri</a>
+    <span class="font-mono text-[13px] text-faint">
+      &copy; {currentYear} Gabriel Olivieri
     </span>
-    <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
-    >
+
+    <ul class="flex flex-wrap items-center gap-x-5 gap-y-2">
       {
         footerLinks.map((link) => (
           <li>
-            <a href={link.href} class="hover:underline me-4 md:me-6">
+            <a
+              href={link.href}
+              class="font-mono text-[13px] text-faint transition-colors hover:text-ink"
+            >
               <span data-i18n={link.i18nKey}>{link.title}</span>
             </a>
           </li>
         ))
       }
-      <li>
-        <a id="contacto" href="mailto:gabriel.olivieri@adini.com.ar" class="hover:underline"
-          ><span data-i18n="footer.contact">Contacto</span></a
-        >
-      </li>
     </ul>
   </div>
 </footer>

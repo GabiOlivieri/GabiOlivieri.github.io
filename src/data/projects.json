@@ -1,66 +1,176 @@
 [
   {
-    "title": "Credencial Estudiantil",
-    "description": "Credencial multiplataforma para estudiantes de UTN FRBA.",
-    "link": "",
+    "id": "cognitia",
+    "title": "Cognitia",
+    "description": "Plataforma que analiza mensajes de comunidades digitales y devuelve un perfil conductual del autor.",
+    "role": "",
+    "year": "",
+    "org": "",
+    "stack": [],
+    "link": "https://cognitia.lat",
     "github": "",
-    "image": "/projects/credencial-estudiantil.png",
-    "tags": ["MOBILE", "UTN"]
+    "image": "/projects/cognitia.webp",
+    "tags": [
+      "WEB",
+      "AI"
+    ]
   },
   {
-    "title": "RIP ALIVE",
-    "description": "Proyecto multiplataforma para gestión de cobertura médica.",
-    "link": "",
+    "id": "aura",
+    "title": "AURA",
+    "description": "Plataforma web que analiza documentos médicos para asistir el recupero de información en la facturación de hospitales.",
+    "role": "",
+    "year": "",
+    "org": "ADINI",
+    "stack": [],
+    "link": "https://aura.adini.com.ar",
     "github": "",
-    "image": "/projects/rip-alive.png",
-    "tags": ["MOBILE", "HEALTH"]
+    "image": "/projects/aura.webp",
+    "tags": [
+      "WEB",
+      "AI",
+      "HEALTH"
+    ]
   },
   {
-    "title": "Amigos del cole",
-    "description": "Aplicación mobile para gestión de gastos familiares",
-    "link": "",
+    "id": "hip",
+    "title": "HIP",
+    "description": "Sistema web de reservas para un parque gamer, con pasarela de pago y flujo completo de OAuth contra Discord.",
+    "role": "",
+    "year": "",
+    "org": "",
+    "stack": [
+      "OAuth 2.0",
+      "Discord API"
+    ],
+    "link": "https://reservas.hip.adini.com.ar",
     "github": "",
-    "image": "/projects/Amigos Cole 3.png",
-    "tags": ["MOBILE"]
+    "image": "/projects/hip.webp",
+    "tags": [
+      "WEB",
+      "SECURITY"
+    ]
   },
   {
+    "id": "keycloak-sso",
     "title": "Keycloak SSO",
-    "description": "Autenticación y SSO para UTN FRBA usando Keycloak.",
+    "description": "Autenticación centralizada y Single Sign-On para las plataformas de UTN FRBA, federando los sistemas académicos existentes bajo un único proveedor de identidad.",
+    "role": "",
+    "year": "",
+    "org": "UTN FRBA",
+    "stack": [
+      "Keycloak",
+      "OpenID Connect",
+      "SAML 2.0"
+    ],
     "link": "",
     "github": "",
     "image": "/projects/keycloak2.png",
-    "tags": ["SECURITY", "UTN"]
+    "tags": [
+      "SECURITY",
+      "UTN"
+    ]
   },
   {
+    "id": "aulas-moodle-utn-frba",
     "title": "Aulas Moodle UTN FRBA",
-    "description": "Plataforma de cursos y gestión académica para UTN FRBA.",
+    "description": "Plataforma de cursos y gestión académica para toda la facultad, con integración al ecosistema institucional.",
+    "role": "",
+    "year": "",
+    "org": "UTN FRBA",
+    "stack": [
+      "Moodle",
+      "PHP",
+      "MariaDB"
+    ],
     "link": "https://aulasvirtuales.frba.utn.edu.ar",
     "github": "",
     "image": "/projects/moodle.png",
-    "tags": ["LMS", "WEB"]
+    "tags": [
+      "LMS",
+      "WEB"
+    ]
   },
   {
-    "title": "WordPress FRBA",
-    "description": "Sitio informativo institucional para la Facultad Regional Buenos Aires.",
-    "link": "https://frba.utn.edu.ar",
-    "github": "",
-    "image": "/projects/wp-frba.png",
-    "tags": ["WORDPRESS", "WEB"]
-  },
-  {
-    "title": "Ruta 12",
-    "description": "Sitio web corporativo para comunicación y gestión de contenidos.",
-    "link": "https://ruta12.com",
-    "github": "",
-    "image": "/projects/ruta12.png",
-    "tags": ["WEB", "PROJECT"]
-  },
-  {
+    "id": "sia-sistema-academico",
     "title": "SIA - Sistema Académico",
     "description": "Portal de gestión académica para estudiantes y servicios de UTN FRBA.",
+    "role": "",
+    "year": "",
+    "org": "UTN FRBA",
+    "stack": [],
     "link": "https://sia.frba.utn.edu.ar",
     "github": "",
     "image": "/projects/sia.png",
-    "tags": ["WEB", "UTN"]
+    "tags": [
+      "WEB",
+      "UTN"
+    ]
+  },
+  {
+    "id": "wordpress-frba",
+    "title": "WordPress FRBA",
+    "description": "Sitio informativo institucional de la Facultad Regional Buenos Aires.",
+    "role": "",
+    "year": "",
+    "org": "UTN FRBA",
+    "stack": [
+      "WordPress",
+      "PHP"
+    ],
+    "link": "https://frba.utn.edu.ar",
+    "github": "",
+    "image": "/projects/wp-frba.png",
+    "tags": [
+      "WORDPRESS",
+      "WEB"
+    ]
+  },
+  {
+    "id": "credencial-estudiantil",
+    "title": "Credencial Estudiantil",
+    "description": "Credencial digital multiplataforma para estudiantes de UTN FRBA.",
+    "role": "",
+    "year": "",
+    "org": "UTN FRBA",
+    "stack": [],
+    "link": "",
+    "github": "",
+    "image": "/projects/credencial-estudiantil.png",
+    "tags": [
+      "MOBILE",
+      "UTN"
+    ]
+  },
+  {
+    "id": "rip-alive",
+    "title": "RIP ALIVE",
+    "description": "Proyecto multiplataforma para gestión de cobertura médica.",
+    "role": "",
+    "year": "",
+    "org": "",
+    "stack": [],
+    "link": "https://ripalive.com/",
+    "github": "",
+    "image": "/projects/rip-alive.png",
+    "tags": [
+      "MOBILE",
+      "HEALTH"
+    ]
+  },
+  {
+    "id": "amigos-del-cole",
+    "title": "Amigos del cole",
+    "description": "Aplicación mobile para gestión de gastos compartidos entre familias.",
+    "role": "",
+    "year": "",
+    "org": "",
+    "stack": [],
+    "link": "",
+    "github": "",
+    "image": "/projects/Amigos Cole 3.png",
+    "tags": [
+      "MOBILE"
+    ]
   }
 ]

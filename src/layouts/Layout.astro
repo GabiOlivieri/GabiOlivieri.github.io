@@ -1,16 +1,18 @@
 ---
-import "@fontsource-variable/onest";
+import "@fontsource-variable/open-sans"
+import "@fontsource-variable/fira-code"
 
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import Background from "../components/Background.astro"
+import { ViewTransitions } from "astro:transitions"
 
 interface Props {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
-const { description, title } = Astro.props;
+const { description, title } = Astro.props
 ---
 
 <!doctype html>
@@ -23,42 +25,78 @@ const { description, title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="darkreader-lock" />
+    <script is:inline>
+      document.documentElement.classList.add("js-reveal")
+    </script>
     <ViewTransitions />
   </head>
 
-  <body class="relative text-black dark:text-white">
-    <div
-      class="fixed inset-0 z-[-2] bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(139,92,246,0.18),rgba(59,130,246,0.12),rgba(34,197,94,0.08),rgba(255,255,255,0.95))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(139,92,246,0.14),rgba(59,130,246,0.10),rgba(34,197,94,0.06),rgba(0,0,0,0))]"
-    >
-    </div>
-    <!-- Grain texture overlay for tactile depth -->
-    <div
-      class="pointer-events-none fixed inset-0 z-[-1] opacity-[0.035] dark:opacity-[0.05]"
-      style="background-image: url('/noise.svg'); background-size: 200px 200px;"
-      aria-hidden="true"
-    >
-    </div>
+  <body class="relative bg-paper text-ink antialiased">
+    <Background />
     <Header />
     <slot />
     <Footer />
     <style is:global>
+      /* ── Tokens monocromos ────────────────────────────────────────── */
       :root {
         color-scheme: light dark;
+
+        --paper: 250 250 250;
+        --surface: 255 255 255;
+        --ink: 10 10 10;
+        --muted: 82 82 82;
+        --faint: 115 115 115;
+        --line: 224 224 224;
+      }
+
+      .dark {
+        --paper: 8 8 8;
+        --surface: 20 20 20;
+        --ink: 250 250 250;
+        --muted: 163 163 163;
+        --faint: 115 115 115;
+        --line: 38 38 38;
       }
 
       html {
-        font-family: "Onest Variable", system-ui, sans-serif;
+        font-family: "Open Sans Variable", "Open Sans", system-ui, sans-serif;
         scroll-behavior: smooth;
       }
 
       body {
-        color: rgba(17, 17, 17, 0.9);
         display: flex;
         flex-direction: column;
         min-height: 100vh;
         overscroll-behavior: none;
+      }
+
+      /* Todo lo tipográficamente "de código" usa Fira Code. */
+      .font-code,
+      code,
+      kbd,
+      samp,
+      pre {
+        font-family: "Fira Code Variable", "Fira Code", ui-monospace, SFMono-Regular, monospace;
+        font-feature-settings: "calt" 1;
+      }
+
+      /* Etiqueta de sección / metadato: mono, chico, espaciado. */
+      .label-code {
+        font-family: "Fira Code Variable", "Fira Code", ui-monospace, monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgb(var(--faint));
+      }
+
+      ::selection {
+        background: rgb(var(--ink));
+        color: rgb(var(--paper));
+      }
+
+      :focus-visible {
+        outline: 2px solid rgb(var(--ink));
+        outline-offset: 3px;
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -67,57 +105,11 @@ const { description, title } = Astro.props;
         }
       }
 
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: rgba(255, 255, 255, 0.9);
-        }
-      }
-
-      @keyframes blur {
-        to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        @keyframes blur {
-          from {
-            border: 0px;
-          }
-          to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            border-width: 1px;
-            border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 9999px;
-          }
-        }
-      }
-
-      /* ── Design system: staggered entrance animations ─────────────── */
+      /* ── Animaciones de entrada ───────────────────────────────────── */
       @keyframes fade-in-up {
         from {
           opacity: 0;
-          translate: 0 20px;
+          translate: 0 16px;
         }
         to {
           opacity: 1;
@@ -126,39 +118,116 @@ const { description, title } = Astro.props;
       }
 
       .anim-fade-in {
-        animation: fade-in-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
       }
-      .anim-delay-1 { animation-delay: 120ms; }
-      .anim-delay-2 { animation-delay: 260ms; }
-      .anim-delay-3 { animation-delay: 400ms; }
-      .anim-delay-4 { animation-delay: 540ms; }
+      .anim-delay-1 { animation-delay: 100ms; }
+      .anim-delay-2 { animation-delay: 200ms; }
+      .anim-delay-3 { animation-delay: 300ms; }
+      .anim-delay-4 { animation-delay: 400ms; }
+      .anim-delay-5 { animation-delay: 500ms; }
 
-      /* Gradient text utility for the hero name */
-      .gradient-name {
-        background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
+      /* ── Reveal al hacer scroll ───────────────────────────────────
+         Solo esconde si el JS llegó a marcar .js-reveal, para que sin
+         JavaScript el contenido se vea igual. */
+      .js-reveal [data-reveal] {
+        opacity: 0;
+        translate: 0 20px;
+        transition:
+          opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          translate 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        transition-delay: var(--reveal-delay, 0ms);
       }
 
-      /* Scroll-triggered reveal for named sections (below the fold) */
-      @supports (animation-timeline: view()) {
-        [data-section] {
-          animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-          animation-timeline: view();
-          animation-range: entry 0% entry 18%;
-        }
+      .js-reveal [data-reveal].is-revealed {
+        opacity: 1;
+        translate: 0 0;
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .anim-fade-in,
-        [data-section] {
+        .anim-fade-in {
           animation: none !important;
+        }
+
+        .js-reveal [data-reveal] {
+          transition: none !important;
+        }
+
+        .anim-fade-in,
+        .js-reveal [data-reveal] {
           opacity: 1 !important;
           translate: none !important;
         }
       }
     </style>
+
+    <script>
+      /** Escalonado entre hermanos de un mismo [data-reveal-group]. */
+      const STEP_MS = 90
+      const MAX_STEPS = 6
+
+      const setupReveal = () => {
+        const items = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"))
+        if (!items.length) return
+
+        const revealAll = () => items.forEach((el) => el.classList.add("is-revealed"))
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          revealAll()
+          return
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return
+              entry.target.classList.add("is-revealed")
+              observer.unobserve(entry.target)
+            })
+          },
+          // El margen inferior negativo dispara la animación un poco antes de
+          // que el elemento toque el borde de la pantalla.
+          { rootMargin: "0px 0px -12% 0px", threshold: 0 }
+        )
+
+        items.forEach((el) => {
+          const group = el.closest("[data-reveal-group]")
+
+          if (group) {
+            const index = Array.from(group.querySelectorAll("[data-reveal]")).indexOf(el)
+            if (index > 0) {
+              el.style.setProperty("--reveal-delay", `${Math.min(index, MAX_STEPS) * STEP_MS}ms`)
+            }
+          }
+
+          observer.observe(el)
+        })
+
+        // Red de seguridad: si el observer no llegó a marcar lo que ya está en
+        // pantalla, se revela igual. Vale más ver el contenido que la animación.
+        window.setTimeout(() => {
+          items.forEach((el) => {
+            if (el.classList.contains("is-revealed")) return
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+              el.classList.add("is-revealed")
+            }
+          })
+        }, 2500)
+
+        document.addEventListener("astro:before-swap", () => observer.disconnect(), { once: true })
+      }
+
+      const safeSetupReveal = () => {
+        try {
+          setupReveal()
+        } catch {
+          // Ante cualquier fallo, el contenido se muestra sin animación.
+          document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-revealed"))
+        }
+      }
+
+      safeSetupReveal()
+      document.addEventListener("astro:after-swap", safeSetupReveal)
+    </script>
   </body>
 </html>

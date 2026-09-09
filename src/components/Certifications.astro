@@ -1,5 +1,5 @@
 ---
-import { siGoogle, siTerraform, siTensorflow } from "simple-icons"
+import { siTerraform, siTensorflow } from "simple-icons"
 
 type Certification = {
   title: string
@@ -8,7 +8,6 @@ type Certification = {
   expiresAt?: string
   credentialId: string
   credentialUrl?: string
-  certificateImage?: string
   skills?: string[]
   logoLabel: string
   icon?: {
@@ -18,7 +17,6 @@ type Certification = {
   iconText?: string
   iconTextClass?: string
   iconSvg?: string
-  highlighted?: boolean
 }
 
 const awsIconSvg = `<svg viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><text x="8" y="19" font-size="16" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#232F3E">aws</text><path d="M8 23c5 4 21 4 29-1" stroke="#FF9900" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M35 22l2 1.6-2.7.5" fill="#FF9900"/></svg>`
@@ -36,7 +34,6 @@ const certifications: Certification[] = [
     logoLabel: "Google Cloud Skills Boost",
     iconSvg: googleCloudIconSvg,
     skills: ["Cloud", "Security", "Networking"],
-    highlighted: true,
   },
   {
     title: "Developing Generative AI Applications on AWS",
@@ -44,7 +41,6 @@ const certifications: Certification[] = [
     issuedAt: "nov. 2025",
     credentialId: "AWS-TC-2025-11-04",
     credentialUrl: "/cert/aws-developing-generative-ai-applications.png",
-    certificateImage: "/cert/aws-developing-generative-ai-applications.png",
     skills: ["AWS", "Generative AI"],
     logoLabel: "AWS Training and Certification",
     iconSvg: awsIconSvg,
@@ -55,7 +51,6 @@ const certifications: Certification[] = [
     issuedAt: "oct. 2025",
     credentialId: "AWS-TC-2025-10-08",
     credentialUrl: "/cert/aws-architecting-on-aws.png",
-    certificateImage: "/cert/aws-architecting-on-aws.png",
     skills: ["AWS", "Cloud Architecture"],
     logoLabel: "AWS Training and Certification",
     iconSvg: awsIconSvg,
@@ -66,7 +61,6 @@ const certifications: Certification[] = [
     issuedAt: "sep. 2025",
     credentialId: "AWS-TC-2025-09-24",
     credentialUrl: "/cert/aws-developing-on-aws.png",
-    certificateImage: "/cert/aws-developing-on-aws.png",
     skills: ["AWS", "Application Development"],
     logoLabel: "AWS Training and Certification",
     iconSvg: awsIconSvg,
@@ -77,7 +71,6 @@ const certifications: Certification[] = [
     issuedAt: "sep. 2025",
     credentialId: "AWS-TC-2025-09-15",
     credentialUrl: "/cert/aws-generative-ai-essentials.png",
-    certificateImage: "/cert/aws-generative-ai-essentials.png",
     skills: ["AWS", "Generative AI"],
     logoLabel: "AWS Training and Certification",
     iconSvg: awsIconSvg,
@@ -138,147 +131,106 @@ const certifications: Certification[] = [
     credentialUrl: "https://myneo.space/pdf/certificate-n-bt-qkaf-ezgl-wh.pdf",
     skills: ["Ingles"],
     logoLabel: "DynEd International",
-    icon: siGoogle,
+    iconText: "EN",
   },
 ]
 ---
 
-<div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-  {certifications.map((cert) => (
-    <article
-      class:list={[
-        "rounded-[2rem] border border-slate-200/80 bg-gradient-to-b from-white/90 to-slate-50/70 p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700/70 dark:from-slate-950/90 dark:to-slate-900/80",
-        cert.highlighted && "cert-card-highlight",
-      ]}
-    >
-      <div class="flex items-start gap-4">
-        <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 bg-white dark:border-slate-700 dark:bg-slate-950">
-          {cert.icon ? (
-            <svg class="h-7 w-7" viewBox="0 0 24 24" aria-hidden="true" style={`color:#${cert.icon.hex}`}>
-              <path fill="currentColor" d={cert.icon.path}></path>
-            </svg>
-          ) : cert.iconSvg ? (
-            <div class="cert-inline-svg" set:html={cert.iconSvg} />
+
+<div class="space-y-8">
+  <p class="max-w-2xl text-pretty leading-relaxed text-muted" data-i18n="certifications.intro" data-reveal>
+    Todas las credenciales de abajo son verificables: cada una enlaza a su emisor o al certificado
+    original. Es la parte del perfil que no depende de que me creas.
+  </p>
+
+  <div class="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 xl:grid-cols-3" data-reveal-group>
+    {certifications.map((cert) => (
+      <article class="flex flex-col bg-paper p-6 transition-colors duration-300 hover:bg-surface" data-reveal>
+        <div class="flex items-start gap-4">
+          <div class="grid size-12 shrink-0 place-items-center rounded-xl border border-line bg-surface">
+            {cert.icon ? (
+              <svg class="size-6 text-ink" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d={cert.icon.path} />
+              </svg>
+            ) : cert.iconSvg ? (
+              <span class="cert-icon size-7" set:html={cert.iconSvg} />
+            ) : (
+              <span class="font-mono text-xs font-bold tracking-wide text-ink">{cert.iconText ?? "CERT"}</span>
+            )}
+          </div>
+
+          <div class="min-w-0">
+            <h3 class="text-balance text-base font-semibold leading-snug text-ink">{cert.title}</h3>
+            <p class="mt-1 font-mono text-[13px] text-muted">{cert.issuer}</p>
+          </div>
+        </div>
+
+        <dl class="mt-5 space-y-1.5 font-mono text-xs text-faint">
+          <div class="flex gap-2">
+            <dt data-i18n="certifications.issued">Emitida</dt>
+            <dd class="text-muted">{cert.issuedAt}</dd>
+          </div>
+          {cert.expiresAt ? (
+            <div class="flex gap-2">
+              <dt data-i18n="certifications.expires">Vence</dt>
+              <dd class="text-muted">{cert.expiresAt}</dd>
+            </div>
+          ) : null}
+          <div class="flex gap-2">
+            <dt data-i18n="certifications.credentialId">ID</dt>
+            <dd class="break-all text-muted">{cert.credentialId}</dd>
+          </div>
+        </dl>
+
+        {cert.skills?.length ? (
+          <ul class="mt-4 flex flex-wrap gap-1.5">
+            {cert.skills.map((skill) => (
+              <li class="rounded-full border border-line px-2.5 py-0.5 font-mono text-[11px] text-muted">
+                {skill}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+
+        <div class="mt-6 pt-1">
+          {cert.credentialUrl ? (
+            <a
+              href={cert.credentialUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              class="group inline-flex items-center gap-1.5 font-mono text-sm text-ink underline decoration-line underline-offset-4 transition hover:decoration-ink"
+            >
+              <span data-i18n="certifications.showCredential">Verificar credencial</span>
+              <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">-&gt;</span>
+            </a>
           ) : (
-            <span class={`inline-flex items-center justify-center rounded-lg px-2 py-1 text-[11px] font-bold tracking-wide ${cert.iconTextClass ?? "bg-slate-900 text-white"}`}>
-              {cert.iconText ?? "CERT"}
+            <span class="font-mono text-sm text-faint" data-i18n="certifications.noPublicLink">
+              Sin enlace público
             </span>
           )}
         </div>
-        <div class="min-w-0">
-          <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100">{cert.title}</h3>
-          <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{cert.issuer}</p>
-          <p class="mt-2 text-xs uppercase tracking-[0.18em] text-slate-500 dark:text-slate-500">{cert.logoLabel}</p>
-        </div>
-      </div>
-
-      {cert.certificateImage ? (
-        <a href={cert.certificateImage} target="_blank" rel="noreferrer noopener" class="mt-5 block overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-700">
-          <img
-            src={cert.certificateImage}
-            alt={`Certificado de ${cert.title}`}
-            loading="lazy"
-            class="h-40 w-full object-cover object-top transition duration-300 hover:scale-[1.01]"
-          />
-        </a>
-      ) : null}
-
-      <div class="mt-5 grid gap-2 text-sm text-slate-700 dark:text-slate-300">
-        <p><span class="font-medium" data-i18n="certifications.issued">Expedicion:</span> {cert.issuedAt}</p>
-        {cert.expiresAt ? <p><span class="font-medium" data-i18n="certifications.expires">Vencimiento:</span> {cert.expiresAt}</p> : null}
-        <p class="break-all"><span class="font-medium" data-i18n="certifications.credentialId">ID de la credencial:</span> {cert.credentialId}</p>
-      </div>
-
-      {cert.skills?.length ? (
-        <div class="mt-4 flex flex-wrap gap-2">
-          {cert.skills.map((skill) => (
-            <span class="rounded-full border border-slate-200/80 bg-slate-100/80 px-2.5 py-1 text-xs font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-              {skill}
-            </span>
-          ))}
-        </div>
-      ) : null}
-
-      <div class="mt-5">
-        {cert.credentialUrl ? (
-          <a
-            href={cert.credentialUrl}
-            target="_blank"
-            rel="noreferrer noopener"
-            class="inline-flex items-center rounded-xl border border-violet-300/80 bg-violet-50 px-3 py-2 text-sm font-medium text-violet-700 transition hover:bg-violet-100 dark:border-violet-500/50 dark:bg-violet-500/10 dark:text-violet-300 dark:hover:bg-violet-500/20"
-          >
-            <span data-i18n="certifications.showCredential">Mostrar credencial</span>
-          </a>
-        ) : (
-          <span class="inline-flex items-center rounded-xl border border-slate-200/80 bg-slate-100/70 px-3 py-2 text-sm font-medium text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400">
-            <span data-i18n="certifications.noPublicLink">Credencial sin enlace publico</span>
-          </span>
-        )}
-      </div>
-    </article>
-  ))}
+      </article>
+    ))}
+  </div>
 </div>
 
 <style>
-  @property --cert-angle {
-    syntax: "<angle>";
-    inherits: false;
-    initial-value: 0deg;
-  }
-
-  .cert-card-highlight {
-    border: 1px solid transparent;
-    --cert-angle: 0deg;
-    background:
-      linear-gradient(to bottom, rgba(15, 23, 42, 0.88), rgba(2, 6, 23, 0.8)) padding-box,
-      conic-gradient(
-        from var(--cert-angle),
-        rgba(34, 197, 94, 0.2) 0deg,
-        rgba(56, 189, 248, 0.95) 95deg,
-        rgba(34, 197, 94, 0.95) 185deg,
-        rgba(56, 189, 248, 0.32) 285deg,
-        rgba(34, 197, 94, 0.2) 360deg
-      ) border-box;
-    animation: cert-border-spin 3.2s linear infinite;
-    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.1), 0 8px 24px rgba(14, 165, 233, 0.08);
-  }
-
-  @keyframes cert-border-spin {
-    to {
-      --cert-angle: 1turn;
-    }
-  }
-
-  :global(.dark) .cert-card-highlight {
-    background:
-      linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.82)) padding-box,
-      conic-gradient(
-        from var(--cert-angle),
-        rgba(34, 197, 94, 0.2) 0deg,
-        rgba(56, 189, 248, 0.92) 95deg,
-        rgba(34, 197, 94, 0.92) 185deg,
-        rgba(56, 189, 248, 0.3) 285deg,
-        rgba(34, 197, 94, 0.2) 360deg
-      ) border-box;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .cert-card-highlight {
-      animation: none;
-    }
-  }
-
-  .cert-inline-svg {
-    width: 2.1rem;
-    height: 2.1rem;
+  /* Los logos de los emisores vienen a color: se neutralizan a escala de grises
+     para respetar la paleta, sin perder la forma que los hace reconocibles. */
+  .cert-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    filter: grayscale(1) contrast(1.05);
   }
 
-  .cert-inline-svg :global(svg) {
+  .cert-icon :global(svg) {
     width: 100%;
     height: 100%;
     display: block;
+  }
+
+  :global(.dark) .cert-icon {
+    filter: grayscale(1) brightness(1.9) contrast(0.9);
   }
 </style>

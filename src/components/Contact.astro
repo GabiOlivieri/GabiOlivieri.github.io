@@ -1,0 +1,61 @@
+---
+import GitHubIcon from "@/components/icons/GitHub.astro"
+import LinkedInIcon from "@/components/icons/LinkedIn.astro"
+import MailIcon from "@/components/icons/Mail.astro"
+import ArrowRight from "@/components/icons/ArrowRight.astro"
+
+const email = "gabriel.olivieri@adini.com.ar"
+
+const channels = [
+  { href: `mailto:${email}`, label: "Email", value: email, Icon: MailIcon },
+  {
+    href: "https://www.linkedin.com/in/gabriel-olivieri-38437b1bb/",
+    label: "LinkedIn",
+    value: "in/gabriel-olivieri",
+    Icon: LinkedInIcon,
+  },
+  { href: "https://github.com/GabiOlivieri", label: "GitHub", value: "GabiOlivieri", Icon: GitHubIcon },
+]
+---
+
+<div class="rounded-2xl border border-line bg-surface/60 p-8 backdrop-blur-sm sm:p-12" data-reveal>
+  <p class="label-code">/ contacto</p>
+
+  <h2 class="mt-4 text-balance text-2xl font-bold tracking-tight text-ink sm:text-4xl">
+    <span data-i18n="contact.headline">¿Tenés una posición o un proyecto en mente?</span>
+  </h2>
+
+  <p class="mt-4 max-w-xl text-pretty leading-relaxed text-muted" data-i18n="contact.body">
+    Respondo todos los mensajes. Si es una búsqueda laboral, contame el equipo, el producto y el
+    stack; si es un proyecto, el problema que querés resolver.
+  </p>
+
+  <a
+    href={`mailto:${email}`}
+    class="group mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-mono text-sm font-medium text-paper transition hover:opacity-85"
+  >
+    <span data-i18n="contact.cta">Escribime</span>
+    <ArrowRight class="size-4 transition-transform group-hover:translate-x-0.5" />
+  </a>
+
+  <ul class="mt-10 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-3">
+    {
+      channels.map(({ href, label, value, Icon }) => (
+        <li>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-full items-center gap-3 bg-paper px-4 py-4 transition-colors hover:bg-surface"
+          >
+            <Icon class="size-4 shrink-0 text-faint" />
+            <span class="min-w-0">
+              <span class="label-code block">{label}</span>
+              <span class="block truncate font-mono text-[13px] text-ink">{value}</span>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

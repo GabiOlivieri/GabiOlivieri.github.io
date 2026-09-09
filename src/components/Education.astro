@@ -3,10 +3,10 @@ import ExperienceItem from "./ExperienceItem.astro"
 import education from "@/data/education.json"
 ---
 
-<ol class="relative mt-16" aria-label="Formación académica">
+<ol class="relative mt-16" aria-label="Formación académica" data-reveal-group>
   {
     education.map((item, i) => (
-      <li class="anim-fade-in" style={`animation-delay: ${i * 150}ms`}>
+      <li data-reveal>
         <ExperienceItem {...item} i18nKeyPrefix={`education.items.${i}`} />
       </li>
     ))

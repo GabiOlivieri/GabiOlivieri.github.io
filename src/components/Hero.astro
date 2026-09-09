@@ -1,73 +1,151 @@
 ---
-const personalImageAlt = "Gabriel Olivieri"
-import Badge from "@/components/Badge.astro"
 import GitHubIcon from "@/components/icons/GitHub.astro"
 import LinkedInIcon from "@/components/icons/LinkedIn.astro"
 import MailIcon from "@/components/icons/Mail.astro"
-import BriefcaseIcon from "@/components/icons/Briefcase.astro"
-import SocialPill from "@/components/SocialPill.astro"
+import ArrowRight from "@/components/icons/ArrowRight.astro"
+
+const personalImageAlt = "Gabriel Olivieri"
+
+/** Etiquetas cortas: en la tarjeta el número manda y el rótulo entra en una línea. */
+const stats = [
+  { value: "+5", label: "Años", i18nKey: "hero.statsShort.years" },
+  { value: "10", label: "Proyectos", i18nKey: "hero.statsShort.projects" },
+  { value: "11", label: "Certificaciones", i18nKey: "hero.statsShort.certs" },
+]
+
+const identity = [
+  { key: "org", value: "Visma LATAM · ADINI" },
+  { key: "loc", value: "Buenos Aires, AR" },
+]
+
+const socials = [
+  { href: "mailto:gabriel.olivieri@adini.com.ar", label: "Email", Icon: MailIcon },
+  { href: "https://www.linkedin.com/in/gabriel-olivieri-38437b1bb/", label: "LinkedIn", Icon: LinkedInIcon },
+  { href: "https://github.com/GabiOlivieri", label: "GitHub", Icon: GitHubIcon },
+]
 ---
 
-<div class="max-w-4xl mx-auto text-center">
-  <div class="anim-fade-in flex justify-center gap-4 mb-6 items-center">
-    <!-- Avatar with ambient glow -->
-    <div class="relative flex-shrink-0">
-      <div
-        class="absolute inset-0 rounded-full bg-violet-400/30 dark:bg-sky-500/20 blur-xl scale-125"
-        aria-hidden="true"
+<div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,23rem)]">
+  <div>
+    <div class="anim-fade-in flex items-center gap-3">
+      <span class="relative flex size-2" aria-hidden="true">
+        <span class="absolute inline-flex size-full animate-ping rounded-full bg-ink/40 motion-reduce:animate-none"
+        ></span>
+        <span class="relative inline-flex size-2 rounded-full bg-ink"></span>
+      </span>
+      <span class="label-code" data-i18n="hero.availability">Disponible para nuevos proyectos</span>
+    </div>
+
+    <h1
+      class="anim-fade-in anim-delay-1 mt-5 text-balance text-4xl font-bold tracking-tight text-ink sm:text-6xl"
+    >
+      Gabriel Olivieri
+    </h1>
+
+    <p class="anim-fade-in anim-delay-1 mt-3 font-mono text-base text-muted sm:text-lg">
+      <span class="text-ink">Full Stack Developer</span>
+      <span class="text-faint"> · </span>
+      <span data-i18n="hero.role">Cloud &amp; DevOps</span>
+    </p>
+
+    <p
+      data-i18n="hero.summary"
+      class="anim-fade-in anim-delay-2 mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted"
+    >
+      Construyo y sostengo plataformas de negocio: identidad y accesos, integraciones y despliegues
+      confiables en la nube. Trabajo con foco en lo que ya está en producción y tiene usuarios reales
+      del otro lado.
+    </p>
+
+    <div class="anim-fade-in anim-delay-3 mt-8 flex flex-wrap items-center gap-3">
+      <a
+        href="#contacto"
+        class="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 font-mono text-sm font-medium text-paper transition hover:opacity-85"
       >
+        <span data-i18n="hero.ctaPrimary">Hablemos</span>
+        <ArrowRight class="size-4 transition-transform group-hover:translate-x-0.5" />
+      </a>
+      <a
+        href="#proyectos"
+        class="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 font-mono text-sm font-medium text-ink transition hover:border-ink"
+      >
+        <span data-i18n="hero.ctaSecondary">Ver proyectos</span>
+      </a>
+
+      <div class="ml-1 flex items-center gap-1">
+        {
+          socials.map(({ href, label, Icon }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              title={label}
+              class="grid size-10 place-items-center rounded-full border border-line text-muted transition hover:border-ink hover:text-ink"
+            >
+              <Icon class="size-4" />
+            </a>
+          ))
+        }
       </div>
-      <img
-        class="relative rounded-full shadow-2xl w-32 h-32 object-cover object-center ring-2 ring-violet-400/60 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-950"
-        src="/IMG-20220928-WA0013-01.jpeg"
-        alt={personalImageAlt}
-      />
     </div>
   </div>
 
-  <h1
-    class="anim-fade-in anim-delay-1 text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
-  >
-    <span data-i18n="hero.greeting">Hola, soy</span> <span class="gradient-name">Gabriel Olivieri</span>
-  </h1>
+  <!-- Tarjeta tipo terminal: da el tono "dev" sin recurrir a color.
+       La foto ocupa el ancho completo para que sea lo primero que se lee. -->
+  <aside class="anim-fade-in anim-delay-4 w-full max-w-sm justify-self-center lg:max-w-none lg:justify-self-end">
+    <div class="overflow-hidden rounded-2xl border border-line bg-surface/80 shadow-sm backdrop-blur-sm">
+      <div class="flex items-center gap-2 border-b border-line px-4 py-3">
+        <span class="size-2.5 rounded-full border border-line bg-paper"></span>
+        <span class="size-2.5 rounded-full border border-line bg-paper"></span>
+        <span class="size-2.5 rounded-full border border-line bg-paper"></span>
+        <span class="ml-2 font-mono text-[11px] text-faint">~/gabriel-olivieri</span>
+      </div>
 
-  <p
-    data-i18n-html="hero.descriptionHtml"
-    class="anim-fade-in anim-delay-2 mt-6 text-xl text-gray-800 dark:[&>strong]:text-violet-200 [&>strong]:text-violet-500 [&>strong]:font-semibold dark:text-gray-300 max-w-4xl"
-  >
-  Soy <strong>Full stack Developer </strong>, especializado en crear soluciones digitales que combinan innovación técnica, adaptabilidad y un compromiso obsesivo con el valor para el usuario.<br>
-  Lidero con el ejemplo, disfruto potenciando equipos y me meto de lleno en desafíos complejos donde la solución no está escrita.<br>
-  Si tenés un proyecto ambicioso, <strong>hablemos.</strong>
-  </p>
+      <div class="group relative overflow-hidden border-b border-line bg-paper">
+        <img
+          class="aspect-square w-full object-cover object-center grayscale transition duration-700 group-hover:scale-[1.03]"
+          src="/IMG-20220928-WA0013-01.jpeg"
+          alt={personalImageAlt}
+          width="472"
+          height="472"
+          fetchpriority="high"
+        />
+        <!-- Velo inferior: apoya el texto sin introducir color. -->
+        <div
+          class="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/75 via-black/25 to-transparent"
+          aria-hidden="true"
+        >
+        </div>
+        <div class="absolute bottom-4 left-5 right-5">
+          <p class="font-mono text-sm font-semibold text-white">Gabriel Olivieri</p>
+          <p class="mt-0.5 font-mono text-[11px] text-white/70">Senior Full Stack Developer</p>
+        </div>
+      </div>
 
-  <nav
-    class="anim-fade-in anim-delay-4 flex flex-wrap justify-center gap-4 mt-8"
-    aria-label="Redes sociales y contacto"
-    data-i18n-attr="aria-label:hero.socialAria"
-  >
-    <SocialPill href="mailto:gabriel.olivieri@adini.com.ar">
-      <MailIcon class="size-4" />
-      <span data-i18n="hero.contact">Contacto</span>
-    </SocialPill>
-    <SocialPill href="https://www.linkedin.com/in/gabriel-olivieri-38437b1bb/">
-      <LinkedInIcon class="size-4" />
-      LinkedIn
-    </SocialPill>
-    <SocialPill href="https://github.com/GabiOlivieri">
-      <GitHubIcon class="size-4" />
-      GitHub
-    </SocialPill>
-    <Badge><BriefcaseIcon class="size-4" /> Upwork</Badge>
-  </nav>
+      <dl class="divide-y divide-line">
+        {
+          identity.map((row) => (
+            <div class="flex items-baseline justify-between gap-4 px-5 py-2.5">
+              <dt class="label-code shrink-0">{row.key}</dt>
+              <dd class="truncate font-mono text-[13px] text-ink">{row.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
 
-  <div class="anim-fade-in anim-delay-5 mt-10 grid gap-4 sm:grid-cols-2">
-    <div class="rounded-3xl border border-slate-200/80 bg-slate-50/80 p-6 text-center shadow-sm backdrop-blur-sm dark:border-slate-700/70 dark:bg-slate-900/80">
-      <span class="block text-sm uppercase tracking-[0.3em] text-slate-500" data-i18n="hero.years">Años en la industria</span>
-      <p class="mt-3 text-4xl font-semibold text-violet-600 dark:text-violet-400">+5</p>
+      <dl class="grid grid-cols-3 divide-x divide-line border-t border-line">
+        {
+          stats.map((stat) => (
+            <div class="flex flex-col items-center gap-1.5 px-2 py-4 text-center">
+              <dd class="font-mono text-2xl font-semibold leading-none text-ink">{stat.value}</dd>
+              <dt class="label-code text-[10px] tracking-[0.08em]" data-i18n={stat.i18nKey}>
+                {stat.label}
+              </dt>
+            </div>
+          ))
+        }
+      </dl>
     </div>
-    <div class="rounded-3xl border border-slate-200/80 bg-slate-50/80 p-6 text-center shadow-sm backdrop-blur-sm dark:border-slate-700/70 dark:bg-slate-900/80">
-      <span class="block text-sm uppercase tracking-[0.3em] text-slate-500" data-i18n="hero.projects">Proyectos realizados</span>
-      <p class="mt-3 text-4xl font-semibold text-sky-600 dark:text-sky-400">+8</p>
-    </div>
-  </div>
+  </aside>
 </div>

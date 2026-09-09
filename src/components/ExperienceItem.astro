@@ -15,46 +15,35 @@ interface Props {
 const { title, company, description, link, date, current = false, i18nKeyPrefix } = Astro.props
 ---
 
-<div
-  class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]"
->
-  <div class="relative pb-12 md:col-span-2">
-    <div class="sticky top-0">
-      <!-- Title row with dot: flex ensures perfect vertical centering -->
-      <div class="flex items-center">
-        <span
-          class="absolute -left-[42px] flex size-[14px] items-center justify-center"
-          aria-hidden="true"
-        >
-          {current && (
-            <span class="animate-ping motion-reduce:animate-none absolute inline-flex size-full rounded-full bg-violet-400/40"></span>
-          )}
-          <span
-            class={`relative inline-flex size-[10px] rounded-full bg-violet-400 ${current ? "shadow-[0_0_8px_2px_rgba(167,139,250,0.45)]" : ""}`}
-          ></span>
-        </span>
-          <h3 class="text-xl font-bold text-violet-400">
-            <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.title` : undefined}>{title}</span>
-          </h3>
-      </div>
-        <h4 class="font-semibold text-xl text-gray-600 dark:text-white">
-          <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.company` : undefined}>{company}</span>
-        </h4>
-        <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">
-          <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.date` : undefined}>{date}</span>
-        </time>
-    </div>
+<div class="relative grid gap-4 border-l border-line pb-12 pl-8 md:grid-cols-5 md:gap-10">
+  <!-- Punto del timeline: relleno si es el puesto actual, hueco si es pasado. -->
+  <span class="absolute -left-[4.5px] top-1.5 flex size-2 items-center justify-center" aria-hidden="true">
+    {current && <span class="absolute inline-flex size-full animate-ping rounded-full bg-ink/40 motion-reduce:animate-none" />}
+    <span
+      class={`relative inline-flex size-2 rounded-full ${current ? "bg-ink" : "border border-faint bg-paper"}`}
+    ></span>
+  </span>
+
+  <div class="md:col-span-2">
+    <time class="label-code">
+      <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.date` : undefined}>{date}</span>
+    </time>
+    <h3 class="mt-2 text-lg font-semibold leading-snug text-ink">
+      <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.title` : undefined}>{title}</span>
+    </h3>
+    <p class="mt-1 font-mono text-sm text-muted">
+      <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.company` : undefined}>{company}</span>
+    </p>
   </div>
-  <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
-      <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.description` : undefined}>{description}</span>
+
+  <div class="flex flex-col items-start gap-3 text-pretty leading-relaxed text-muted md:col-span-3">
+    <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.description` : undefined}>{description}</span>
     {
       link && (
         <LinkInline href={link}>
           <span data-i18n="experience.moreAbout">Saber más sobre</span>{" "}
-          <span class="ml-1" data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.company` : undefined}
-            >{company}</span
-          >{" "}
-          <ArrowRight class="size-5" aria-hidden="true" />
+          <span data-i18n={i18nKeyPrefix ? `${i18nKeyPrefix}.company` : undefined}>{company}</span>
+          <ArrowRight class="size-4" aria-hidden="true" />
         </LinkInline>
       )
     }

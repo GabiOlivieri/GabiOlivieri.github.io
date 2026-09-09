@@ -6,53 +6,23 @@ import en from "@/data/i18n/en.json"
 const translations = { es, en }
 
 const navItems = [
-  {
-    title: es.nav.experiencia,
-    i18nKey: "nav.experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
-  },
-  {
-    title: es.nav.formacion,
-    i18nKey: "nav.formacion",
-    label: "formacion",
-    url: "/#formacion",
-  },
-  {
-    title: es.nav.servicios,
-    i18nKey: "nav.servicios",
-    label: "servicios",
-    url: "/#servicios",
-  },
-  {
-    title: es.nav.stack,
-    i18nKey: "nav.stack",
-    label: "stack",
-    url: "/#stack",
-  },
-  {
-    title: es.nav.certificaciones,
-    i18nKey: "nav.certificaciones",
-    label: "certificaciones",
-    url: "/#certificaciones",
-  },
-  {
-    title: es.nav.proyectos,
-    i18nKey: "nav.proyectos",
-    label: "proyectos",
-    url: "/#proyectos",
-  },
+  { title: es.nav.servicios, i18nKey: "nav.servicios", label: "servicios", url: "/#servicios" },
+  { title: es.nav.experiencia, i18nKey: "nav.experiencia", label: "experiencia", url: "/#experiencia" },
+  { title: es.nav.proyectos, i18nKey: "nav.proyectos", label: "proyectos", url: "/#proyectos" },
+  { title: es.nav.certificaciones, i18nKey: "nav.certificaciones", label: "certificaciones", url: "/#certificaciones" },
+  { title: es.nav.stack, i18nKey: "nav.stack", label: "stack", url: "/#stack" },
+  { title: es.nav.formacion, i18nKey: "nav.formacion", label: "formacion", url: "/#formacion" },
 ]
 ---
 
-<header class="fixed top-0 z-20 w-full mt-4 px-4">
+<header class="fixed top-0 z-20 mt-4 w-full px-4">
   <nav
-    class="header-nav hidden md:flex gap-x-1 px-4 py-1.5 text-sm font-medium rounded-full text-gray-600 dark:text-gray-300 justify-center items-center border border-transparent mx-auto w-max"
+    class="header-nav mx-auto hidden w-max items-center justify-center gap-x-0.5 rounded-full border border-transparent px-2 py-1.5 font-mono text-[13px] text-muted md:flex"
   >
     {
       navItems.map((link) => (
         <a
-          class="nav-link relative block px-3 py-1.5 rounded-full transition-colors duration-200 hover:text-violet-500 dark:hover:text-violet-400"
+          class="nav-link relative block rounded-full px-3 py-1.5 transition-colors duration-200 hover:text-ink"
           aria-label={link.label}
           href={link.url}
         >
@@ -60,34 +30,30 @@ const navItems = [
         </a>
       ))
     }
-    <div class="ml-2 pl-2 border-l border-gray-300/30 dark:border-white/10 inline-flex gap-1">
+    <div class="ml-2 inline-flex gap-0.5 border-l border-line pl-2">
       <button
         type="button"
-        class="lang-btn rounded-full px-2 py-1 text-xs font-semibold transition-colors hover:text-violet-500 dark:hover:text-violet-400"
+        class="lang-btn rounded-full px-2 py-1 font-mono text-[11px] font-semibold transition-colors hover:text-ink"
         data-lang-switch="es"
         data-i18n="lang.es"
-        aria-label="Cambiar a español"
+        aria-label="Cambiar a español">ES</button
       >
-        ES
-      </button>
       <button
         type="button"
-        class="lang-btn rounded-full px-2 py-1 text-xs font-semibold transition-colors hover:text-violet-500 dark:hover:text-violet-400"
+        class="lang-btn rounded-full px-2 py-1 font-mono text-[11px] font-semibold transition-colors hover:text-ink"
         data-lang-switch="en"
         data-i18n="lang.en"
-        aria-label="Switch to English"
+        aria-label="Switch to English">EN</button
       >
-        EN
-      </button>
     </div>
-    <div class="ml-2 pl-2 border-l border-gray-300/30 dark:border-white/10">
+    <div class="ml-2 border-l border-line pl-2">
       <ThemeToggle />
     </div>
   </nav>
 
   <details class="mobile-nav ml-auto w-fit md:hidden">
     <summary
-      class="mobile-toggle list-none grid place-items-center size-11 rounded-full border border-gray-200/70 bg-white/90 text-gray-700 shadow-lg ring-1 ring-white/20 backdrop-blur-md dark:bg-gray-900/90 dark:text-gray-200 dark:border-white/10 dark:ring-white/10"
+      class="mobile-toggle grid size-11 list-none place-items-center rounded-full border border-line bg-surface/90 text-ink shadow-sm backdrop-blur-md"
       aria-label={es.nav.openMenu}
       data-i18n-attr="aria-label:nav.openMenu"
     >
@@ -97,11 +63,13 @@ const navItems = [
         <span class="line line-3"></span>
       </span>
     </summary>
-    <nav class="mobile-menu mt-2 w-[min(18rem,calc(100vw-2rem))] rounded-2xl border border-gray-200/70 bg-white/95 p-2 text-gray-700 shadow-xl ring-1 ring-white/20 backdrop-blur-md dark:bg-gray-900/95 dark:text-gray-200 dark:border-white/10 dark:ring-white/10">
+    <nav
+      class="mobile-menu mt-2 w-[min(18rem,calc(100vw-2rem))] rounded-2xl border border-line bg-surface/95 p-2 text-muted shadow-xl backdrop-blur-md"
+    >
       {
         navItems.map((link) => (
           <a
-            class="nav-link block rounded-xl px-3 py-2.5 text-sm font-medium transition-colors duration-200 hover:text-violet-500 dark:hover:text-violet-400"
+            class="nav-link block rounded-xl px-3 py-2.5 font-mono text-sm transition-colors duration-200 hover:text-ink"
             aria-label={link.label}
             href={link.url}
           >
@@ -109,32 +77,26 @@ const navItems = [
           </a>
         ))
       }
-      <div class="mt-2 pt-2 border-t border-gray-200/70 dark:border-white/10 flex items-center justify-between">
-        <span class="text-xs uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400" data-i18n="lang.selector"
-          >Idioma</span
-        >
+      <div class="mt-2 flex items-center justify-between border-t border-line pt-2">
+        <span class="label-code" data-i18n="lang.selector">Idioma</span>
         <div class="inline-flex gap-1">
           <button
             type="button"
-            class="lang-btn rounded-full px-2 py-1 text-xs font-semibold transition-colors hover:text-violet-500 dark:hover:text-violet-400"
+            class="lang-btn rounded-full px-2 py-1 font-mono text-[11px] font-semibold transition-colors hover:text-ink"
             data-lang-switch="es"
             data-i18n="lang.es"
-            aria-label="Cambiar a español"
+            aria-label="Cambiar a español">ES</button
           >
-            ES
-          </button>
           <button
             type="button"
-            class="lang-btn rounded-full px-2 py-1 text-xs font-semibold transition-colors hover:text-violet-500 dark:hover:text-violet-400"
+            class="lang-btn rounded-full px-2 py-1 font-mono text-[11px] font-semibold transition-colors hover:text-ink"
             data-lang-switch="en"
             data-i18n="lang.en"
-            aria-label="Switch to English"
+            aria-label="Switch to English">EN</button
           >
-            EN
-          </button>
         </div>
       </div>
-      <div class="mt-2 pt-2 border-t border-gray-200/70 dark:border-white/10 flex justify-end">
+      <div class="mt-2 flex justify-end border-t border-line pt-2">
         <ThemeToggle />
       </div>
     </nav>
@@ -148,16 +110,11 @@ const navItems = [
     const mobileNav = document.querySelector(".mobile-nav")
     const langButtons = document.querySelectorAll("[data-lang-switch]")
 
-    const getValueByPath = (obj, path) =>
-      path.split(".").reduce((acc, key) => acc?.[key], obj)
+    const getValueByPath = (obj, path) => path.split(".").reduce((acc, key) => acc?.[key], obj)
 
     const setLanguageButtonState = (lang) => {
       langButtons.forEach((button) => {
-        if (button.dataset.langSwitch === lang) {
-          button.classList.add("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
-        } else {
-          button.classList.remove("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
-        }
+        button.classList.toggle("is-active", button.dataset.langSwitch === lang)
       })
     }
 
@@ -169,18 +126,14 @@ const navItems = [
         const key = element.getAttribute("data-i18n")
         if (!key) return
         const value = getValueByPath(dict, key)
-        if (typeof value === "string") {
-          element.textContent = value
-        }
+        if (typeof value === "string") element.textContent = value
       })
 
       document.querySelectorAll("[data-i18n-html]").forEach((element) => {
         const key = element.getAttribute("data-i18n-html")
         if (!key) return
         const value = getValueByPath(dict, key)
-        if (typeof value === "string") {
-          element.innerHTML = value
-        }
+        if (typeof value === "string") element.innerHTML = value
       })
 
       document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
@@ -188,14 +141,10 @@ const navItems = [
         if (!descriptor) return
         const [attrName, key] = descriptor.split(":")
         const value = getValueByPath(dict, key)
-        if (attrName && typeof value === "string") {
-          element.setAttribute(attrName, value)
-        }
+        if (attrName && typeof value === "string") element.setAttribute(attrName, value)
       })
 
-      if (typeof dict.page?.title === "string") {
-        document.title = dict.page.title
-      }
+      if (typeof dict.page?.title === "string") document.title = dict.page.title
 
       const descriptionMeta = document.querySelector('meta[name="description"]')
       if (descriptionMeta && typeof dict.page?.description === "string") {
@@ -207,25 +156,15 @@ const navItems = [
 
     const detectLanguage = () => {
       const savedLanguage = localStorage.getItem("site-language")
-      if (savedLanguage === "es" || savedLanguage === "en") {
-        return savedLanguage
-      }
-
+      if (savedLanguage === "es" || savedLanguage === "en") return savedLanguage
       return navigator.language.toLowerCase().startsWith("en") ? "en" : "es"
     }
 
-    const initialLanguage = detectLanguage()
-    applyTranslations(initialLanguage)
+    applyTranslations(detectLanguage())
 
     const setActiveNavItem = (sectionId) => {
       navItems.forEach((item) => {
-        if (item.getAttribute("aria-label") == sectionId) {
-          item.classList.add("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
-          item.classList.remove("text-gray-600", "dark:text-gray-300")
-        } else {
-          item.classList.remove("text-violet-500", "dark:text-violet-400", "bg-violet-400/10")
-          item.classList.add("text-gray-600", "dark:text-gray-300")
-        }
+        item.classList.toggle("is-active", item.getAttribute("aria-label") === sectionId)
       })
     }
 
@@ -243,9 +182,7 @@ const navItems = [
       let activeSectionId = sections[0].id
 
       sections.forEach((section) => {
-        if (section.offsetTop <= scrollLine) {
-          activeSectionId = section.id
-        }
+        if (section.offsetTop <= scrollLine) activeSectionId = section.id
       })
 
       setActiveNavItem(activeSectionId)
@@ -256,12 +193,8 @@ const navItems = [
     window.addEventListener("resize", updateActiveSection)
 
     if (mobileNav) {
-      const mobileLinks = mobileNav.querySelectorAll("a")
-
-      mobileLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileNav.removeAttribute("open")
-        })
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => mobileNav.removeAttribute("open"))
       })
 
       document.addEventListener("click", (event) => {
@@ -299,12 +232,14 @@ const navItems = [
   }
 
   .hamburger .line {
-    height: 2px;
+    height: 1.5px;
     width: 100%;
     border-radius: 9999px;
     background-color: currentColor;
     transform-origin: center;
-    transition: transform 220ms ease, opacity 180ms ease;
+    transition:
+      transform 220ms ease,
+      opacity 180ms ease;
   }
 
   .mobile-nav[open] .line-1 {
@@ -319,30 +254,25 @@ const navItems = [
     transform: translateY(-0.41rem) rotate(-45deg);
   }
 
-  .mobile-nav[open] .mobile-toggle {
-    @apply text-violet-500 dark:text-violet-400;
+  /* Estado activo: monocromo, se marca con fondo tinta invertida. */
+  .nav-link.is-active,
+  .lang-btn.is-active {
+    @apply bg-ink font-semibold text-paper;
   }
 
   .header-nav {
+    @apply bg-paper/70;
     animation: nav-appear 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
 
-  .header-nav {
-    @apply dark:bg-gray-900/80 bg-white/60;
-  }
-
-  .nav-link.text-violet-500 {
-    @apply font-semibold;
-  }
-
   @keyframes nav-appear {
     0% {
-      @apply dark:bg-gray-900/0 bg-white/0 border-transparent shadow-none;
+      @apply border-transparent bg-paper/0 shadow-none;
     }
     to {
-      @apply shadow-lg ring-1 backdrop-blur-md ring-white/10 dark:ring-white/5 border-gray-200/20 dark:border-white/5;
+      @apply border-line bg-paper/80 shadow-sm backdrop-blur-md;
     }
   }
 </style>

@@ -1,15 +1,15 @@
 {
   "page": {
     "title": "Gabriel Olivieri - Full Stack Developer",
-    "description": "Portfolio personal de Gabriel Olivieri. Full Stack Developer con +5 años de experiencia creando soluciones digitales innovadoras. Explora mi experiencia laboral, formación académica, stack tecnológico, certificaciones y proyectos destacados."
+    "description": "Portfolio de Gabriel Olivieri, Full Stack Developer con +5 años de experiencia en plataformas web, identidad y accesos, cloud y DevOps. Experiencia, certificaciones verificables y proyectos entregados."
   },
   "nav": {
+    "servicios": "Foco",
     "experiencia": "Experiencia",
-    "formacion": "Formación",
-    "stack": "Stack",
-    "certificaciones": "Certificaciones",
     "proyectos": "Proyectos",
-    "servicios": "Servicios",
+    "certificaciones": "Certificaciones",
+    "stack": "Stack",
+    "formacion": "Formación",
     "openMenu": "Abrir menú de navegación"
   },
   "lang": {
@@ -18,116 +18,89 @@
     "selector": "Idioma"
   },
   "sections": {
+    "servicios": "Áreas de foco",
     "experiencia": "Experiencia laboral",
-    "formacion": "Formación académica",
-    "stack": "Stack",
-    "certificaciones": "Certificaciones y badges",
     "proyectos": "Proyectos",
-    "servicios": "Servicios"
-  },
-  "stackCards": {
-    "frontend": {
-      "title": "Front end",
-      "caption": "UI moderna y accesible"
-    },
-    "backend": {
-      "title": "Back end",
-      "caption": "APIs y servicios escalables"
-    },
-    "databases": {
-      "title": "Bases de datos",
-      "caption": "Persistencia y directorios"
-    },
-    "cicd": {
-      "title": "CI/CD y automatización",
-      "caption": "Pipelines y despliegue continuo"
-    },
-    "scripting": {
-      "title": "Scripting",
-      "caption": "Automatizaciones y tooling"
-    },
-    "virtualization": {
-      "title": "Virtualización",
-      "caption": "Contenedores y orquestación"
-    }
+    "certificaciones": "Certificaciones",
+    "stack": "Stack",
+    "formacion": "Formación académica"
   },
   "hero": {
-    "greeting": "Hola, soy",
-    "descriptionHtml": "Soy <strong>Full stack Developer </strong>, especializado en crear soluciones digitales que combinan innovación técnica, adaptabilidad y un compromiso obsesivo con el valor para el usuario.<br>Lidero con el ejemplo, disfruto potenciando equipos y me meto de lleno en desafíos complejos donde la solución no está escrita.<br>Si tenés un proyecto ambicioso, <strong>hablemos.</strong>",
-    "socialAria": "Redes sociales y contacto",
-    "contact": "Contacto",
-    "years": "Años en la industria",
-    "projects": "Proyectos realizados"
-  },
-  "footer": {
-    "experiencia": "Experiencia",
-    "formacion": "Formación",
-    "stack": "Stack",
-    "certificaciones": "Certificaciones",
-    "proyectos": "Proyectos",
-    "servicios": "Servicios",
-    "contact": "Contacto"
+    "availability": "Disponible para nuevos proyectos",
+    "role": "Cloud & DevOps",
+    "summary": "Construyo y sostengo plataformas de negocio: identidad y accesos, integraciones y despliegues confiables en la nube. Trabajo con foco en lo que ya está en producción y tiene usuarios reales del otro lado.",
+    "ctaPrimary": "Hablemos",
+    "ctaSecondary": "Ver proyectos",
+    "stats": {
+      "years": "Años en la industria",
+      "projects": "Proyectos entregados",
+      "certs": "Certificaciones vigentes"
+    },
+    "statsShort": {
+      "years": "Años",
+      "projects": "Proyectos",
+      "certs": "Certificaciones"
+    }
   },
   "services": {
-    "intro": "Diseño y ejecuto soluciones digitales centradas en negocio, experiencia de usuario y escalabilidad tecnológica.",
-    "ai": {
-      "tag": "Servicio estratégico",
-      "title": "Inteligencia Artificial Generativa y Agéntica",
+    "intro": "No hago de todo. Estas son las cuatro áreas donde tengo trabajo entregado, certificaciones que lo respaldan y criterio propio para decidir.",
+    "product": {
+      "title": "Plataformas y productos web",
       "points": [
-        "IA Agéntica: Sistemas que actúan de forma autónoma para resolver flujos de trabajo complejos.",
-        "Personalización a Escala: Software que usa modelos de lenguaje para adaptar experiencia de usuario y marketing en tiempo real."
+        "Aplicaciones full stack de punta a punta: modelo de datos, API, interfaz y puesta en producción.",
+        "Refactor y mantenimiento de sistemas ya en uso, sin cortar el servicio a los usuarios."
       ]
     },
-    "saas": {
-      "tag": "Servicio estratégico",
-      "title": "Gestión Empresarial y Productividad (SaaS)",
+    "identity": {
+      "title": "Identidad, accesos y seguridad",
       "points": [
-        "ERP: Soluciones como SAP, Oracle y Sage para gestionar finanzas, logística y recursos humanos.",
-        "CRM: Plataformas como Salesforce y HubSpot para gestión comercial y relacionamiento con clientes.",
-        "Gestión de Proyectos: Herramientas como Jira, monday.com y ClickUp con automatizaciones para optimizar tiempos."
-      ]
-    },
-    "security": {
-      "tag": "Servicio estratégico",
-      "title": "Ciberseguridad y Cumplimiento",
-      "points": [
-        "DevSecOps: Seguridad integrada desde el inicio del ciclo de desarrollo.",
-        "Gestion de identidad y protocolos de autenticación: Soluciones como Keycloak o proveedores de identidad con protocolos OpenID Connect o SAML2."
+        "Single Sign-On y federación con Keycloak, OpenID Connect y SAML 2.0.",
+        "Prácticas DevSecOps integradas al ciclo de desarrollo, no agregadas al final."
       ]
     },
     "cloud": {
-      "tag": "Servicio estratégico",
-      "title": "Infraestructura y Desarrollo (Cloud Native)",
+      "title": "Cloud y DevOps",
       "points": [
-        "Nube Híbrida y Distribuida: Arquitecturas sobre AWS, Azure y Google Cloud para escalar con gobernanza centralizada.",
-        "Contenerización: Uso de Docker y Kubernetes para ejecutar aplicaciones de forma consistente en cualquier entorno."
+        "Arquitecturas sobre AWS y Google Cloud, con infraestructura como código.",
+        "Contenedores, orquestación y pipelines de despliegue continuo con GitLab CI y Jenkins."
       ]
     },
-    "vertical": {
-      "tag": "Servicio estratégico",
-      "title": "Soluciones Sectoriales Específicas (Vertical SaaS)",
+    "ai": {
+      "title": "IA generativa aplicada",
       "points": [
-        "Fintech: Software para pagos internacionales, nóminas globales y tokenización de activos mediante blockchain.",
-        "HealthTech y EdTech: Plataformas de telemedicina y LMS con IA para generar experiencias y contenidos personalizados."
-      ]
-    },
-    "payment": {
-      "tag": "Servicio estratégico",
-      "title": "Sistemas de Pago y Comercio Electrónico",
-      "points": [
-        "Pasarelas de Pago: Integración con Stripe, PayPal y Adyen para procesar pagos globales de forma segura.",
-        "E-commerce Personalizado: Soluciones a medida para tiendas online con experiencias de compra optimizadas."
+        "Integración de modelos de lenguaje en productos existentes, con criterio de costo y latencia.",
+        "Automatización de flujos internos donde el modelo aporta valor medible."
       ]
     }
   },
+  "stackCards": {
+    "daily": {
+      "title": "Uso diario",
+      "caption": "Lo que escribo y opero todas las semanas"
+    },
+    "solid": {
+      "title": "Sólido",
+      "caption": "Proyectos entregados y en producción"
+    },
+    "support": {
+      "title": "De apoyo",
+      "caption": "Lo uso cuando el problema lo pide"
+    }
+  },
   "experience": {
-    "moreAbout": "Saber más sobre ",
+    "moreAbout": "Saber más sobre",
     "items": [
       {
         "date": "2025 - Actualidad",
         "title": "Senior Full Stack Developer",
         "company": "Visma LATAM",
         "description": "Desarrollo de software para la gestión financiera de grandes empresas."
+      },
+      {
+        "date": "2023 - Actualidad",
+        "title": "Founder",
+        "company": "ADINI",
+        "description": "Consultoría de desarrollo de software a medida con IA y Cloud."
       },
       {
         "date": "2021 - 2025",
@@ -154,16 +127,17 @@
     ]
   },
   "projects": {
-    "filterAria": "Filtrar proyectos por categoria",
+    "filterAria": "Filtrar proyectos por categoría",
     "filter": {
       "all": "Todos",
-      "ia": "IA",
       "web": "Web",
-      "mobile": "Mobile"
+      "mobile": "Mobile",
+      "cloud": "Cloud / Seguridad",
+      "ia": "IA"
     },
-    "emptyState": "No hay proyectos cargados en esta categoria por ahora.",
-    "code": "Code",
-    "preview": "Preview",
+    "emptyState": "No hay proyectos en esta categoría por ahora.",
+    "code": "Código",
+    "preview": "Ver en vivo",
     "tags": {
       "NEXT": "Next.js",
       "TAILWIND": "Tailwind CSS",
@@ -174,48 +148,90 @@
       "LMS": "LMS",
       "WORDPRESS": "WordPress",
       "PROJECT": "Proyecto",
-      "HEALTH": "Salud"
+      "HEALTH": "Salud",
+      "AI": "IA"
     },
-    "items": [
-      {
-        "title": "Credencial Estudiantil",
-        "description": "Credencial multiplataforma para estudiantes de UTN FRBA."
+    "items": {
+      "cognitia": {
+        "title": "Cognitia",
+        "description": "Plataforma que analiza mensajes de comunidades digitales y devuelve un perfil conductual del autor.",
+        "role": ""
       },
-      {
-        "title": "RIP ALIVE",
-        "description": "Proyecto multiplataforma para gestión de cobertura médica."
+      "aura": {
+        "title": "AURA",
+        "description": "Plataforma web que analiza documentos médicos para asistir el recupero de información en la facturación de hospitales.",
+        "role": ""
       },
-      {
-        "title": "Amigos del cole",
-        "description": "Aplicación mobile para gestión de gastos familiares"
+      "hip": {
+        "title": "HIP",
+        "description": "Sistema web de reservas para un parque gamer, con pasarela de pago y flujo completo de OAuth contra Discord.",
+        "role": ""
       },
-      {
+      "keycloak-sso": {
         "title": "Keycloak SSO",
-        "description": "Autenticación y SSO para UTN FRBA usando Keycloak."
+        "description": "Autenticación centralizada y Single Sign-On para las plataformas de UTN FRBA, federando los sistemas académicos existentes bajo un único proveedor de identidad.",
+        "role": ""
       },
-      {
+      "aulas-moodle-utn-frba": {
         "title": "Aulas Moodle UTN FRBA",
-        "description": "Plataforma de cursos y gestión académica para UTN FRBA."
+        "description": "Plataforma de cursos y gestión académica para toda la facultad, con integración al ecosistema institucional.",
+        "role": ""
       },
-      {
-        "title": "WordPress FRBA",
-        "description": "Sitio informativo institucional para la Facultad Regional Buenos Aires."
-      },
-      {
-        "title": "Ruta 12",
-        "description": "Sitio web corporativo para comunicación y gestión de contenidos."
-      },
-      {
+      "sia-sistema-academico": {
         "title": "SIA - Sistema Académico",
-        "description": "Portal de gestión académica para estudiantes y servicios de UTN FRBA."
+        "description": "Portal de gestión académica para estudiantes y servicios de UTN FRBA.",
+        "role": ""
+      },
+      "wordpress-frba": {
+        "title": "WordPress FRBA",
+        "description": "Sitio informativo institucional de la Facultad Regional Buenos Aires.",
+        "role": ""
+      },
+      "credencial-estudiantil": {
+        "title": "Credencial Estudiantil",
+        "description": "Credencial digital multiplataforma para estudiantes de UTN FRBA.",
+        "role": ""
+      },
+      "rip-alive": {
+        "title": "RIP ALIVE",
+        "description": "Proyecto multiplataforma para gestión de cobertura médica.",
+        "role": ""
+      },
+      "amigos-del-cole": {
+        "title": "Amigos del cole",
+        "description": "Aplicación mobile para gestión de gastos compartidos entre familias.",
+        "role": ""
       }
-    ]
+    }
   },
   "certifications": {
-    "issued": "Expedicion:",
-    "expires": "Vencimiento:",
-    "credentialId": "ID de la credencial:",
-    "showCredential": "Mostrar credencial",
-    "noPublicLink": "Credencial sin enlace publico"
+    "intro": "Todas las credenciales de abajo son verificables: cada una enlaza a su emisor o al certificado original. Es la parte del perfil que no depende de que me creas.",
+    "issued": "Emitida",
+    "expires": "Vence",
+    "credentialId": "ID",
+    "showCredential": "Verificar credencial",
+    "noPublicLink": "Sin enlace público"
+  },
+  "contact": {
+    "headline": "¿Tenés una posición o un proyecto en mente?",
+    "body": "Respondo todos los mensajes. Si es una búsqueda laboral, contame el equipo, el producto y el stack; si es un proyecto, el problema que querés resolver.",
+    "cta": "Escribime"
+  },
+  "footer": {
+    "servicios": "Foco",
+    "experiencia": "Experiencia",
+    "proyectos": "Proyectos",
+    "certificaciones": "Certificaciones",
+    "stack": "Stack",
+    "formacion": "Formación",
+    "contact": "Contacto"
+  },
+  "sectionSlugs": {
+    "servicios": "foco",
+    "experiencia": "trayectoria",
+    "proyectos": "trabajo entregado",
+    "certificaciones": "verificable",
+    "stack": "herramientas",
+    "formacion": "formacion"
   }
 }
