@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind"
 
 import robotsTxt from "astro-robots-txt"
 
-const siteUrl = process.env.SITE_URL ?? "https://gabiolivieri.github.io"
+const siteUrl = process.env.SITE_URL ?? "https://gabrielolivieri.dev"
 
 // https://astro.build/config
 export default defineConfig({
