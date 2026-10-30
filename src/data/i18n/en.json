@@ -127,6 +127,7 @@
     ]
   },
   "projects": {
+    "viewDetail": "View in detail",
     "filterAria": "Filter projects by category",
     "filter": {
       "all": "All",

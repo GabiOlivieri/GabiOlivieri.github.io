@@ -2,6 +2,7 @@
 import GitHub from "./icons/GitHub.astro"
 import ExternalLink from "./icons/ExternalLink.astro"
 import LinkButton from "./LinkButton.astro"
+import ArrowRight from "./icons/ArrowRight.astro"
 import projectsData from "@/data/projects.json"
 import fs from "node:fs"
 import path from "node:path"
@@ -53,25 +54,35 @@ const PROJECTS = projectsData.map((project, index) => ({
 ---
 
 <div class="flex flex-col gap-y-10" id="projects-filter-root">
-  <div
-    class="flex flex-wrap items-center gap-2"
-    role="tablist"
-    aria-label="Filtrar proyectos por categoría"
-    data-i18n-attr="aria-label:projects.filterAria"
-    data-reveal
-  >
-    {
-      FILTERS.map((filter) => (
-        <button
-          type="button"
-          data-filter={filter.id}
-          class="projects-filter-btn rounded-full border border-line px-4 py-1.5 font-mono text-[13px] text-muted transition hover:border-ink hover:text-ink"
-          data-i18n={`projects.filter.${filter.id}`}
-        >
-          {filter.label}
-        </button>
-      ))
-    }
+  <div class="flex flex-wrap items-center justify-between gap-4" data-reveal>
+    <div
+      class="flex flex-wrap items-center gap-2"
+      role="tablist"
+      aria-label="Filtrar proyectos por categoría"
+      data-i18n-attr="aria-label:projects.filterAria"
+    >
+      {
+        FILTERS.map((filter) => (
+          <button
+            type="button"
+            data-filter={filter.id}
+            class="projects-filter-btn rounded-full border border-line px-4 py-1.5 font-mono text-[13px] text-muted transition hover:border-ink hover:text-ink"
+            data-i18n={`projects.filter.${filter.id}`}
+          >
+            {filter.label}
+          </button>
+        ))
+      }
+    </div>
+
+    <a
+      href="/portfolio/"
+      data-astro-reload
+      class="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 font-mono text-sm font-medium text-paper transition hover:opacity-85"
+    >
+      <span data-i18n="projects.viewDetail">Ver en detalle</span>
+      <ArrowRight class="size-4 transition-transform group-hover:translate-x-0.5" />
+    </a>
   </div>
 
   <p
