@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Gabriel Olivieri</title>
+<meta name="claude:viewport-fit-sides" content="cover" />
+<meta name="description" content="Portfolio of Gabriel Olivieri, Founder and Software Engineer." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;800&display=swap" />
+<style>
+  /* Same light look as stories.adini.com.ar: paper ground, navy type, violet and green glow. */
+  :root {
+    color-scheme: light;
+    --navy: #091c30;
+    --violet: #6c63ff;
+    --violet-strong: #3d2b99;
+    --violet-soft: #a09bff;
+    --green: #2bb691;
+    --paper: #f7f8ff;
+    --ink-soft: #4a5568;
+    --line: #e2e8f0;
+    --expo: cubic-bezier(.16, 1, .3, 1);
+    --font: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; overflow-x: hidden; background: var(--paper); color: var(--navy); font-family: var(--font); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--violet); color: #fff; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  .wrap {
+    width: 100%; max-width: 1240px; margin: 0 auto;
+    padding-left: max(clamp(16px, 5vw, 48px), env(safe-area-inset-left, 0px));
+    padding-right: max(clamp(16px, 5vw, 48px), env(safe-area-inset-right, 0px));
+  }
+
+  .hero { position: relative; overflow: hidden; }
+  .glow { position: absolute; border-radius: 50%; filter: blur(64px); pointer-events: none; }
+  .glow.one { top: -10rem; right: -10rem; width: 38rem; height: 38rem; background: rgb(108 99 255 / .15); }
+  .glow.two { top: 10rem; left: -15rem; width: 30rem; height: 30rem; background: rgb(43 182 145 / .1); }
+  .hero .wrap { position: relative; padding-block: clamp(72px, 13vw, 168px) clamp(56px, 8vw, 96px); }
+  .role { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--violet-strong); }
+  h1 { margin: 24px 0 0; font-size: clamp(3rem, 11vw, 8.5rem); line-height: .95; font-weight: 800; letter-spacing: -.04em; text-wrap: balance; }
+  h1 span { color: var(--violet); background: linear-gradient(90deg, var(--violet), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .contact { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 36px; font-size: 1.0625rem; font-weight: 600; }
+  .contact a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; transition: color .3s, background-size .4s var(--expo); overflow-wrap: anywhere; }
+  .contact a:hover { color: var(--violet-strong); background-size: 0 1px; background-position: 100% 100%; }
+  .cue-row { display: flex; justify-content: flex-end; margin-top: 40px; }
+  .cue { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgb(9 28 48 / .25); border-radius: 50%; transition: background .3s; }
+  .cue:hover { background: rgb(9 28 48 / .05); }
+  .cue svg { animation: bob 1.6s ease-in-out infinite; }
+
+  .enter { animation: enter .9s var(--expo) both; animation-delay: var(--delay, 0ms); }
+  @keyframes enter { from { opacity: 0; transform: translateY(24px); } }
+  @keyframes bob { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
+  @keyframes breathe { 0%, 100% { opacity: .7; transform: translate(-50%, -50%) scale(.96); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); } }
+
+  .js .reveal { opacity: 0; transform: translateY(28px); }
+  .js .reveal.in { opacity: 1; transform: none; transition: opacity .8s var(--expo) var(--delay, 0ms), transform .8s var(--expo) var(--delay, 0ms); }
+
+  .case { padding-block: clamp(48px, 7vw, 88px); border-top: 1px solid var(--line); }
+  .case-main { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
+  .case-text { min-width: 0; }
+  .meta { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+  h2 { margin: 14px 0 0; font-size: clamp(2.75rem, 6vw, 5rem); line-height: .95; font-weight: 800; letter-spacing: -.04em; }
+  h2 a { text-decoration: none; transition: color .3s; }
+  .case:hover h2 a, h2 a:focus-visible { color: var(--row-accent); }
+  .summary { margin: 18px 0 0; font-size: 1.125rem; line-height: 1.4; color: var(--ink-soft); }
+  .note { margin: 8px 0 0; font-size: .875rem; color: var(--ink-soft); }
+  .more { display: inline-block; margin-top: 22px; font-size: .875rem; font-weight: 600; text-decoration: none; }
+  .more span { display: inline-block; transition: transform .3s; }
+  .case:hover .more span { transform: translateX(6px); }
+  .media { position: relative; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; border-radius: 16px; background: var(--line); box-shadow: 0 24px 60px -20px rgb(9 28 48 / .35); transition: transform .7s var(--expo); }
+  .case:hover .media { transform: scale(1.015); }
+  video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; width: 100%; border: 0; background: rgb(0 0 0 / .1); cursor: pointer; }
+  .play[hidden] { display: none; }
+  .play span { width: 64px; height: 64px; border-radius: 50%; background: rgb(255 255 255 / .9) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23091c30' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center / 30px no-repeat; }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: clamp(32px, 4vw, 48px); overflow: hidden; border-radius: 16px; background: var(--line); }
+  .stat { display: grid; align-content: start; gap: 10px; min-width: 0; padding: clamp(20px, 3vw, 32px); background: #fff; }
+  .stat strong { font-size: clamp(2.25rem, 4.5vw, 3.5rem); line-height: 1; font-weight: 800; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .875rem; line-height: 1.35; color: var(--ink-soft); }
+
+  .close { padding-block: clamp(96px, 14vw, 160px); border-top: 1px solid var(--line); text-align: center; }
+  .close-title { position: relative; isolation: isolate; }
+  .close-title::before { content: ""; position: absolute; top: 50%; left: 50%; z-index: -1; width: min(90%, 52rem); height: 170%; border-radius: 50%; background: linear-gradient(90deg, rgb(108 99 255 / .45), rgb(160 155 255 / .35), rgb(43 182 145 / .4)); filter: blur(64px); transform: translate(-50%, -50%); animation: breathe 6s ease-in-out infinite; }
+  .close h2 { margin: 0; font-size: clamp(2.25rem, 6vw, 4.75rem); line-height: 1; letter-spacing: -.03em; }
+  .cta { display: inline-block; margin-top: 32px; padding: 16px 28px; border-radius: 6px; background: var(--navy); color: #fff; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; transition: background .3s; }
+  .cta:hover { background: var(--violet-strong); }
+  .fine { margin: 28px 0 0; font-size: .8125rem; color: var(--ink-soft); }
+
+  @media (max-width: 760px) {
+    .case-main { grid-template-columns: 1fr; }
+    .media { order: -1; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { grid-template-columns: 5.5rem 1fr; gap: 16px; align-items: baseline; padding: 16px 20px; }
+    .stat strong { font-size: 1.75rem; }
+    .cta { padding-inline: 18px; font-size: .9375rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .enter, .cue svg, .close-title::before { animation: none; }
+    .js .reveal, .js .reveal.in { opacity: 1; transform: none; transition: none; }
+    .media, .case:hover .media, .more span { transition: none; transform: none; }
+  }
+  @media print {
+    .js .reveal { opacity: 1; transform: none; }
+    .cue-row, .glow { display: none; }
+    .case { break-inside: avoid; }
+  }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <header class="hero">
+    <div class="glow one" aria-hidden="true"></div>
+    <div class="glow two" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="role enter">Founder <span aria-hidden="true">|</span> Software Engineer</p>
+      <h1 class="enter" style="--delay:100ms">Gabriel <span>Olivieri</span></h1>
+      <div class="contact enter" style="--delay:250ms">
+        <a href="mailto:gabriel.olivieri@adini.com.ar">gabriel.olivieri@adini.com.ar</a>
+        <a href="https://www.linkedin.com/in/gabriel-olivieri-38437b1bb/">LinkedIn</a>
+        <a href="https://github.com/GabiOlivieri">GitHub</a>
+      </div>
+      <div class="cue-row enter" style="--delay:400ms">
+        <a class="cue" href="#work" aria-label="Go to the projects">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="work" class="wrap">
+      <article class="case" style="--row-accent:#c41230">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">UTN FRBA <span aria-hidden="true">·</span> AI agent</p>
+            <h2><a href="https://stories.adini.com.ar/utenia">UtenIA</a></h2>
+            <p class="summary">An AI agent that answers from the university&#x27;s documentation and each student&#x27;s virtual campus data, with all inference running on its own servers.</p>
+            <a class="more" href="https://stories.adini.com.ar/utenia">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/utenia.jpg" aria-label="UtenIA, AI agent">
+              <source src="media/utenia.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: UtenIA"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>100%</strong><span>of inference on-premise, on the university&#x27;s servers</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>8</strong><span>virtual campus tools the agent can use</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>2</strong><span>knowledge sources in a single conversation</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#18181b">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">Hospital El Cruce <span aria-hidden="true">·</span> AI-powered platform</p>
+            <h2><a href="https://stories.adini.com.ar/aura">Aura</a></h2>
+            <p class="summary">A hospital cost-recovery platform that values reports with AI, completes each case file and follows it through to payment, with clinical data kept on its own servers.</p>
+            <a class="more" href="https://stories.adini.com.ar/aura">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/aura.jpg" aria-label="Aura, AI-powered platform">
+              <source src="media/aura.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: Aura"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>0</strong><span>clinical data sent to external services</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>15k</strong><span>episodes per year, the scale it was designed for</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>6</strong><span>roles, from operator to management, with access auditing</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#b71234">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">UTN FRBA <span aria-hidden="true">·</span> Institutional portal</p>
+            <h2><a href="https://stories.adini.com.ar/sia">SIA</a></h2>
+            <p class="summary">The university&#x27;s single portal: one access point to all its services, with digital ID, payslips, tracked mass communications and integrated technical support.</p>
+            <a class="more" href="https://stories.adini.com.ar/sia">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/sia.jpg" aria-label="SIA, Institutional portal">
+              <source src="media/sia.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: SIA"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>3,000+</strong><span>messages sent to the community, with each delivery tracked</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>100+</strong><span>areas and email aliases managed from the portal</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>8</strong><span>internal services integrated behind a single API</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#2563eb">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">Moviltrack, Mexico <span aria-hidden="true">·</span> Management system</p>
+            <h2><a href="https://stories.adini.com.ar/moviltrack">Moviltrack</a></h2>
+            <p class="summary">Quotes, orders, delivery notes and collections in a single flow, with automatic recurring charges and expiry notices, and each project&#x27;s profitability in plain view.</p>
+            <a class="more" href="https://stories.adini.com.ar/moviltrack">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/moviltrack.jpg" aria-label="Moviltrack, Management system">
+              <source src="media/moviltrack.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: Moviltrack"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>1 click</strong><span>from approved quote to order, without re-entering a product</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>20+</strong><span>screens across sales, purchasing, collections and reporting</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>30 days</strong><span>of automatic notice before each license expires</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#5f8f00">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">HIP Game Park <span aria-hidden="true">·</span> Real-time platform</p>
+            <h2><a href="https://stories.adini.com.ar/hip">HIP Game Park</a></h2>
+            <p class="summary">Online booking and payment, a portal for each player and live operation of seven game zones, from buying the pass to the last match.</p>
+            <a class="more" href="https://stories.adini.com.ar/hip">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/hip.jpg" aria-label="HIP Game Park, Real-time platform">
+              <source src="media/hip.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: HIP Game Park"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>1 payment</strong><span>for passes, players and food, with a QR code for each player</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>7</strong><span>zones run from the app, with stations and waiting lines</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>3</strong><span>applications: bookings, player portal and park operations</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#1b3a6b">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">The Brains, with UTN.BA <span aria-hidden="true">·</span> AI data platform</p>
+            <h2><a href="https://stories.adini.com.ar/cognitia">Cognitia</a></h2>
+            <p class="summary">The audience of every live stream measured every five minutes, with each peak one click from its moment, and comments from seven social networks classified by sentiment and emotion with AI.</p>
+            <p class="note">Frontend and design by DigitalArts.</p>
+            <a class="more" href="https://stories.adini.com.ar/cognitia">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/cognitia.jpg" aria-label="Cognitia, AI data platform">
+              <source src="media/cognitia.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: Cognitia"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>5 min</strong><span>between live audience measurements</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>7</strong><span>social networks with comment extraction</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>5</strong><span>countries with channels tracked</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#248a3e">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">RIP Alive, Mexico <span aria-hidden="true">·</span> Mobile app</p>
+            <h2><a href="https://stories.adini.com.ar/rip">RIP Alive</a></h2>
+            <p class="summary">An app to leave everything in order: vital data one QR code away for an emergency, and a complete legacy that beneficiaries only see when the time comes.</p>
+            <a class="more" href="https://stories.adini.com.ar/rip">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/rip.jpg" aria-label="RIP Alive, Mobile app">
+              <source src="media/rip.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: RIP Alive"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>25+</strong><span>modules, including legacy, subscriptions, store and shipping</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>14</strong><span>types of assets and procedures to register</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>4</strong><span>alert channels: email, SMS, WhatsApp and push</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#4f46e5">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">UTN FRBA <span aria-hidden="true">·</span> Management system</p>
+            <h2><a href="https://stories.adini.com.ar/sicyt">SICYT</a></h2>
+            <p class="summary">Research projects, teams and researcher categorization on a single platform, with regulations validated automatically.</p>
+            <a class="more" href="https://stories.adini.com.ar/sicyt">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/sicyt.jpg" aria-label="SICYT, Management system">
+              <source src="media/sicyt.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: SICYT"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>500+</strong><span>researchers registered on the platform</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>300+</strong><span>research projects managed</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>47</strong><span>entities in the data model of the university&#x27;s research</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#00806f">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">Soil Science Lab, UBA <span aria-hidden="true">·</span> Laboratory system</p>
+            <h2><a href="https://stories.adini.com.ar/roca">ROCA</a></h2>
+            <p class="summary">End-to-end management of a soil laboratory: requests, calibration curves, configurable calculations per method and signed reports, with no spreadsheets in between.</p>
+            <a class="more" href="https://stories.adini.com.ar/roca">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/roca.jpg" aria-label="ROCA, Laboratory system">
+              <source src="media/roca.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: ROCA"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>0</strong><span>spreadsheets between the instrument reading and the report</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>4</strong><span>calculation strategies, including calibration curves</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>1</strong><span>signed PDF per order, with all of its analyses</span></li>
+        </ul>
+      </article>
+      <article class="case" style="--row-accent:#2a6f58">
+        <div class="case-main reveal">
+          <div class="case-text">
+            <p class="meta">Química Morón <span aria-hidden="true">·</span> Financial tool</p>
+            <h2><a href="https://stories.adini.com.ar/extractos">Extractos</a></h2>
+            <p class="summary">Bank statement consolidation for any bank: each statement validated row by row, free of duplicates and classified with auditable rules, ready to reconcile.</p>
+            <a class="more" href="https://stories.adini.com.ar/extractos">Read the full case, in Spanish <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="media">
+            <video muted loop playsinline preload="metadata" poster="media/extractos.jpg" aria-label="Extractos, Financial tool">
+              <source src="media/extractos.mp4" type="video/mp4" />
+            </video>
+            <button class="play" type="button" hidden aria-label="Play video: Extractos"><span aria-hidden="true"></span></button>
+          </div>
+        </div>
+        <ul class="stats">
+          <li class="stat reveal" style="--delay:0ms"><strong data-count>100%</strong><span>of rows validated against the balance chain</span></li>
+          <li class="stat reveal" style="--delay:80ms"><strong data-count>177 ms</strong><span>to process the heaviest statement</span></li>
+          <li class="stat reveal" style="--delay:160ms"><strong data-count>0</strong><span>AI in ingestion: every amount comes from a deterministic parser</span></li>
+        </ul>
+      </article>
+    <section class="close">
+      <div class="reveal">
+        <div class="close-title"><h2>Get in touch</h2></div>
+        <a class="cta" href="mailto:gabriel.olivieri@adini.com.ar">gabriel.olivieri@adini.com.ar</a>
+        <p class="fine">Projects delivered through Adini, the company I founded. Data shown in the videos is illustrative.</p>
+      </div>
+    </section>
+  </main>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hover = matchMedia('(hover: hover)').matches;
+  var observe = 'IntersectionObserver' in window;
+
+  function countUp(el) {
+    var match = el.textContent.match(/^(\d[\d,]*)(.*)$/);
+    if (!match) return;
+    var target = parseInt(match[1].replace(/,/g, ''), 10);
+    if (target < 5) return;
+    var start = performance.now();
+    function tick(now) {
+      var t = Math.min((now - start) / 1100, 1);
+      var value = Math.round(target * (1 - Math.pow(2, -10 * t)));
+      el.textContent = (t < 1 ? value : target).toLocaleString('en-US') + match[2];
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var reveals = document.querySelectorAll('.reveal');
+  if (!observe || reduce) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var revealer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        revealer.unobserve(entry.target);
+        var count = entry.target.querySelector('[data-count]');
+        if (count) countUp(count);
+      });
+    }, { threshold: .2 });
+    reveals.forEach(function (el) { revealer.observe(el); });
+  }
+
+  // Same rules as LoopVideo: hover on desktop, in view on touch screens, and
+  // a play button when motion is reduced or the browser blocks autoplay.
+  document.querySelectorAll('.case').forEach(function (row) {
+    var video = row.querySelector('video');
+    var button = row.querySelector('.play');
+    video.muted = true;
+    function play() {
+      video.play().then(function () { button.hidden = true; }, function (err) {
+        if (err && err.name === 'NotAllowedError') button.hidden = false;
+      });
+    }
+    button.addEventListener('click', play);
+    if (reduce) { button.hidden = false; return; }
+    if (hover) {
+      row.addEventListener('mouseenter', play);
+      row.addEventListener('mouseleave', function () { video.pause(); });
+      row.addEventListener('focusin', play);
+      row.addEventListener('focusout', function () { video.pause(); });
+    } else if (observe) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) play(); else video.pause();
+      }, { threshold: .25 }).observe(video);
+    }
+  });
+})();
+</script>
+</body>
+</html>
